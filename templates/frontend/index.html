@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}메인 페이지{% endblock %}
+
+{% block content %}
+  <section class="hero">
+    <h2>Hackathon Django 풀스택 스타터</h2>
+    <p>
+      Django 템플릿과 DRF 기반 API가 기본으로 구성되어 있습니다.
+      아래 버튼으로 API 문서를 확인하거나, 새로운 프로젝트를 추가해보세요.
+    </p>
+    <div class="actions">
+      <a class="button" href="{% url 'swagger-ui' %}" target="_blank">API 문서</a>
+    </div>
+  </section>
+  <section id="project-list">
+    <h3>프로젝트 목록</h3>
+    <div id="projects"></div>
+  </section>
+{% endblock %}
+
