@@ -1,0 +1,166 @@
+body {
+    margin: 0;
+    font-family: "Noto Sans KR", sans-serif;
+    color: #222;
+    background-color: #fff;
+}
+
+.site-header {
+    width: 100%;
+    border-bottom: 1px solid #e6e6e6;
+    background-color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-left, .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 15px;
+    text-decoration: none;
+    color: #333;
+    transition: color 0.2s ease-in-out;
+}
+
+.nav-item:hover span {
+    color: #000;
+}
+
+.nav-icon {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+.nav-item.active span {
+    color: #0056ff;
+    font-weight: 600;
+}
+
+main {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 24px;
+}
+
+.site-footer {
+    width: 100%;
+    position: fixed;
+    bottom:0;
+    left: 50%;
+    transform: translateX(-50%); 
+    border-top: 1px solid #e6e6e6;
+    background-color: #fafafa;
+    padding: 40px 0 20px;
+    color: #444;
+    font-size: 14px;
+}
+
+.footer-top {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding: 0 24px;
+}
+
+.footer-left {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-columns {
+    display: flex;
+    gap: 60px;
+    flex: 2;
+    min-width: 400px;
+}
+
+.footer-col h4 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 6px;
+}
+
+.footer-col ul li a {
+    text-decoration: none;
+    color: #555;
+    transition: color 0.2s;
+}
+
+.footer-col ul li a:hover {
+    color: #000;
+}
+
+.footer-legal h4 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.footer-legal ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-legal ul li {
+    margin-bottom: 6px;
+}
+
+.footer-legal ul li a {
+    text-decoration: none;
+    color: #555;
+    transition: color 0.2s;
+}
+
+.footer-legal ul li a:hover {
+    color: #000;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    color: #777;
+    font-size: 13px;
+}
+.nav-item.active span {
+    color: #0056ff;
+    font-weight: 600;
+}
+
+.nav-icon.active {
+    filter: brightness(0) saturate(100%) invert(32%) sepia(94%) saturate(3361%) hue-rotate(208deg) brightness(96%) contrast(99%);
+}
