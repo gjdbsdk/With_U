@@ -59,11 +59,13 @@ main {
     max-width: 1200px;
     margin: 40px auto;
     padding: 0 24px;
+    padding-bottom:320px;
 }
 
 .site-footer {
     width: 100%;
-  margin-top: auto; 
+    position:absolute;
+    bottom:0;
     border-top: 1px solid #e6e6e6;
     background-color: #fafafa;
     padding: 40px 0 20px;
