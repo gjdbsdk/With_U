@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block style %}
-<!--사용할 css가 있다면 추가해서 쓰시면 됩니다-->
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
 {% endblock style %}
 
 {% block script %} 
@@ -10,7 +10,93 @@
 {% endblock script %}
 
 
-{% block body %}                 
-홈페이지 내용내용
+{% block body %}       
+<section class="hero">
+  <div class="hero-text">
+    <h1>삶의 필수 기술, 함께 배워가요</h1>
+    <p>라이프 에센셜 허브는 여러분이 일상 속에서 쓸 수 있는 다양한 삶의 기술들을<br>
+    프리랜서 가이드와 대학생 커뮤니티로 지원합니다.</p>
+  </div>
+  <img src="{% static 'img/homeimg.png' %}" alt="홈 이미지">
+</section>
 
-{% endblock body%}
+<section class="categories">
+  <h2>주요 카테고리</h2>
+  <div class="category-grid">
+    <a href="/lifestyle" class="category">
+      <div>
+        <div class="iconhugger">
+            <img src="{% static 'img/book.png' %}" alt="라이프 스타일 아이콘" class="icon">
+        </div>
+        라이프스타일
+    </div>
+      <p>금융, 주거, 취미·문화 등 생활의 핵심 영역에 대한 가이드를 제공합니다.</p>
+    </a>
+    <a href="/society" class="category">
+      <div>
+        <div class="iconhugger">
+            <img src="{% static 'img/people.png' %}" alt="라이프 스타일 아이콘" class="icon">
+        </div>사회생활</div>
+      <p>실제, 관계, 경력 등 다양한 사회 속의 성장과 적응을 돕습니다.</p>
+    </a>
+    <a href="/emotional" class="category">
+      <div>
+        <div class="iconhugger">
+            <img src="{% static 'img/heart.png' %}" alt="라이프 스타일 아이콘" class="icon">
+        </div> 정서 지원</div>
+      <p>불안, 외로움 등 정서적 안정과 마음의 돌봄을 함께 나눠요.</p>
+    </a>
+    <a href="/health" class="category">
+      <div>
+        <div class="iconhugger">
+            <img src="{% static 'img/guard.png' %}" alt="라이프 스타일 아이콘" class="icon">
+        </div> 건강 및 안전</div>
+      <p>건강 관리, 응급 상황 등 안전한 삶을 위한 실질적인 정보를 제공합니다.</p>
+    </a>
+    <a href="/community" class="category">
+      <div>
+        <div class="iconhugger">
+            <img src="{% static 'img/people.png' %}" alt="라이프 스타일 아이콘" class="icon">
+        </div> 커뮤니티</div>
+      <p>함께 배우고 성장하는 참여형 커뮤니티를 만나보세요.</p>
+    </a>
+    <a href="/citizen" class="category">
+      <div>
+        <div class="iconhugger">
+            <img src="{% static 'img/upload.png' %}" alt="라이프 스타일 아이콘" class="icon">
+        </div> 시민 참여</div>
+      <p>새로운 관점으로 사회 문제를 바라보고 행동하는 시민이 되어보세요.</p>
+    </a>
+    <a href="/local" class="category">
+      <div>
+        <div class="iconhugger">
+            <img src="{% static 'img/marker.png' %}" alt="라이프 스타일 아이콘" class="icon">
+        </div> 지역 정보</div>
+      <p>가까운 복지관, 문화 공간 등 동네 정보를 빠르게 찾아보세요.</p>
+    </a>
+  </div>
+</section>
+
+<section class="hub-section">
+  <h2>함께 만들어가는 라이프 에센셜 허브</h2>
+  <div class="hub-grid">
+    <div class="hub-card">
+      <img src="{% static 'img/ourstory.png' %}" alt="우리들의 이야기">
+      <div>
+        <div>우리들의 이야기, 함께 나누어요</div>
+        <p>같은 고민을 가진 사람들과 경험을 공유하고, 서로에게 힘이 되어줄 수 있는 따뜻한 커뮤니티 포럼에 참여하세요.</p>
+        <a href="/community" class="link">후기 확인하기</a>
+      </div>
+    </div>
+    <div class="hub-card">
+      <img src="{% static 'img/yourstory.png' %}" alt="지식 공유">
+      <div>
+        <div>당신의 지식을 공유해주세요</div>
+        <p>라이프 에센셜 허브의 성장에 기여하고 싶으신가요? 여러분의 유용한 정보와 노하우를 직접 업로드하여 다른 사람들에게 도움을 주세요.</p>
+        <a href="/citizen" class="link">콘텐츠 업로드</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock body %}

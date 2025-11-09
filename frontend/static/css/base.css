@@ -63,10 +63,7 @@ main {
 
 .site-footer {
     width: 100%;
-    position: fixed;
-    bottom:0;
-    left: 50%;
-    transform: translateX(-50%); 
+  margin-top: auto; 
     border-top: 1px solid #e6e6e6;
     background-color: #fafafa;
     padding: 40px 0 20px;
