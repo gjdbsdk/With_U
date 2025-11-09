@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block style %}
-<!--사용할 css가 있다면 추가해서 쓰시면 됩니다-->
+<link rel="stylesheet" href="{% static 'css/emotional.css' %}">
 {% endblock style %}
 
 {% block script %} 
@@ -11,6 +11,86 @@
 
 
 {% block body %}                 
-정서적 지원 페이지 내용내용
+<div class="emotional-container">
+
+  <section class="hero">
+    <div class="title">정서적 지원: 내면의 평화를 찾아서</div>
+    <p>상실과 외로움은 누구에게나 다가올 수 있는 감정적 경험입니다. 반복되는 부정적인 생각은 전문 정서적 지원에서 필요한 도움을 받을 수 있습니다.</p>
+  </section>
+
+  <section class="topics">
+    <h3>주요 정서적 지원 주제</h3>
+    <div class="topic-grid">
+      <div class="topic-card">
+        <img src="{% static 'img/breakenheart.png' %}" alt="" class="icons">
+        <h4>상실과 회복하기</h4>
+        <p>상실을 겪을 때 슬픔을 다루고 앞으로 나아가는 방법에 대한 실용적인 조언입니다.</p>
+        <a href="#" class="moreabout">자세히 알아보기</a>
+      </div>
+      <div class="topic-card">
+        <img src="{% static 'img/parting.png' %}" alt="" class="icons">
+        <h4>외로움 극복하기</h4>
+        <p>외로움의 감정을 인식하고, 연결을 구축하며, 고립감을 줄이는 전략을 탐색합니다.</p>
+        <a href="#" class="moreabout">자세히 알아보기</a>
+      </div>
+      <div class="topic-card">
+        <img src="{% static 'img/cloud.png' %}" alt="" class="icons">
+        <h4>스트레스와 불안 완화</h4>
+        <p>일상적인 스트레스와 불안을 관리하기 위한 효과적인 기술과 마음챙김 습관을 배우세요.</p>
+        <a href="#" class="moreabout">자세히 알아보기</a>
+      </div>
+      <div class="topic-card">
+        <img src="{% static 'img/idea.png' %}" alt="" class="icons">
+        <h4>정신 건강 이해하기</h4>
+        <p>일반적인 정신 건강 문제에 대한 지식을 얻고 조기 징후를 인식하는 방법을 배웁니다.</p>
+        <a href="#" class="moreabout">자세히 알아보기</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="expression">
+    <h3>감정을 건강하게 표현하는 방법</h3>
+    <div class="expression-grid">
+      <div class="exp-card">
+        <img src="{% static 'img/comment.png' %}" alt="" class="icons">
+        <h4>감정을 인지하고 이해하기</h4>
+        <p>자신의 감정을 식별하고 정확한 단어로 표현하는 연습을 하세요. 이는 감정 조절의 첫 단계입니다.</p>
+      </div>
+      <div class="exp-card">
+        <img src="{% static 'img/checkedguard.png' %}" alt="" class="icons">
+        <h4>안전한 방법으로 표현하기</h4>
+        <p>일기 쓰기, 그림 그리기, 음악 듣기 등 건설적인 방법으로 감정을 표출하는 것을 고려해 보세요.</p>
+      </div>
+      <div class="exp-card">
+        <img src="{% static 'img/smile.png' %}" alt="" class="icons">
+        <h4>다른 사람과 소통하기</h4>
+        <p>신뢰할 수 있는 친구, 가족 또는 전문가와 감정에 대해 이야기하는 것을 두려워하지 마세요. 지원은 중요합니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="support">
+    <h3>전문 상담 및 지원 서비스</h3>
+    <p>자격을 갖춘 전문가로부터 개인화된 지원을 받으세요. 다음은 자주 묻는 질문입니다.</p>
+
+    <div class="faq">
+      <details>
+        <summary>상담은 어떻게 도움이 되나요?</summary>
+        <p>상담은 개인이 생각, 감정, 행동을 탐구하여 어려움을 극복하고 삶의 질을 향상시킬 수 있도록 돕습니다.</p>
+      </details>
+      <details>
+        <summary>익명으로 상담을 받을 수 있나요?</summary>
+        <p>대부분의 정서 지원 서비스는 익명 상담을 제공합니다.</p>
+      </details>
+      <details>
+        <summary>상담 비용은 얼마인가요?</summary>
+        <p>기관에 따라 무료 또는 유료로 제공됩니다. 지역 복지센터 정보를 확인해보세요.</p>
+      </details>
+    </div>
+
+    <a href="#" class="support-btn">상담 바로가기</a>
+    <!--이후 상담 전화번호를 찾아서 연결하거나 상담센터 홈페이지로 연결해도 좋을 듯-->
+  </section>
+</div>
 
 {% endblock body%}
