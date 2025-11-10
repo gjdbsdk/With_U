@@ -2,15 +2,94 @@
 {% load static %}
 
 {% block style %}
-<!--사용할 css가 있다면 추가해서 쓰시면 됩니다-->
+<link rel="stylesheet" href="{% static 'css/local.css' %}">
 {% endblock style %}
 
-{% block script %} 
-<!--사용할 js가 있다면 추가해서 쓰시면 됩니다-->
+{% block body %}
+<main class="local-page">
+
+  <!-- 상단 소개 -->
+  <section class="intro-section">
+    <h1>지역 정보 및 자원</h1>
+    <p>주변의 복지 센터, 상담 서비스, 공공 기관을 지도를 통해 쉽게 찾아보세요.</p>
+  </section>
+
+  <!-- 필터 버튼 -->
+  <div class="category-filter">
+    <button class="filter-btn active" data-category="all">전체</button>
+    <button class="filter-btn" data-category="welfare">복지 센터</button>
+    <button class="filter-btn" data-category="counsel">상담 서비스</button>
+    <button class="filter-btn" data-category="law">공공 기관</button>
+    <button class="filter-btn" data-category="other">기타 지원</button>
+  </div>
+
+  <!-- 기관 카드 목록 -->
+  <section class="content-section">
+    <div class="card-grid" id="agency-list">
+      <div class="card" data-category="welfare">
+        <h3>서울시 복지 센터</h3>
+        <p>서울특별시 중구 세종대로 110 (서울시청)</p>
+        <p>📞 02-1234-5678<br>🕒 월~금 09:00 - 18:00</p>
+        <a href="#" class="btn">자세히 보기</a>
+      </div>
+
+      <div class="card" data-category="counsel">
+        <h3>희망 상담 센터</h3>
+        <p>서울특별시 강남구 테헤란로 152 강남파이낸스센터</p>
+        <p>📞 02-9876-5432<br>🕒 화~토 10:00 - 19:00</p>
+        <a href="#" class="btn">자세히 보기</a>
+      </div>
+
+      <div class="card" data-category="law">
+        <h3>대한민국 법률구조공단</h3>
+        <p>서울특별시 서초구 반포대로 304 대법원 5관</p>
+        <p>📞 132<br>🕒 월~금 09:00 - 18:00</p>
+        <a href="#" class="btn">자세히 보기</a>
+      </div>
+
+      <div class="card" data-category="welfare">
+        <h3>마포구 건강가정지원센터</h3>
+        <p>서울특별시 마포구 망원로 250 마포중앙도서관</p>
+        <p>📞 02-3153-8380<br>🕒 월~금 09:00 - 18:00</p>
+        <a href="#" class="btn">자세히 보기</a>
+      </div>
+
+      <div class="card" data-category="counsel">
+        <h3>청소년 심리상담 센터</h3>
+        <p>서울특별시 송파구 문정로 424 정신힐링문화공방</p>
+        <p>📞 02-7777-1111<br>🕒 수~일 11:00 - 20:00</p>
+        <a href="#" class="btn">자세히 보기</a>
+      </div>
+
+      <div class="card" data-category="other">
+        <h3>서울시 여성플라자</h3>
+        <p>서울특별시 동작구 여의대방로54길 22</p>
+        <p>📞 02-810-5000<br>🕒 월~금 09:00 - 17:00</p>
+        <a href="#" class="btn">자세히 보기</a>
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock body %}
+
+{% block script %}
+<script>
+const buttons = document.querySelectorAll('.filter-btn');
+const cards = document.querySelectorAll('.card');
+
+buttons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    buttons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const category = btn.dataset.category;
+    cards.forEach(card => {
+      if (category === 'all' || card.dataset.category === category) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+});
+</script>
 {% endblock script %}
-
-
-{% block body %}                 
-지역 정보 및 자원 페이지
-
-{% endblock body%}
