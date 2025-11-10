@@ -24,4 +24,6 @@ class HealthView(TemplateView):
 class LocalView(TemplateView):
     template_name = "local.html"
 
+class DetailView(TemplateView):
+    template_name = "detail.html"
 
