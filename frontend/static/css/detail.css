@@ -11,6 +11,7 @@ body{
 
 .detail-top {
     position:fixed;
+    z-index: 1000;
     width: 90%;
     padding: 0 5%;
     top:0;
