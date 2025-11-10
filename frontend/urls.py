@@ -13,7 +13,5 @@ urlpatterns = [
     path("lifestyle/", views.LifestyleView.as_view(), name="lifestyle"),
     path("local/", views.LocalView.as_view(), name="local"),
     path("society/", views.SocietyView.as_view(), name="society"),
-    path("detail/", views.DetailView.as_view(), name="detail"),
-
 ]
 
