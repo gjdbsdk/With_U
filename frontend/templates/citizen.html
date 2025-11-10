@@ -2,91 +2,15 @@
 {% load static %}
 
 {% block style %}
-<link rel="stylesheet" href="{% static 'css/citizen.css' %}">
+<!--사용할 css가 있다면 추가해서 쓰시면 됩니다-->
 {% endblock style %}
 
-{% block script %}
-    <script src="{% static 'js/citizen.js' %}"></script>
+{% block script %} 
+<!--사용할 js가 있다면 추가해서 쓰시면 됩니다-->
 {% endblock script %}
 
-{% block body %}
-<section class="content-share">
-  <div class="content-share__header">
-    <h1>시민 참여 콘텐츠 공유</h1>
-    <p>
-      여러분의 지식과 경험을 공유하여 공동체를 풍요롭게 만들어주세요. 
-      저희는 모든 기여를 소중히 여기며,<br> 안전하고 유익한 정보가 제공될 수 있도록 철저한 검증을 거칩니다.
-    </p>
-  </div>
 
-  <div class="content-share__form-wrapper">
-    <form class="content-share__form" method="post" enctype="multipart/form-data">
-      {% csrf_token %}
-      <div class="formtitle">콘텐츠 제출 양식</div>
-      <div class="form-group">
-        <label for="title">제목</label>
-        <input type="text" id="title" name="title" placeholder="콘텐츠 제목을 입력하세요." required>
-      </div>
+{% block body %}  
+시민 참여 콘텐츠 공유 페이지 내용내용
 
-      <div class="form-group">
-        <label for="category">카테고리</label>
-        <input type="text" id="category" name="category" placeholder="예: 금융, 사회생활, 정서 지원 등" required>
-      </div>
-
-      <div class="form-group">
-        <label for="content">내용</label>
-        <textarea id="content" name="content" placeholder="여러분의 지식과 경험을 상세하게 작성해주세요. (최소 100자 이상)" required></textarea>
-      </div>
-
-      <div class="file-upload">
-        <label for="file">첨부 파일</label>
-        <div class="file-box">
-            <input type="file" id="file" name="file" hidden>
-            <label for="file" class="file-btn">파일 선택</label>
-            <span class="file-name">선택된 파일이 없습니다.</span>
-        </div>
-        <span class="file-hint">이미지, PDF 등 첨부 파일을 등록할 수 있습니다. (최대 5MB)</span>
-      </div>
-
-      <button type="button" class="submit-btn">콘텐츠 제출</button>
-      <!-- 백엔드가 기능 구현 성공했을 시 연동하면서 type="submit"으로 변경하기 -->
-    </form>
-  </div>
-
-  
-  <section class="support">
-    <div class="arcodiun_title">콘텐츠 가이드라인 및 검토 과정</div>
-
-    <div class="faq">
-      <details>
-        <summary>콘텐츠 제출 가이드라인</summary>
-        <ul>
-            <li><b>원본성: </b>제출하는 모든 콘텐츠는 본인의 창작물이거나 적절한 출처 표기가 되어야 합니다. 타인의 저작권을 침해하는 내용은 금지됩니다.</li>
-            <li><b>정확성: </b>제공하는 정보는 정확하고 신뢰할 수 있어야 합니다. 허위 정보나 오해의 소지가 있는 내용은 삼가주십시오.</li>
-            <li><b>존중하는 언어 사용: </b>모든 사용자를 존중하는 언어를 사용해야 합니다. 비방, 차별, 폭력적인 언어는 허용되지 않습니다.</li>
-            <li><b>관련성: </b>콘텐츠는 '생활 필수 정보'라는 저희 플랫폼의 주제에 부합해야 합니다.</li>
-        </ul>
-      </details>
-      <details>
-        <summary>검열 및 검토 과정</summary>
-        <ul>
-            <li><b>사실 확인 및 적합성 검토: </b>제출된 콘텐츠는 사실 관계, 표현의 적절성, 공공성 등을 기준으로 검토합니다.</li>
-            <li><b>표현 윤리 심사: </b>차별적이거나 타인을 비방하는 내용, 불쾌감을 줄 수 있는 표현은 게재가 제한될 수 있습니다.</li>
-            <li><b>내용 편집 및 수정: </b>필요 시 문장 가독성 향상이나 표기 오류 수정 등의 최소한의 편집이 이루어질 수 있습니다.</li>
-            <li><b>게재 결정 및 통보: </b>검토 결과는 내부 절차를 거쳐 게재 여부가 결정되며, 일부 콘텐츠는 반려될 수 있습니다.</li>
-        </ul>
-        </details>
-      <details>
-        <summary>저작권 및 책임</summary>
-        <ul>
-            <li><b>저작권 보유: </b>모든 콘텐츠의 저작권은 원 작성자에게 있으며, 제출자는 타인의 저작물을 무단으로 사용하지 않아야 합니다.</li>
-            <li><b>비영리적 활용 동의: </b>제출된 콘텐츠는 공익적 목적의 홍보나 교육 등 비상업적 용도로 활용될 수 있습니다.</li>
-            <li><b>법적 책임: </b>타인의 권리를 침해하거나 허위 사실을 포함한 콘텐츠에 대해서는 작성자가 법적 책임을 집니다.</li>
-            <li><b>운영자의 권한: </b>필요 시 관리자는 관련 법규 및 내부 정책에 따라 콘텐츠의 수정, 비공개, 삭제 등의 조치를 취할 수 있습니다.</li>
-        </ul>
-      </details>
-    </div>
-
-  </section>
-</section>
-{% endblock body %}
+{% endblock body%}
