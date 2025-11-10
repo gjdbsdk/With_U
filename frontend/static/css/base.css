@@ -1,8 +1,11 @@
-body {
+html, body {
+    height: 100%;
     margin: 0;
     font-family: "Noto Sans KR", sans-serif;
-    color: #222;
-    background-color: #fff;
+}
+
+body {
+    min-height: 100vh;
 }
 
 .site-header {
@@ -56,10 +59,10 @@ body {
 }
 
 main {
+    flex: 1;
     max-width: 1200px;
     margin: 40px auto;
     padding: 0 24px;
-    padding-bottom:320px;
 }
 
 .site-footer {
@@ -69,7 +72,6 @@ main {
     padding: 40px 0 20px;
     color: #444;
     font-size: 14px;
-    margin-top: 60px;
 }
 
 .footer-top {
