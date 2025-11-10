@@ -23,27 +23,27 @@
     <div class="topic-grid">
       <div class="topic-card">
         <img src="{% static 'img/breakenheart.png' %}" alt="" class="icons">
-        <h4>상실과 회복하기</h4>
+        <h4>상실감 극복하기</h4>
         <p>상실을 겪을 때 슬픔을 다루고 앞으로 나아가는 방법에 대한 실용적인 조언입니다.</p>
-        <a href="#" class="moreabout">자세히 알아보기</a>
+        <a href="{% url 'frontend:detail' %}?page=emotional&topic=loss" class="moreabout">자세히 알아보기</a>
       </div>
       <div class="topic-card">
         <img src="{% static 'img/parting.png' %}" alt="" class="icons">
-        <h4>외로움 극복하기</h4>
+        <h4>외로움 관리하기</h4>
         <p>외로움의 감정을 인식하고, 연결을 구축하며, 고립감을 줄이는 전략을 탐색합니다.</p>
-        <a href="#" class="moreabout">자세히 알아보기</a>
+        <a href="{% url 'frontend:detail' %}?page=emotional&topic=lonely" class="moreabout">자세히 알아보기</a>
       </div>
       <div class="topic-card">
         <img src="{% static 'img/cloud.png' %}" alt="" class="icons">
-        <h4>스트레스와 불안 완화</h4>
+        <h4>스트레스 및 불안 완화</h4>
         <p>일상적인 스트레스와 불안을 관리하기 위한 효과적인 기술과 마음챙김 습관을 배우세요.</p>
-        <a href="#" class="moreabout">자세히 알아보기</a>
+        <a href="{% url 'frontend:detail' %}?page=emotional&topic=stress" class="moreabout">자세히 알아보기</a>
       </div>
       <div class="topic-card">
         <img src="{% static 'img/idea.png' %}" alt="" class="icons">
         <h4>정신 건강 이해하기</h4>
         <p>일반적인 정신 건강 문제에 대한 지식을 얻고 조기 징후를 인식하는 방법을 배웁니다.</p>
-        <a href="#" class="moreabout">자세히 알아보기</a>
+        <a href="{% url 'frontend:detail' %}?page=emotional&topic=mental" class="moreabout">자세히 알아보기</a>
       </div>
     </div>
   </section>
