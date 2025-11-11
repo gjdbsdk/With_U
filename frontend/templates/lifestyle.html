@@ -6,9 +6,10 @@
 {% endblock style %}
 
 {% block body %}
-<main>
+<main class="lifestyle-page">
+
   <div class="content-header">
-    <h1>라이프스타일 가이드</h1>
+    <div class="title">라이프스타일 가이드</div>
     <p>
       은행 업무부터 세금 신고, 주거 계약, 대중교통 이용까지,<br>
       독립적인 생활에 필요한 모든 실용적인 정보를 여기에서 찾아보세요.
@@ -17,40 +18,46 @@
 
   <section class="card-grid">
     <div class="card">
+      <img src="{% static 'img/wallet.png' %}" alt="은행 아이콘" class="icons">
       <h3>은행 계좌 개설 및 ATM 사용</h3>
       <p>은행 계좌 개설과 현금자동입출금기(ATM) 사용 방법을 단계별로 안내합니다.</p>
       <a href="#" class="btn">자세히 알아보기</a>
     </div>
 
     <div class="card">
+      <img src="{% static 'img/pig.png' %}" alt="세금 아이콘" class="icons">
       <h3>세금 신고 및 관리</h3>
       <p>연말정산, 종합소득세 등 세금 신고 절차와 절세 전략을 쉽게 설명합니다.</p>
       <a href="#" class="btn">자세히 알아보기</a>
     </div>
 
     <div class="card">
+      <img src="{% static 'img/house.png' %}" alt="집 아이콘" class="icons">
       <h3>월세 계약 이해하기</h3>
       <p>임대차 계약 시 주의할 점과 보증금, 계약서 작성법을 한눈에 확인하세요.</p>
       <a href="#" class="btn">자세히 알아보기</a>
     </div>
 
     <div class="card">
+      <img src="{% static 'img/list.png' %}" alt="지원 아이콘" class="icons">
       <h3>공공 지원 신청</h3>
       <p>정부 및 지자체의 청년 지원금, 생활 보조금 등 신청 절차를 정리했습니다.</p>
       <a href="#" class="btn">자세히 알아보기</a>
     </div>
 
     <div class="card">
+      <img src="{% static 'img/train.png' %}" alt="교통 아이콘" class="icons">
       <h3>지하철 노선도 읽는 법</h3>
       <p>처음 이용하는 사람도 쉽게 이해할 수 있는 대중교통 이용 가이드를 제공합니다.</p>
       <a href="#" class="btn">자세히 알아보기</a>
     </div>
 
     <div class="card">
+      <img src="{% static 'img/product.png' %}" alt="생활 아이콘" class="icons">
       <h3>생활 필수품 현명하게 구매하기</h3>
       <p>물가 절약 꿀팁과 합리적인 소비 습관을 익혀보세요.</p>
       <a href="#" class="btn">자세히 알아보기</a>
     </div>
   </section>
 </main>
-{% endblock body%}
+{% endblock body %}
