@@ -109,19 +109,6 @@ a{
   position: relative;
 }
 
-.card-faq details summary::after {
-  content: '+';
-  position: absolute;
-  right: 5px;
-  font-weight: bold;
-  color: #636AE8;
-}
-
-.card-faq details[open] summary::after {
-  content: '−';
-}
-
-
 .card-faq details p {
   padding: 10px 5px 0 5px;
   font-size: 0.95rem;

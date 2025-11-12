@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block style %}
-<!--사용할 css가 있다면 추가해서 쓰시면 됩니다-->
+<link rel="stylesheet" href="{% static 'css/community.css' %}">
 {% endblock style %}
 
 {% block script %} 
@@ -10,7 +10,65 @@
 {% endblock script %}
 
 
-{% block body %}                 
-커뮤니티 페이지 내용내용
+{% block body %}                
+<div class="community-container">
+    <section class="community-header">
+        <div class="header-content">
+            <h1 class="community-title">커뮤니티 환영합니다!</h1>
+            <p class="community-subtitle">경험을 공유하고, 조언을 구하며, 함께 성장하세요.</p>
+        </div>
+        <div class="header-actions">
+        {# 글쓰기 페이지 만든 후, 아래 href="#" 부분에 URL 연결하기 #}
+        <a href="#" class="btn-new-topic">새 토론 시작</a>
+        </div>
+    </section>
+    
+    <section class="topic-list-section">
+        <h3>최신 토론</h3>
+        <div class="topic-list">
+            {#  아래부터는 글 목록 자리입니다.
+             views.py에서 'posts'라는 이름으로 글 목록 데이터 주시면 될 것 같아요.
+             
+             1. post.author_initial: 글쓴이 이름 첫 글자
+             2. post.detail_url: 글의 상세 페이지로 가는 URL
+             3. post.title: 글 제목
+             4. post.author_name: 글쓴이 전체 이름
+             5. post.created_at: 글 쓴 시간 (Date 객체)
+             6. post.snippet: 글 내용 미리 보기(100~150자 정도??)
+             7. post.likes_count: 좋아요 수
+             8. post.comments_count: 댓글 수
+            #}
+            {% for post in posts %}
+            <article class="topic-item">
+                <div class="user-profile">
+                    <span>{{ post.author_initial }}</span>
+                </div>
+                <div class="topic-content">
+                    <div class="topic-header">
+                        <a href="{{ post.detail_url }}" class="topic-title-link">
+                            <h4 class="topic-title">{{ post.title }}</h4>
+                        </a>
+                        <span class="user-info">{{ post.author_name }} · {{ post.created_at|timesince }} 전</span>
+                    </div>
+                    <p class="topic-snippet">{{ post.snippet }}</p>
+                    <div class="topic-meta">
+                    <span>
+                        <i class="fa-solid fa-thumbs-up"></i> {{ post.likes_count }}
+                    </span>
+                    <span>
+                        <i class="fa-solid fa-comment"></i> {{ post.comments_count }}
+                    </span>
+                </div>
+                </div>
+            </article>
+
+            {% empty %}
+            <div class="no-posts">
+                <p>아직 등록된 토론이 없습니다.<br>첫 번째 토론을 시작해보세요!</p>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</div>
 
 {% endblock body%}
