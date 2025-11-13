@@ -1,9 +1,8 @@
-from rest_framework.routers import DefaultRouter
 
-from .views import ProjectViewSet
+from django.urls import path
+from .views import RegisterView
 
-router = DefaultRouter()
-router.register("projects", ProjectViewSet, basename="project")
-
-urlpatterns = router.urls
+urlpatterns = [
+    path("register/", RegisterView.as_view()),
+]
 
