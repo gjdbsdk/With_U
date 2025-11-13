@@ -116,7 +116,11 @@ class LocalView(TemplateView):
 class DetailView(TemplateView):
     template_name = "detail.html"
 
+class WritingView(TemplateView):
+    template_name="writing.html"
 
+
+# 아래 작성해주신 건 연동 후에 사용할 수 있을 것 같아 일단 새로 위에 작성해서 구현했습니다
 def create_post(request):
     if request.method == 'POST':
         form = PostForm(request.POST)
