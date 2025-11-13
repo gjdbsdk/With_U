@@ -1,0 +1,51 @@
+
+# 회원가입 검증용 데모페이지
+
+{% csrf_token %}
+<h2>회원가입</h2>
+
+<input type="text" id="username" placeholder="아이디"><br>
+<input type="email" id="email" placeholder="이메일"><br>
+<input type="password" id="password" placeholder="비밀번호"><br>
+
+<button id="register-btn">회원가입</button>
+
+<script>
+    const csrftoken = document.querySelector("[name=csrfmiddlewaretoken]").value;
+
+    document.getElementById("register-btn").addEventListener("click", async () => {
+        const username = document.getElementById("username").value;
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+       
+        // 공백 확인
+        if (!username || !email || !password) {
+            alert("모든 입력칸을 채워주세요.");
+            return;  // 서버로 요청 보내지 않음
+        }
+
+        const response = await fetch("/api/register/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRFToken": csrftoken,
+            },
+            body: JSON.stringify({ username, email, password }),
+        });
+
+        const data = await response.json();
+        console.log(data);
+
+        if (response.ok) {
+            alert("회원가입 성공!");
+        } else {
+            if (data.username) {
+                alert("아이디 중복: " + data.username[0]);
+            } else if (data.email) {
+                alert("이메일 중복: " + data.email[0]);
+            } else {
+                alert("회원가입 실패!");
+            }
+        }
+    });
+</script>
