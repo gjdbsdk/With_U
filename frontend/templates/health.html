@@ -2,15 +2,47 @@
 {% load static %}
 
 {% block style %}
-<!--사용할 css가 있다면 추가해서 쓰시면 됩니다-->
+<link rel="stylesheet" href="{% static 'css/health.css' %}">
 {% endblock style %}
 
-{% block script %} 
-<!--사용할 js가 있다면 추가해서 쓰시면 됩니다-->
-{% endblock script %}
+{% block body %}
+<main class="health-page">
+  <div class="content-header">
+    <div class="title">건강 및 안전 정보</div>
+    <p>
+      안전하고 건강한 생활을 돕는 다양한 정보를 제공합니다.<br>
+      예방, 건강, 안전, 노동, 보험 등 일상과 직결되는 주제를 확인하세요.
+    </p>
+  </div>
 
+  <section class="card-grid">
+    <div class="card">
+      <img src="{% static 'img/house.png' %}" alt="집 아이콘" class="icons">
+      <h3>생활 안전 수칙</h3>
+      <p>일상생활에서 발생할 수 있는 위험으로부터 자신을 보호하기 위한 실용적인 안전 수칙들입니다.</p>
+      <a href="{% url 'frontend:detail' %}?page=health&topic=safety" class="btn">자세히 알아보기</a>
+    </div>
 
-{% block body %}                 
-건강 및 안전 정보 페이지 내용내용
+    <div class="card">
+      <img src="{% static 'img/guard.png' %}" alt="보안 아이콘" class="icons">
+      <h3>개인 정보 보호</h3>
+      <p>소중한 개인 정보를 안전하게 지키기 위한 필수 가이드입니다. 온라인과 오프라인에서 모두 적용됩니다.</p>
+      <a href="{% url 'frontend:detail' %}?page=health&topic=privacy" class="btn">자세히 알아보기</a>
+    </div>
 
-{% endblock body%}
+    <div class="card">
+      <img src="{% static 'img/people.png' %}" alt="노동 아이콘" class="icons">
+      <h3>기본 노동 권리</h3>
+      <p>근로자로서 알아야 할 기본적인 권리와 법적 보호 장치에 대한 정보입니다.</p>
+      <a href="{% url 'frontend:detail' %}?page=health&topic=labor" class="btn">자세히 알아보기</a>
+    </div>
+
+    <div class="card">
+      <img src="{% static 'img/heart.png' %}" alt="건강 아이콘" class="icons">
+      <h3>건강 보험 활용 가이드</h3>
+      <p>건강 보험 시스템을 이해하고 최대한 활용하기 위한 포괄적인 정보입니다.</p>
+      <a href="{% url 'frontend:detail' %}?page=health&topic=insurance" class="btn">자세히 알아보기</a>
+    </div>
+  </section>
+</main>
+{% endblock body %}
