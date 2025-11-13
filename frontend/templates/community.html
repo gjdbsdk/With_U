@@ -6,6 +6,7 @@
 {% endblock style %}
 
 {% block script %} 
+    <script src="{% static 'js/community.js' %}"></script>
 <!--사용할 js가 있다면 추가해서 쓰시면 됩니다-->
 {% endblock script %}
 
@@ -19,7 +20,8 @@
         </div>
         <div class="header-actions">
         <!-- 글쓰기 페이지 만든 후, 아래 href="#" 부분에 URL 연결하기 -->
-        <a href="{% url 'frontend:writing' %}" class="btn-new-topic">새 토론 시작</a>
+        <!--<a href="{% url 'frontend:writing' %}" class="btn-new-topic">새 토론 시작</a>-->
+        <a href="#" id="write-btn" class="btn-new-topic">새 토론 시작</a>
         </div>
     </section>
     

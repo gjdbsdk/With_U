@@ -1,7 +1,7 @@
 # api/serializers.py
 from rest_framework import serializers
 from django.contrib.auth.models import User
-
+from .models import CitizenContent
 
 class RegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
@@ -22,3 +22,18 @@ class RegisterSerializer(serializers.ModelSerializer):
             email=validated_data["email"],
             password=validated_data["password"]
         )
+
+#시민공유 콘텐츠 제출 api
+class CitizenContentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CitizenContent
+        fields = [
+            "id",
+            "title",
+            "category",
+            "content",
+            "file",
+            "author",
+            "created_at",
+        ]
+        read_only_fields = ["id", "author", "created_at"]
