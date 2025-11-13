@@ -1,0 +1,134 @@
+body {
+  font-family: 'Pretendard', sans-serif;
+  color: #222;
+  margin: 0;
+  padding: 0;
+  line-height: 1.7;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.lifestyle-page {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.content-header {
+  text-align: center;
+  width: 85%;
+  margin: 40px auto;
+  padding: 60px 20px;
+  background: linear-gradient(to right, #e6e7ff 0%, #ffffff 100%);
+  border-radius: 14px;
+  box-shadow: 0 6px 16px rgba(99, 106, 232, 0.08);
+}
+
+.title {
+  color: #636AE8;
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.content-header p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.8;
+}
+
+.card-grid {
+  width: 85%;
+  margin: 40px auto 100px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  justify-content: center;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #e8e9f3;
+  border-radius: 14px;
+  padding: 24px 22px 28px;
+  text-align: left;
+  transition: 0.25s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(99, 106, 232, 0.15);
+  border-color: #dfe2ff;
+}
+
+.icons {
+  width: 40px;
+  height: 38px;
+  margin-bottom: 14px;
+  display: block;
+  filter: brightness(0) saturate(100%) invert(38%) sepia(72%)
+          saturate(2014%) hue-rotate(217deg) brightness(95%) contrast(98%);
+}
+
+.card h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #222;
+  margin: 4px 0 8px;
+}
+
+.card p {
+  font-size: 0.93rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 10px;
+  border: 1.5px solid #636AE8;
+  color: #636AE8;
+  background-color: #fff;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
+
+.btn:hover {
+  background-color: #636AE8;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(99, 106, 232, 0.25);
+}
+
+@media (max-width: 1024px) {
+  .content-header, .card-grid {
+    width: 88%;
+  }
+}
+
+@media (max-width: 768px) {
+  .content-header {
+    width: 90%;
+    padding: 40px 24px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .card-grid {
+    width: 90%;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .icons {
+    width: 38px;
+    height: 38px;
+  }
+}

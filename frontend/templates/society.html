@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block style %}
-<!--사용할 css가 있다면 추가해서 쓰시면 됩니다-->
+<link rel="stylesheet" href="{% static 'css/society.css' %}">
 {% endblock style %}
 
 {% block script %} 
@@ -11,6 +11,34 @@
 
 
 {% block body %}                 
-사회 에티켓 페이지
+<div class="society-container">
+    <section class="hero">
+    <div class="title">사회생활의 지혜: 예절 가이드</div>
+    <p>다양한 사회적 상황에서 필요한 예절을 익히고, 자신감 있고 배려심 있는 사회 구성원이 되기 위한 필수 가이드입니다. 올바른 에티켓으로 더 나은 관계를 만들어가세요.</p>
+</section>
+<section class="topics">
+    <h3>주요 사회 에티켓 주제</h3>
+    <p class="text-center text-muted mb-5" style="text-align:center; color: #666; margin-bottom: 40px;">
+        장례, 결혼, 제례, 병문안 등 인생의 중요한 순간에 필요한 예절을 상세히 알아봅니다.</p>
 
+        <div class="topic-grid">
+            {% for group in etiquette_groups %}
+            <div class="topic-card">
+                <img src="{% static group.icon_path %}" alt="{{ group.title }} 아이콘" class="icons">
+                <h4>{{ group.title }}</h4>
+                <p>{{ group.description }}</p>
+                
+                <div class="card-faq">
+                    {% for topic in group.topics %}
+                    <details>
+                        <summary>{{ topic.title }}</summary>
+                        <p>{{ topic.content }}</p>
+                    </details>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+</section>
+</div>
 {% endblock body%}
