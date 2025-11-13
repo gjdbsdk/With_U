@@ -35,8 +35,62 @@ document.addEventListener("DOMContentLoaded", function () {
           "https://www.youtube.com/embed/BZQ4t_kfPXI?si=8XGYi3T-NqGyYcmp",
       },
     },
+    health: {
+      safety: {
+        title: "생활 안전 수칙",
+        text: "화재, 감전, 낙상 등 일상 속 안전사고를 예방하기 위한 기본 원칙을 다룹니다.",
+        youtube: "https://www.youtube.com/embed/7uOYZs0y3H0",
+      },
+      privacy: {
+        title: "개인 정보 보호",
+        text: "온라인과 오프라인에서 개인정보를 안전하게 관리하는 방법을 배워보세요.",
+        youtube: "https://www.youtube.com/embed/xQ0Ds8j3lrw",
+      },
+      labor: {
+        title: "기본 노동 권리",
+        text: "근로자의 권리와 법적 보호장치, 근로계약서의 핵심을 설명합니다.",
+        youtube: "https://www.youtube.com/embed/3m0G7Jp0fkg",
+      },
+      insurance: {
+        title: "건강 보험 활용 가이드",
+        text: "보험료 납부, 혜택 청구, 추가 보장제도를 이해하는 방법을 다룹니다.",
+        youtube: "https://www.youtube.com/embed/sv_ojh7n-1s",
+      },
+    },
+    lifestyle: {
+      bank: {
+        title: "은행 계좌 개설 및 ATM 사용",
+        text: "은행 업무 초보자도 따라할 수 있는 쉬운 계좌 개설과 ATM 사용법입니다.",
+        youtube: "https://www.youtube.com/embed/n8pAEH_wQeE",
+      },
+      tax: {
+        title: "세금 신고 및 관리",
+        text: "연말정산부터 종합소득세 신고까지, 세금의 기초를 배워봅니다.",
+        youtube: "https://www.youtube.com/embed/qgH3OZpFPlc",
+      },
+      rent: {
+        title: "월세 계약 이해하기",
+        text: "임대차 계약서 작성, 보증금 보호, 전입신고 등 필수 절차를 다룹니다.",
+        youtube: "https://www.youtube.com/embed/Yv9QeQb5lNo",
+      },
+      aid: {
+        title: "공공 지원 신청",
+        text: "정부 및 지자체 지원금 신청 방법을 단계별로 안내합니다.",
+        youtube: "https://www.youtube.com/embed/kNfqHb7vFW4",
+      },
+      transport: {
+        title: "지하철 노선도 읽는 법",
+        text: "초보자를 위한 대중교통 노선도 해석법과 환승 팁을 알려드립니다.",
+        youtube: "https://www.youtube.com/embed/QhaHbGsa7Sg",
+      },
+      shopping: {
+        title: "생활 필수품 현명하게 구매하기",
+        text: "합리적 소비와 할인 전략으로 경제적 생활을 유지하는 방법을 배워보세요.",
+        youtube: "https://www.youtube.com/embed/TbRi8dTRRHQ",
+      },
+    },
   };
-
+  
   const content = contents[page]?.[topic];
 
   if (content) {
