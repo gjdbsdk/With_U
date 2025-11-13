@@ -1,4 +1,13 @@
 from django.views.generic import TemplateView
+import datetime     # 'timesince' 필터 및 임시 데이터 생성을 위해 임포트
+from django.shortcuts import render, redirect
+        # 함수 기반 뷰(FBV) 및 리다이렉트를 위해 임포트
+
+from django import forms
+#TODO: 추후 Post 모델 만들고 ModelForm으로 교체하기
+class PostForm(forms.Form):
+    title = forms.CharField(label='제목', max_length=200)
+    content = forms.CharField(label='내용', widget=forms.Textarea(attrs={'rows': 15}))
 
 class HomeView(TemplateView):
     template_name = "home.html"
@@ -59,9 +68,42 @@ class SocietyView(TemplateView):
 class CitizenView(TemplateView):
     template_name = "citizen.html"
 
+
 class CommunityView(TemplateView):
     template_name = "community.html"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        #TODO : [DB 연동] Post 모델 완성 후, 아래 임시 데이터를 실제 DB 쿼리로 교체하기
+        #       현재는 Frontend UI확인을 위한 Mock 데이터입니다
+
+        dummy_posts = [
+            {
+                'author_initial': '김',
+                'detail_url': '#', # 실제로는 상세 페이지 URL
+                'title': '첫 번째 테스트 포스트입니다',
+                'author_name': '김테스트',
+                'created_at': datetime.datetime.now() - datetime.timedelta(hours=2), # 2시간 전
+                'snippet': '이것은 뷰에서 넘어온 가짜 데이터입니다. 루프가 잘 도는지 확인해보세요. 스타일이 잘 적용되었나요?',
+                'likes_count': 12,
+                'comments_count': 8,
+            },
+            {
+                'author_initial': '이',
+                'detail_url': '#',
+                'title': '두 번째 테스트: 월세 계약 시 주의사항',
+                'author_name': '이장고',
+                'created_at': datetime.datetime.now() - datetime.timedelta(days=1), # 1일 전
+                'snippet': '두 번째 가짜 데이터입니다. 둥근 모서리 카드 스타일이 잘 나오는지 확인합니다.',
+                'likes_count': 5,
+                'comments_count': 3,
+            }
+        ]
+
+        context['posts'] = dummy_posts
+        return context
+    
 class EmotionalView(TemplateView):
     template_name = "emotional.html"
 
@@ -74,3 +116,21 @@ class LocalView(TemplateView):
 class DetailView(TemplateView):
     template_name = "detail.html"
 
+
+def create_post(request):
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+        if form.is_valid():
+            #TODO : [DB 연동] 유효한 폼 데이터를 실제 Post 모델에 저장하는 로직 필요
+
+            # 글 작성 후, 'community_list'라는 이름의 URL로 리다이렉트
+            # (urls.py에서 CommunityView의 name='community_list' 설정 필요)
+            return redirect('community_list') 
+    else:
+        form = PostForm()   # GET 요청 시 빈 폼 생성
+    
+    context = {
+        'form': form,
+        'page_title': '새 토론 작성' # 글 작성 html에서 사용 - {{ page_title }}로 사용하기
+    }
+    return render(request, 'community/post_form.html', context)
