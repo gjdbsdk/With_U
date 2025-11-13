@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WithU</title>
+
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/detail.css' %}">
+  <link rel="stylesheet" href="{% static 'css/writing.css' %}">
+</head>
+<body>
+
+  <section class="detail-container">
+    <div class="detail-top">
+      <a href="javascript:history.back()" class="back-btn">
+        <img src="{% static 'img/toprev.png' %}" alt="" class="toprev">
+        기존 토론 목록으로
+      </a>
+    </div>
+
+    <div class="contentzone">
+        <div class="detail-body">
+            <div class="content-share__form-wrapper">
+                <form class="content-share__form" method="post" action="{% url 'frontend:writing' %}">
+                {% csrf_token %}
+                <div class="formtitle">새 토론 시작</div>
+                <div class="form-group">
+                  <label for="title">제목</label>
+                  <input type="text" id="title" name="title" placeholder="콘텐츠 제목을 입력하세요." required>
+                </div>
+
+                <div class="form-group">
+                  <label for="content">내용</label>
+                  <textarea id="content" name="content" placeholder="경험을 공유하고, 조언을 구하며, 함께 성장하세요." required></textarea>
+                </div>
+                <div class="btnhugger">
+                  <button type="button" class="submit-btn">새 토론 제출</button>
+                  <!-- 백엔드가 기능 구현 성공했을 시 연동하면서 type="submit"으로 변경하기 -->
+                </div>
+              </form>
+            </div>
+        </div>
+    </div>
+  </section>
+
+</body>
+</html>

@@ -7,6 +7,7 @@ app_name = "frontend"
 urlpatterns = [
     path("citizen/", views.CitizenView.as_view(), name="citizen"),
     path("community/", views.CommunityView.as_view(), name="community"),
+    path("writing/", views.WritingView.as_view(), name="writing"),
     path("emotional/", views.EmotionalView.as_view(), name="emotional"),
     path("health/", views.HealthView.as_view(), name="health"),
     path("", views.HomeView.as_view(), name="home"),
