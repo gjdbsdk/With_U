@@ -6,7 +6,6 @@
   <title>WithU</title>
 
   {% load static %}
-  <link rel="stylesheet" href="{% static 'css/detail.css' %}">
   <link rel="stylesheet" href="{% static 'css/writing.css' %}">
 </head>
 <body>
@@ -25,14 +24,16 @@
                 <form class="content-share__form" method="post" action="{% url 'frontend:writing' %}">
                 {% csrf_token %}
                 <div class="formtitle">새 토론 시작</div>
-                <div class="form-group">
-                  <label for="title">제목</label>
-                  <input type="text" id="title" name="title" placeholder="콘텐츠 제목을 입력하세요." required>
-                </div>
+                <div class="inputss">
+                  <div class="form-group">
+                    <label for="title">제목</label>
+                    <input type="text" id="title" name="title" placeholder="콘텐츠 제목을 입력하세요." required>
+                  </div>
 
-                <div class="form-group">
-                  <label for="content">내용</label>
-                  <textarea id="content" name="content" placeholder="경험을 공유하고, 조언을 구하며, 함께 성장하세요." required></textarea>
+                  <div class="form-group">
+                    <label for="content">내용</label>
+                    <textarea id="content" name="content" placeholder="경험을 공유하고, 조언을 구하며, 함께 성장하세요." required></textarea>
+                  </div>
                 </div>
                 <div class="btnhugger">
                   <button type="button" class="submit-btn">새 토론 제출</button>
