@@ -24,4 +24,10 @@ class HealthView(TemplateView):
 class LocalView(TemplateView):
     template_name = "local.html"
 
+# 회원가입 데모 페이지
+class RegisterDemoView(TemplateView):
+    template_name = "registerdemo.html"
 
+#로그인 데모 페이지
+class LoginDemoView(TemplateView):
+    template_name = "logindemo.html"
