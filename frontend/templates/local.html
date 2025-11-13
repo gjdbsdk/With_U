@@ -8,13 +8,26 @@
 {% block body %}
 <main class="local-page">
 
-  <!-- 상단 소개 -->
-  <section class="intro-section">
-    <h1>지역 정보 및 자원</h1>
-    <p>주변의 복지 센터, 상담 서비스, 공공 기관을 지도를 통해 쉽게 찾아보세요.</p>
-  </section>
+  <div class="content-header">
+    <div class="title">지역 정보 및 자원</div>
+    <p>
+      시/도와 시/군/구를 선택하면 해당 지역의 복지시설과 기관 정보를 확인할 수 있습니다.
+    </p>
+  </div>
 
-  <!-- 필터 버튼 -->
+  <div class="region-select">
+    <select id="city" class="dropdown">
+      <option value="">시/도 선택</option>
+      <option value="서울특별시">서울특별시</option>
+      <option value="부산광역시">부산광역시</option>
+      <option value="경기도">경기도</option>
+    </select>
+
+    <select id="district" class="dropdown">
+      <option value="">시/군/구 선택</option>
+    </select>
+  </div>
+
   <div class="category-filter">
     <button class="filter-btn active" data-category="all">전체</button>
     <button class="filter-btn" data-category="welfare">복지 센터</button>
@@ -23,50 +36,53 @@
     <button class="filter-btn" data-category="other">기타 지원</button>
   </div>
 
-  <!-- 기관 카드 목록 -->
-  <section class="content-section">
-    <div class="card-grid" id="agency-list">
-      <div class="card" data-category="welfare">
-        <h3>서울시 복지 센터</h3>
-        <p>서울특별시 중구 세종대로 110 (서울시청)</p>
-        <p>📞 02-1234-5678<br>🕒 월~금 09:00 - 18:00</p>
-        <a href="#" class="btn">자세히 보기</a>
-      </div>
+  <section class="card-grid" id="agency-list">
+    <div class="card" data-category="welfare" data-city="서울특별시" data-district="중구">
+      <h3>서울시 복지 센터</h3>
+      <p>서울특별시 중구 세종대로 110 (서울시청)</p>
+      <p>📞 02-1234-5678</p>
+      <p>🕒 월~금 09:00 - 18:00</p>
+      <a href="#" class="btn">자세히 보기</a>
+    </div>
 
-      <div class="card" data-category="counsel">
-        <h3>희망 상담 센터</h3>
-        <p>서울특별시 강남구 테헤란로 152 강남파이낸스센터</p>
-        <p>📞 02-9876-5432<br>🕒 화~토 10:00 - 19:00</p>
-        <a href="#" class="btn">자세히 보기</a>
-      </div>
+    <div class="card" data-category="counsel" data-city="서울특별시" data-district="강남구">
+      <h3>희망 상담 센터</h3>
+      <p>서울특별시 강남구 테헤란로 152 강남파이낸스센터</p>
+      <p>📞 02-9876-5432</p>
+      <p>🕒 화~토 10:00 - 19:00</p>
+      <a href="#" class="btn">자세히 보기</a>
+    </div>
 
-      <div class="card" data-category="law">
-        <h3>대한민국 법률구조공단</h3>
-        <p>서울특별시 서초구 반포대로 304 대법원 5관</p>
-        <p>📞 132<br>🕒 월~금 09:00 - 18:00</p>
-        <a href="#" class="btn">자세히 보기</a>
-      </div>
+    <div class="card" data-category="law" data-city="서울특별시" data-district="서초구">
+      <h3>대한민국 법률구조공단</h3>
+      <p>서울특별시 서초구 반포대로 304 대법원 5관</p>
+      <p>📞 132</p>
+      <p>🕒 월~금 09:00 - 18:00</p>
+      <a href="#" class="btn">자세히 보기</a>
+    </div>
 
-      <div class="card" data-category="welfare">
-        <h3>마포구 건강가정지원센터</h3>
-        <p>서울특별시 마포구 망원로 250 마포중앙도서관</p>
-        <p>📞 02-3153-8380<br>🕒 월~금 09:00 - 18:00</p>
-        <a href="#" class="btn">자세히 보기</a>
-      </div>
+    <div class="card" data-category="welfare" data-city="서울특별시" data-district="마포구">
+      <h3>마포구 건강가정지원센터</h3>
+      <p>서울특별시 마포구 망원로 250 마포중앙도서관</p>
+      <p>📞 02-3153-8380</p>
+      <p>🕒 월~금 09:00 - 18:00</p>
+      <a href="#" class="btn">자세히 보기</a>
+    </div>
 
-      <div class="card" data-category="counsel">
-        <h3>청소년 심리상담 센터</h3>
-        <p>서울특별시 송파구 문정로 424 정신힐링문화공방</p>
-        <p>📞 02-7777-1111<br>🕒 수~일 11:00 - 20:00</p>
-        <a href="#" class="btn">자세히 보기</a>
-      </div>
+    <div class="card" data-category="counsel" data-city="서울특별시" data-district="송파구">
+      <h3>청소년 심리상담 센터</h3>
+      <p>서울특별시 송파구 문정로 424 정신힐링문화공방</p>
+      <p>📞 02-7777-1111</p>
+      <p>🕒 수~일 11:00 - 20:00</p>
+      <a href="#" class="btn">자세히 보기</a>
+    </div>
 
-      <div class="card" data-category="other">
-        <h3>서울시 여성플라자</h3>
-        <p>서울특별시 동작구 여의대방로54길 22</p>
-        <p>📞 02-810-5000<br>🕒 월~금 09:00 - 17:00</p>
-        <a href="#" class="btn">자세히 보기</a>
-      </div>
+    <div class="card" data-category="other" data-city="서울특별시" data-district="동작구">
+      <h3>서울시 여성플라자</h3>
+      <p>서울특별시 동작구 여의대방로54길 22</p>
+      <p>📞 02-810-5000</p>
+      <p>🕒 월~금 09:00 - 17:00</p>
+      <a href="#" class="btn">자세히 보기</a>
     </div>
   </section>
 </main>
@@ -74,22 +90,59 @@
 
 {% block script %}
 <script>
-const buttons = document.querySelectorAll('.filter-btn');
-const cards = document.querySelectorAll('.card');
+document.addEventListener('DOMContentLoaded', function() {
+  const buttons = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.card');
+  const citySelect = document.getElementById('city');
+  const districtSelect = document.getElementById('district');
 
-buttons.forEach(btn => {
-  btn.addEventListener('click', () => {
-    buttons.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const category = btn.dataset.category;
+  const districts = {
+    "서울특별시": ["중구", "강남구", "서초구", "마포구", "송파구", "동작구"],
+    "부산광역시": ["해운대구", "남구", "연제구", "수영구"],
+   "경기도": ["수원시", "용인시", "성남시", "고양시"]
+  };
+
+  citySelect.addEventListener('change', () => {
+    const city = citySelect.value;
+    districtSelect.innerHTML = '<option value="">시/군/구 선택</option>';
+    if (districts[city]) {
+      districts[city].forEach(d => {
+        const option = document.createElement('option');
+        option.value = d;
+        option.textContent = d;
+        districtSelect.appendChild(option);
+      });
+    }
+    filterCards();
+  });
+
+  districtSelect.addEventListener('change', filterCards);
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      filterCards();
+    });
+  });
+
+  function filterCards() {
+    const category = document.querySelector('.filter-btn.active').dataset.category;
+    const city = citySelect.value;
+    const district = districtSelect.value;
+
     cards.forEach(card => {
-      if (category === 'all' || card.dataset.category === category) {
+      const matchesCategory = category === 'all' || card.dataset.category === category;
+      const matchesCity = !city || card.dataset.city === city;
+      const matchesDistrict = !district || card.dataset.district === district;
+
+      if (matchesCategory && matchesCity && matchesDistrict) {
         card.style.display = 'block';
       } else {
         card.style.display = 'none';
       }
     });
-  });
+  }
 });
 </script>
 {% endblock script %}
