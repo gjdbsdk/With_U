@@ -1,0 +1,81 @@
+[Gyeonggi 1]
+Name: 설악지역아동센터
+Address: 경기도 가평군 설악면 탐선길 16
+District: 가평군
+Start: 
+End: 
+Phone: 031-584-9459
+Biz: 
+
+[Gyeonggi 2]
+Name: 청평지역아동센터
+Address: 경기도 가평군 청평면 잠곡로 22
+District: 가평군
+Start: 
+End: 
+Phone: 031-584-5963
+Biz: 
+
+[Gyeonggi 3]
+Name: 또래지역아동센터
+Address: 경기도 가평군 조종면 조종새싹로 49
+District: 가평군
+Start: 
+End: 
+Phone: 031-585-0477
+Biz: 
+
+[Busan 1]
+Name: 해오름지역아동센터
+Address: 부산광역시 북구 시랑로 122(구포동)
+District: 북구
+Start: 
+End: 
+Phone: 051-336-2267
+Biz: 
+
+[Busan 2]
+Name: 윤슬지역아동센터
+Address: 부산광역시 북구 덕천로 133-1(덕천동)
+District: 북구
+Start: 
+End: 
+Phone: 051-581-2992
+Biz: 
+
+[Busan 3]
+Name: 꿈터지역아동센터
+Address: 부산광역시 북구 시랑로 103(구포동)
+District: 북구
+Start: 
+End: 
+Phone: 051-343-1426
+Biz: 
+
+[Seoul 1]
+Name: 구립대림2동
+Address: 서울특별시 영등포구 대림로23길 27
+District: 영등포구
+Start: 
+End: 
+Phone: 02-6677-0909
+Biz: 
+
+[Seoul 2]
+Name: 구립푸르름
+Address: 서울특별시 영등포구 영등포로64길 15
+District: 영등포구
+Start: 
+End: 
+Phone: 02-841-0818
+Biz: 
+
+[Seoul 3]
+Name: 다사랑영등포
+Address: 서울특별시 영등포구 도신로 56길 12
+District: 영등포구
+Start: 
+End: 
+Phone: 070-7779-5007
+Biz: 
+
