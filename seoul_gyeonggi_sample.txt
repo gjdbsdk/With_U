@@ -1,0 +1,42 @@
+[Gyeonggi 1]
+Name: 건강증진센터
+Address: 경기도 가평군 가평읍 가화로 155-15
+Start: 09:00
+End: 18:00
+Phone: 031-580-2833
+
+[Gyeonggi 2]
+Name: U_만성질환관리센터(동탄)
+Address: 경기도 화성시 노작로 226-9
+Start: 09:00
+End: 18:00
+Phone: 031-5189-4374
+
+[Gyeonggi 3]
+Name: U_만성질환관리센터(기배)
+Address: 경기도 화성시 기안남로 62
+Start: 09:00
+End: 18:00
+Phone: 031-5189-4491
+
+[Seoul 1]
+Name: 송파건강증진센터
+Address: 서울특별시 송파구 올림픽로 326
+Start: 09:00
+End: 18:00
+Phone: 02-2147-3539
+
+[Seoul 2]
+Name: 송파건강관리센터
+Address: 서울특별시 송파구 올림픽로 326
+Start: 09:00
+End: 18:00
+Phone: 02-2147-3456
+
+[Seoul 3]
+Name: 성북구정신건강복지센터
+Address: 서울특별시 성북구 화랑로 63
+Start: 09:00
+End: 18:00
+Phone: 02-2241-6314
+
