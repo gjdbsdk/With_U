@@ -103,6 +103,63 @@ a {
   box-shadow: 0 4px 10px rgba(99, 106, 232, 0.25);
 }
 
+/* seohaein 11/14: pagination UI */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 40px auto 20px;
+  flex-wrap: wrap;
+}
+
+.pagination .page-btn,
+.pagination .page-ellipsis {
+  min-width: 2.25rem;
+  height: 2.5rem;
+  padding: 0 0.75rem;
+  border-radius: 10px;
+  border: 1px solid #d0d7de;
+  background: #fff;
+  color: #344054;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.05);
+}
+
+.pagination .page-btn:hover:not(:disabled) {
+  border-color: #636AE8;
+  color: #4f46e5;
+  box-shadow: 0 4px 12px rgba(99, 106, 232, 0.2);
+  transform: translateY(-1px);
+}
+
+.pagination .page-btn.active {
+  background: linear-gradient(135deg, #636AE8, #4338ca);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 6px 16px rgba(79, 70, 229, 0.3);
+}
+
+.pagination .page-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.pagination .page-ellipsis {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  cursor: default;
+  color: #98a2b3;
+}
+
 .card-grid {
   width: 85%;
   margin: 40px auto 100px;
@@ -194,5 +251,15 @@ a {
   .filter-btn {
     font-size: 0.85rem;
     padding: 8px 16px;
+  }
+
+  .pagination {
+    gap: 0.35rem;
+  }
+
+  .pagination .page-btn {
+    min-width: 2rem;
+    height: 2.25rem;
+    font-size: 0.85rem;
   }
 }
