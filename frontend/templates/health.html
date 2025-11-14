@@ -7,42 +7,146 @@
 
 {% block body %}
 <main class="health-page">
-  <div class="content-header">
+
+  <section class="content-header">
     <div class="title">건강 및 안전 정보</div>
     <p>
       안전하고 건강한 생활을 돕는 다양한 정보를 제공합니다.<br>
       예방, 건강, 안전, 노동, 보험 등 일상과 직결되는 주제를 확인하세요.
     </p>
-  </div>
+  </section>
 
-  <section class="card-grid">
-    <div class="card">
-      <img src="{% static 'img/house.png' %}" alt="집 아이콘" class="icons">
-      <h3>생활 안전 수칙</h3>
-      <p>일상생활에서 발생할 수 있는 위험으로부터 자신을 보호하기 위한 실용적인 안전 수칙들입니다.</p>
-      <a href="{% url 'frontend:detail' %}?page=health&topic=safety" class="btn">자세히 알아보기</a>
-    </div>
+  <section class="content-section">
+    <h2>생활 안전 수칙</h2>
+    <p>일상생활에서 지켜야 할 주요 안전수칙과 응급상황 시 대처법을 알아보세요.</p>
 
-    <div class="card">
-      <img src="{% static 'img/guard.png' %}" alt="보안 아이콘" class="icons">
-      <h3>개인 정보 보호</h3>
-      <p>소중한 개인 정보를 안전하게 지키기 위한 필수 가이드입니다. 온라인과 오프라인에서 모두 적용됩니다.</p>
-      <a href="{% url 'frontend:detail' %}?page=health&topic=privacy" class="btn">자세히 알아보기</a>
-    </div>
+    <div class="card-grid">
+      <div class="card">  
+        <img src="{% static 'img/visit.png' %}" alt="보안 아이콘" class="icons">
+        <h3>가정 내 안전 체크리스트</h3>
+        <p>화재, 전기, 가스 등 가정 내 위험 요소를 점검합니다.</p>
+        <a href="{% url 'frontend:detail' %}?page=health&topic=home_safety" class="btn">자세히 알아보기</a>
+      </div>
 
-    <div class="card">
-      <img src="{% static 'img/people.png' %}" alt="노동 아이콘" class="icons">
-      <h3>기본 노동 권리</h3>
-      <p>근로자로서 알아야 할 기본적인 권리와 법적 보호 장치에 대한 정보입니다.</p>
-      <a href="{% url 'frontend:detail' %}?page=health&topic=labor" class="btn">자세히 알아보기</a>
-    </div>
+      <div class="card">
+        <img src="{% static 'img/place.png' %}" alt="장소 아이콘" class="icons">
+        <h3>학교 및 직장 안전수칙</h3>
+        <p>공공장소나 직장에서 지켜야 할 기본적인 안전 수칙입니다.</p>
+        <a href="{% url 'frontend:detail' %}?page=health&topic=school_work_safety" class="btn">자세히 알아보기</a>      
+      </div>
 
-    <div class="card">
-      <img src="{% static 'img/heart.png' %}" alt="건강 아이콘" class="icons">
-      <h3>건강 보험 활용 가이드</h3>
-      <p>건강 보험 시스템을 이해하고 최대한 활용하기 위한 포괄적인 정보입니다.</p>
-      <a href="{% url 'frontend:detail' %}?page=health&topic=insurance" class="btn">자세히 알아보기</a>
+      <div class="card">
+        <img src="{% static 'img/emergency.png' %}" alt="응급 아이콘" class="icons">
+        <h3>응급 상황 대처법</h3>
+        <p>심폐소생술(CPR) 등 응급 상황에서 필요한 기본 처치법입니다.</p>
+        <a href="{% url 'frontend:detail' %}?page=health&topic=emergency" class="btn">자세히 알아보기</a>
+      </div>
+
+      <div class="card">
+        <img src="{% static 'img/fire.png' %}" alt="불 아이콘" class="icons">
+        <h3>화재 및 재난 대비</h3>
+        <p>지진, 화재, 폭우 등 재난 발생 시 행동 요령을 배워보세요.</p>
+        <a href="{% url 'frontend:detail' %}?page=health&topic=disaster" class="btn">자세히 알아보기</a>      
+      </div>
     </div>
   </section>
+
+  <section class="content-section">
+    <h2>개인 정보 보호</h2>
+    <p>온라인과 오프라인에서 개인 정보를 안전하게 지키는 방법을 제공합니다.</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <img src="{% static 'img/pwd.png' %}" alt="비밀 아이콘" class="icons">
+        <h3>안전한 비밀번호 설정</h3>
+        <p>강력한 비밀번호 생성 및 관리 방법을 안내합니다.</p>
+        <a href="{% url 'frontend:detail' %}?page=health&topic=password" class="btn">자세히 알아보기</a>
+      </div>
+
+      <div class="card">
+        <img src="{% static 'img/call.png' %}" alt="헤드폰 아이콘" class="icons">
+        <h3>피싱 사기 식별 및 대응</h3>
+        <p>이메일, 문자 메시지 등으로 접근하는 피싱 사기를 식별하고 효과적으로 대응하는 방법을 배웁니다.</p>
+        <a href="{% url 'frontend:detail' %}?page=health&topic=phishing" class="btn">자세히 알아보기</a>      
+      </div>
+
+      <div class="card">
+        <img src="{% static 'img/info.png' %}" alt="정보 아이콘" class="icons">
+        <h3>개인정보 유출 시대응</h3>
+        <p>개인 정보가 유출되었을 경우, 취해야 할 즉각적인 조치와 추가 피해를 최소화하는 방법을 안내합니다.</p>
+        <a href="{% url 'frontend:detail' %}?page=health&topic=leakage" class="btn">자세히 알아보기</a>      
+      </div>
+
+      <div class="card">
+        <img src="{% static 'img/place.png' %}" alt="장소 아이콘" class="icons">
+        <h3>공공장소에서 정보 보호</h3>
+        <p>카페, 대중교통 등 공공장소에서 개인 정보를 안전하세 보호하는 실천적인 방법들입니다.</p>
+        <a href="{% url 'frontend:detail' %}?page=health&topic=public_info" class="btn">자세히 알아보기</a>      
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>기본 노동 권리</h2>
+    <p>근로자로서 꼭 알아야 할 노동권 및 직장 내 권리 정보를 제공합니다.</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <img src="{% static 'img/contract.png' %}" alt="계약서 아이콘" class="icons">
+        <h3>근로계약 이해하기</h3>
+        <p>근로계약서 작성 시 확인해야 할 항목을 안내합니다.</p>
+        <a href="{% url 'frontend:detail' %}?page=health&topic=contract" class="btn">자세히 알아보기</a>      </div>
+
+      <div class="card">
+        <img src="{% static 'img/torment.png' %}" alt="괴롭힘 아이콘" class="icons">
+        <h3>직장 내 괴롭힘 예방</h3>
+        <p>괴롭힘을 예방하고 신고하는 방법을 안내합니다.</p>
+        <a href="{% url 'frontend:detail' %}?page=health&topic=harassment" class="btn">자세히 알아보기</a>      </div>
+
+      <div class="card">
+        <img src="{% static 'img/allowance.png' %}" alt="돈 아이콘" class="icons">
+        <h3>임금 및 초과근로 기준</h3>
+        <p>법적 임금 기준과 연장·야간 근로 규정을 설명합니다.</p>
+        <a href="{% url 'frontend:detail' %}?page=health&topic=wage" class="btn">자세히 알아보기</a>      </div>
+
+      <div class="card">
+        <img src="{% static 'img/dismissal.png' %}" alt="서류가방 아이콘" class="icons">
+        <h3>부당 해고 대응</h3>
+        <p>부당 해고 시 대응 절차 및 권리를 안내합니다.</p>
+        <a href="{% url 'frontend:detail' %}?page=health&dismissal" class="btn">자세히 알아보기</a>      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>건강 보험 활용 가이드</h2>
+    <p>건강보험 종류, 혜택, 청구 절차 등 꼭 필요한 정보를 제공합니다.</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <img src="{% static 'img/check.png' %}" alt="표시 아이콘" class="icons">
+        <h3>건강보험 종류 선택</h3>
+        <p>자신에게 맞는 건강보험을 선택하는 기준을 알려드립니다.</p>
+        <a href="{% url 'frontend:detail' %}?page=health&topic=insurance_type" class="btn">자세히 알아보기</a>      </div>
+
+      <div class="card">
+        <img src="{% static 'img/premium.png' %}" alt="다이아몬드 아이콘" class="icons">
+        <h3>보험료 납부 및 혜택</h3>
+        <p>보험료 납부 방법과 받을 수 있는 주요 혜택을 설명합니다.</p>
+        <a href="{% url 'frontend:detail' %}?page=health&topic=insurance_payment" class="btn">자세히 알아보기</a>      </div>
+
+      <div class="card">
+        <img src="{% static 'img/hospital.png' %}" alt="병원 아이콘" class="icons">
+        <h3>병원비 청구 절차</h3>
+        <p>진료 후 보험금 청구 절차와 필요한 서류를 안내합니다.</p>
+        <a href="{% url 'frontend:detail' %}?page=health&topic=hospital_claim" class="btn">자세히 알아보기</a>      </div>
+
+      <div class="card">
+        <img src="{% static 'img/card.png' %}" alt="카드 아이콘" class="icons">
+        <h3>의료비 지원 제도</h3>
+        <p>저소득층 및 취약계층을 위한 국가 지원 제도입니다.</p>
+        <a href="{% url 'frontend:detail' %}?page=health&topic=medical_support" class="btn">자세히 알아보기</a>      </div>
+    </div>
+  </section>
+
 </main>
 {% endblock body %}
