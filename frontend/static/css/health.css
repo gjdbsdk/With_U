@@ -39,11 +39,26 @@ a {
   line-height: 1.8;
 }
 
+.content-section h2 {
+  width: 85%;
+  margin: 0 auto 12px;
+  font-size: 28px;
+  font-weight: 700;
+  color: #222;
+}
+
+.content-section > p {
+  width: 85%;
+  margin: 0 auto 28px;
+  font-size: 1rem;
+  color: #666;
+}
+
 .card-grid {
   width: 85%;
   margin: 40px auto 100px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 24px;
   justify-content: center;
 }
@@ -52,10 +67,14 @@ a {
   background: #fff;
   border: 1px solid #e8e9f3;
   border-radius: 14px;
-  padding: 24px 22px 28px;
+  padding: 24px;
   text-align: left;
   transition: 0.25s ease;
   box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .card:hover {
@@ -84,7 +103,8 @@ a {
   font-size: 0.93rem;
   color: #555;
   line-height: 1.6;
-  margin-bottom: 18px;
+  flex-grow: 1;      
+  margin-bottom: 16px; 
 }
 
 .btn {
@@ -97,6 +117,8 @@ a {
   font-size: 0.9rem;
   font-weight: 500;
   transition: all 0.25s ease;
+  margin-top: auto;
+  align-self: flex-start;
 }
 
 .btn:hover {
@@ -106,7 +128,8 @@ a {
 }
 
 @media (max-width: 1024px) {
-  .content-header, .card-grid {
+  .content-header,
+  .card-grid {
     width: 88%;
   }
 }
@@ -123,7 +146,7 @@ a {
 
   .card-grid {
     width: 90%;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; 
     gap: 20px;
   }
 

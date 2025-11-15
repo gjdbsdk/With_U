@@ -35,60 +35,535 @@ document.addEventListener("DOMContentLoaded", function () {
           "https://www.youtube.com/embed/BZQ4t_kfPXI?si=8XGYi3T-NqGyYcmp",
       },
     },
-    health: {
-      safety: {
-        title: "생활 안전 수칙",
-        text: "화재, 감전, 낙상 등 일상 속 안전사고를 예방하기 위한 기본 원칙을 다룹니다.",
-        youtube: "https://www.youtube.com/embed/7uOYZs0y3H0",
-      },
-      privacy: {
-        title: "개인 정보 보호",
-        text: "온라인과 오프라인에서 개인정보를 안전하게 관리하는 방법을 배워보세요.",
-        youtube: "https://www.youtube.com/embed/xQ0Ds8j3lrw",
-      },
-      labor: {
-        title: "기본 노동 권리",
-        text: "근로자의 권리와 법적 보호장치, 근로계약서의 핵심을 설명합니다.",
-        youtube: "https://www.youtube.com/embed/3m0G7Jp0fkg",
-      },
-      insurance: {
-        title: "건강 보험 활용 가이드",
-        text: "보험료 납부, 혜택 청구, 추가 보장제도를 이해하는 방법을 다룹니다.",
-        youtube: "https://www.youtube.com/embed/sv_ojh7n-1s",
-      },
-    },
     lifestyle: {
       bank: {
-        title: "은행 계좌 개설 및 ATM 사용",
-        text: "은행 업무 초보자도 따라할 수 있는 쉬운 계좌 개설과 ATM 사용법입니다.",
-        youtube: "https://www.youtube.com/embed/n8pAEH_wQeE",
+        title: "ATM 사용법",
+        text: `
+        <hr><h2>ATM으로 할 수 있는 주요 기능</h2>
+        &#149 현금 입금<br>
+        &#149 현금 출금<br>
+        &#149 계좌이체<br>
+        &#149 공과급 납부(관리비/전기/가스/통신요금 등)<br>
+        &#149 통장 정리/입금<br>
+
+        <h2>자주 묻는 질문</h2>
+        <b>Q. 편의점 ATM에서도 모든 은행 카드 사용 가능한가요?</b><br>
+        A. 대부분 가능하지만 수수료가 발생할 수 있습니다.<br><br>
+
+        <b>Q. ATM 기기는 24시간 운영인가요?</b><br>
+        A. 은행 건물 내 ATM은 은행 영업시간까지이며, 대부분의 ATM 기기는 23시 전후까지만 운영됩니다.<br><br>
+
+        <b>Q. 동전도 입금할 수 있나요?</b><br>
+        A. 대부분의 ATM은 동전 입금을 지원하지 않습니다.<br><br>
+
+        <h2>아래 영상을 통해 ATM 사용법을 익혀보세요.</h2>`,
+        youtube: "https://www.youtube.com/embed/WZIlPdBopns?si=qyF4BmXY6CDO2RjO",
       },
       tax: {
         title: "세금 신고 및 관리",
-        text: "연말정산부터 종합소득세 신고까지, 세금의 기초를 배워봅니다.",
-        youtube: "https://www.youtube.com/embed/qgH3OZpFPlc",
+        text: `<hr><h2>세금 신고 종류</h2>
+        &#149 <b>연말정산</b>: 직장인이 회사에서 자동으로 처리하는 정산입니다.<br>
+        &#149 <b>종합소득세</b>: 프리랜서, 아르바이트, 개인사업자가 직접 신고합니다<br><br>
+        
+        <h2>STEP 1. 홈택스 접속</h2>
+        &#149 <a href="https://www.hometax.go.kr">https://www.hometax.go.kr</a>
+        공동인증서 또는 간편인증으로 로그인<br><br>
+
+        <h2>STEP 2. 연말정산 자료 불러오기</h2>
+        &#149 ‘연말정산 간소화 서비스’ 선택<br>
+        &#149 자료 자동 수집<br>
+        &#149 공제 항목(의료비·교육비·보험료) 확인<br><br>
+
+        <h2>STEP 3. 종합소득세 신고(5월)</h2>
+        &#149 ‘종합소득세 신고하기’ 선택<br>
+        &#149 소득 종류 입력(프리랜서·강사·배달·알바 등)<br>
+        &#149 경비 처리 가능: 3.3% 원천징수 금액 확인<br><br>
+
+        <h2>STEP 4. 환급 또는 추가 납부 확인</h2>
+        &#149 환급 계좌 등록<br>
+        &#149 환급은 1~3개월 이내 입금<br><br>
+
+        <h2>자주 묻는 질문</h2>
+        <b>Q. 아르바이트만 해도 세금 신고 해야 하나요?</b><br>
+        A. 대부분 회사에서 연말정산을 대신합니다.<br><br>
+
+        <b>Q. 직장인이 투잡을 하면 어떻게 해야 하나요?</b><br>
+        A. 5월에 종합소득세 추가 신고를 해야합니다.<br><br>
+
+        <h2>아래 영상을 통해 종합소득세 신고 절차를 자세히 알아보세요.</h2>`,
+        youtube: "https://www.youtube.com/embed/kyanxVKYMXE?si=3H0LxBkK46Cb6-pF",
       },
       rent: {
         title: "월세 계약 이해하기",
-        text: "임대차 계약서 작성, 보증금 보호, 전입신고 등 필수 절차를 다룹니다.",
-        youtube: "https://www.youtube.com/embed/Yv9QeQb5lNo",
+        text: `
+        <hr><h2>월세 계약 핵심 용어</h2>
+        &#149 <b>보증금</b>: 집을 빌리기 위해 맡기는 돈<br>
+        &#149 <b>월세</b>: 매달 내는 금액<br>
+        &#149 <b>관리비</b>: 공용시설 사용 비용<br>
+        &#149 <b>확정일자</b>: 보증금 보호용 필수 절차<br><br>
+        
+        <h2>STEP 1. 필수 확인 사항</h2>
+        &#149 누수·곰팡이 여부<br>
+        &#149 하자 여부(창문, 벽, 수도, 보일러)<br>
+        &#149 화장실 환기, 배수, 수압<br>
+        &#149 층간소음 심각도<br>
+        &#149 마음에 들면 밤에도 한번 더 방문<br><br>
+
+        <h2>STEP 2. 계약서 작성</h2>
+        &#149 임대인 정보 확인<br>
+        &#149 보증금·월세·관리비 정확히 기록<br>
+        &#149 특약 꼭 작성(하자 부분, 수리 책임 등)<br><br>
+
+        <h2>STEP 3. 전입신고 & 확정일자</h2>
+        &#149 동 주민센터 방문 또는 정부24에서 온라인 신청 가능<br>
+        &#149 확정일자는 반드시 받아야 보증금 보호됨<br><br>
+
+        <h2>! 사기 예방 체크리스트</h2>
+        &#149 등기부등본 조회 필수<br>
+        &#149 집주인 아닌 사람이 계약 시 위임장 받아야 함<br>
+        &#149 시세 비교 필수<br><br>
+
+        <h2>자주 묻는 질문</h2>
+        <b>Q. 계약금은 얼마나 내나요?</b><br>
+        A. 보통 보증금의 10% 전후입니다.<br><br>
+
+        <b>Q. 관리비에 뭐가 포함되나요?</b><br>
+        A. 건물마다 다르지만, 청소·엘리베이터·난방 등이 포함될 수 있습니다.<br><br>
+
+        <h2>아래 영상을 통해 월세계약 주의사항을 자세히 알아보세요.</h2>
+        `, 
+        youtube: "https://www.youtube.com/embed/Y5rIvfBIeeY?si=cTMTfRSgqayUUjQi",
       },
       aid: {
         title: "공공 지원 신청",
-        text: "정부 및 지자체 지원금 신청 방법을 단계별로 안내합니다.",
-        youtube: "https://www.youtube.com/embed/kNfqHb7vFW4",
+        text: `
+        <hr><h2>대표 지원금</h2>
+        &#149 청년 월세 지원<br>
+        &#149 한부모가족·차상위계층 생활지원금<br>
+        &#149 근로장려금(EITC)·자녀장려금(CTC)<br>
+        &#149 긴급복지 생계지원<br>
+        &#149 지방자치단체 청년지원금(교통비/문화비 등)<br><br>
+
+        <h2>지원금 신청 기본 절차</h2>
+        1) 지원금 대상 확인<br>
+        2) 필요 서류 준비<br>
+        3) 온라인 또는 방문 신청<br>
+        4) 심사 및 결과 통보<br>
+        5) 계좌로 지급<br><br>
+
+        *대부분은 <b>정부24, 복지로, 홈택스, 지자체 복지 포털</b>에서 온라인 신청 가능<br><br>
+
+        <h2>1. 정부24에서 지원금 찾기</h2>
+        <a href="https://www.gov.kr">https://www.gov.kr</a><br><br>
+
+        <b>이용 방법</b><br>
+        &#149 정부24 접속 → 로그인<br>
+        &#149 “보조금24” 메뉴 선택<br>
+        &#149 내게 맞는 혜택 자동 조회<br>
+        &#149 신청 가능한 항목은 바로 연결<br><br>
+
+        <b>장점</b><br>
+        &#149 국세청·건보·지자체 정보를 기반으로 한 맞춤형 지원금 추천 제공<br><br>
+
+        <h2>2. 복지로에서 복지서비스 신청</h2>
+        <a href=https://www.bokjiro.go.kr>https://www.bokjiro.go.kr</a><br><br>
+
+        <b>주요 서비스</b><br>
+        &#149 긴급복지지원<br>
+        &#149 한부모 및 차상위 지원<br>
+        &#149 지역 복지기관 안내<br><br>
+
+        <b>신청 절차</b><br>
+        1) 복지로 접속 → 로그인<br>
+        2) “복지서비스 신청” 선택<br>
+        3) 정보 입력 및 서류 제출<br>
+        4) 결과 통보<br><br>
+        `,
+        youtube: "",
       },
       transport: {
         title: "지하철 노선도 읽는 법",
-        text: "초보자를 위한 대중교통 노선도 해석법과 환승 팁을 알려드립니다.",
-        youtube: "https://www.youtube.com/embed/QhaHbGsa7Sg",
+        text: `
+        <hr><h2>기본 구조 이해하기</h2>
+        &#149 각 색은 각각의 ‘노선’을 의미<br>
+        &#149 동그라미는 ‘역’, 굵은 동그라미는 ‘환승역’<br>
+        &#149 노선 번호는 색과 숫자로 표시<br><br>
+
+        <h2>STEP 1. 출발역과 도착역 찾기</h2>
+        &#149 지하철 노선도 전체에서 두 역의 위치 파악<br>
+        &#149 같은 노선인지, 환승이 필요한지 확인<br><br>
+
+        <h2>STEP 2. 환승 노선 확인</h2>
+        &#149 환승역의 색이 여러 개 연결됨<br>
+        &#149 환승할 경우 이동 통로가 있을 수 있음<br><br>
+
+        <h2>STEP 3. 방향 선택</h2>
+        &#149 상행/하행 또는 ○○행(OOO 방면) 표기 주의<br><br>
+
+        <h2>TIP</h2>
+        &#149 서울 지하철은 2~3개 노선으로 구성된 환승역이 매우 많음<br>
+        &#149 지하철 앱 사용 추천(경로 자동 계산)<br><br>
+
+        <h2>아래 영상을 통해 지하철 앱 사용 방법을 익혀보세요.</h2>`,
+        youtube: "https://www.youtube.com/embed/GPQ5Z8ckomA?si=zm-fMNA1APRylu8y",
       },
       shopping: {
         title: "생활 필수품 현명하게 구매하기",
-        text: "합리적 소비와 할인 전략으로 경제적 생활을 유지하는 방법을 배워보세요.",
-        youtube: "https://www.youtube.com/embed/TbRi8dTRRHQ",
+        text: `
+        <h2>STEP 1. 가격 비교</h2>
+        &#149 네이버 가격비교, 쿠팡 로켓와우 활용<br>
+        &#149 묶음 구매가 더 저렴한 경우 많음<br><br>
+
+        <h2>STEP 2. 품질 비교</h3>
+        &#149 리뷰 확인(사진 포함 리뷰 우선)<br>
+        &#149 브랜드보다 용량/구성 비교<br><br>
+
+        <h2>STEP 3. 할인가 활용</h2>
+        &#149 1+1 행사 활용<br>
+        &#149 정기배송 할인 확인<br>
+        &#149 카드사 즉시할인 적용 여부 확인<br><br>
+
+        <h2>TIP</h2>
+        &#149 세탁세제·휴지는 대량 구매가 가장 경제적<br>
+        &#149 제품 유통기한 체크 필수<br><br>
+
+        <h2>아래 영상을 통해 현명한 소비 습관을 길들여보세요.</h2>`,
+        youtube: "https://www.youtube.com/embed/z_-J6YbgZkQ?si=zoFdPscx0IYca3Qh",
       },
     },
+  health: {  
+    home_safety: {
+      title: "가정 내 안전 체크리스트",
+      text: `
+        <hr><h3>가정 내 주요 위험 요소</h3>
+        - 화재(전기·가스)<br>
+        - 미끄럼 사고<br>
+        - 낙상 위험(장난감, 계단)<br>
+        - 전자제품 과열<br><br>
+
+        <h3>가스 안전</h3>
+        - 사용 후 밸브 잠그기<br>
+        - 냄새(가스 냄새)나면 즉시 창문 개방 후 119 신고<br>
+        - 환기구 막지 않기<br><br>
+
+        <h3>전기 안전</h3>
+        - 멀티탭에 과도한 전력 사용 금지<br>  
+        - 젖은 손으로 플러그 만지지 않기<br>
+        - 파손된 전선은 즉시 교체<br><br>
+
+        <h3>화재 대비 체크</h3>
+        - 소화기 비치하기(사용 기한 확인)<br>
+        - 화재 경보기 설치 및 월 1회 테스트<br>
+        - 콘센트 먼지 제거하기<br><br>
+
+        <h3>어린이·노약자 안전</h3>
+        - 모서리 보호대 설치<br>
+        - 문 끼임 방지<br>
+        - 계단 미끄럼 방지<br><br>
+
+        <h3>기타 안전</h3>
+        - 락스 청소 후 뜨거운 물 세척 금지
+
+        `,
+      youtube: "https://www.youtube.com/embed/1oPoX7mEpdg"
+      },
+      school_work_safety: {
+        title: "학교 및 직장 안전수칙",
+        text: `
+        <hr><h3>기본 안전 수칙</h3>
+        - 비상구 위치 확인<br>
+        - 소화기·AED 위치 확인<br>
+        - 안전모·보호장비 착용(해당 시)<br>
+        - 엘리베이터 과적 금지<br><br>
+
+        <h3>학교 안전</h3>
+        - 실험실 안전수칙 준수<br>
+        - 체육 활동 시 보호장비 착용<br>
+        - 화재·지진 대피 훈련 참여<br><br>
+
+        <h3>직장 안전</h3>
+        - 산업안전교육 정기 참여<br>
+        - 작업 중 장난 금지<br>
+        - 컴퓨터 작업은 1시간마다 스트레칭<br><br>
+
+        <h3>FAQ</h3>
+        <b>Q. 산업안전교육은 의무인가?</b><br>
+        A. 근로자는 연 1회 이상 반드시 받아야 합니다.<br><br>
+        `,
+        youtube: "https://www.youtube.com/embed/z0FZci0iTrc"
+      },
+      emergency: {
+        title: "응급 상황 대처법 (CPR)",
+        text: `
+        <hr><h3>심정지 의심 상황</h3>
+        - 반응 없음<br>
+        - 호흡 없음 또는 비정상적 호흡<br><br>
+
+        <h3>STEP 1. 반응 확인</h3>
+        - 어깨 두드리며 "괜찮으세요?" 확인<br><br>
+
+        <h3>STEP 2. 119 신고</h3>
+        - 주변 사람에게 AED 가져오라고 요청<br><br>
+
+        <h3>STEP 3. 가슴압박</h3>
+        - 양손 깍지 끼고 가슴 중앙을 30회 강하게 압박<br>
+        - 분당 100~120회 속도 ("Stayin' Alive" 속도)<br><br>
+
+        <h3> STEP 4. AED 사용</h3>
+        - 전극패드 붙이고 음성 안내에 따라 진행<br><br>
+
+        <h3>FAQ</h3>
+        <b>Q. 잘못 눌러서 갈비뼈가 부러지면?</b><br>
+        A. 생명을 살리는 것이 우선이며, 법적 문제 없음(선한 사마리아인 법).<br><br>
+        `,
+        youtube: "https://www.youtube.com/embed/3ok_1zKPGwQ"
+      },
+      disaster: {
+        title: "화재 및 재난 대비",
+        text: `
+        <hr><h3>화재 발생 시 행동 요령</h3>
+        - 불이 난 곳에서 즉시 벗어날 것<br>
+        - 계단 이용 (엘리베이터 금지)<br>
+        - 젖은 수건으로 코·입 가리기<br><br>
+
+        <h3>지진 발생 시</h3>
+        - 탁자 아래로 들어가기<br>
+        - 머리 보호하기<br>
+        - 건물 밖 이동 시 떨어지는 물체 주의<br><br>
+
+        <h3>폭우·침수 시</h3>
+        - 지하·반지하 공간 즉시 대피<br>
+        - 자동차 침수 시 창문 열고 탈출<br><br>
+
+        <h3>FAQ</h3>
+        <b>Q. 대피 시 가장 먼저 챙길 것은?</b><br>
+        A. 생명 → 휴대폰 → 최소한의 신분증 순입니다.<br><br>
+        `,
+        youtube: "https://www.youtube.com/embed/6QY8b0LCMpY"
+      },
+      password: {
+        title: "안전한 비밀번호 설정",
+        text: `
+        <hr><h3>강력한 비밀번호 조건</h3>
+        - 최소 10자리 이상<br>
+        - 대문자/소문자/숫자/특수문자 포함<br>
+        - 생일·전화번호 사용 금지<br><br>
+
+        <h3>비밀번호 관리 팁</h3>
+        - 비밀번호 재사용 금지<br>
+        - 3~6개월에 한 번 변경<br>
+        - 비밀번호 관리 앱 사용 추천<br><br>
+
+        <h3>FAQ</h3>
+        <b>Q. 가장 안전한 비밀번호는?</b><br>
+        A. 문장형 비밀번호(예: IloveCoffee!2024).<br><br>
+        `,
+        youtube: "https://www.youtube.com/embed/GrK_5sww-EI"
+      },
+      phishing: {
+        title: "피싱 사기 식별 및 대응",
+        text: `
+        <hr><h3>피싱 사기 특징</h3>
+        - 링크 클릭 요구<br>
+        - 개인정보 입력 유도<br>
+        - 긴박한 상황 조성<br><br>
+
+        <h3>예방 방법</h3>
+        - 출처 불명 링크 클릭 금지<br>
+        - 발신 번호 확인<br>
+        - 금융앱은 공식 스토어에서만 설치<br><br>
+
+        <h3>피싱 피해 발생 시</h3>
+        - 즉시 은행 고객센터 연락<br>
+        - 계좌 지급정지 요청<br>
+        - 경찰청 사이버수사국 신고<br><br>
+
+        <h3>FAQ</h3>
+        <b>Q. 보이는 번호가 은행 번호면 안전한가요?</b><br>
+        A. 번호조작 가능하므로 절대 믿으면 안 됩니다.<br><br>
+        `,
+        youtube: "https://www.youtube.com/embed/OtgN-cx2A2E"
+      },
+      leakage: {
+        title: "개인정보 유출 시 대응",
+        text: `
+        <hr><h3>즉시 해야 할 조치</h3>
+        - 비밀번호 변경<br>
+        - 2단계 인증 활성화<br>
+        - 금융사기 모니터링 등록<br><br>
+
+        <h3>추가 피해 예방</h3>
+        - 의심되는 메시지 확인<br>
+        - 결제내역 주기적 체크<br>
+        - 신용정보 조회 서비스 이용<br><br>
+
+        <h3>국가 지원 제도</h3>
+        - KISA 개인정보노출 알림 서비스<br><br>
+
+        <h3>FAQ</h3>
+        <b>Q. 주민번호가 유출되면 어떻게 하나요?</b><br>
+        A. 주민번호 변경 신청은 범죄 위험이 큰 경우에 한해 허용됩니다.<br><br>
+        `,
+        youtube: "https://www.youtube.com/embed/QxgRv4HIfAo"
+      },
+      public_info: {
+        title: "공공장소에서 정보 보호",
+        text: `
+        <hr><h3>보안 기본 수칙</h3>
+        - 공용 Wi-Fi 사용 시 로그인 금지<br>
+        - 화면 보호기 설정<br>
+        - 이어폰 없이 통화 시 개인정보 말하지 않기<br><br>
+
+        <h3>카페·도서관에서</h3>
+        - 자리 비울 때 노트북 잠금<br>
+        - 주변의 엿보기 주의<br><br>
+
+        <h3>대중교통에서</h3>
+        - 주민번호·OTP 등 입력 금지<br><br>
+
+        `,
+        youtube: "https://www.youtube.com/embed/nKBX6gG2y5w"
+      },
+      contract: {
+        title: "근로계약 이해하기",
+        text: `
+        <hr><h3>근로계약서 필수 항목</h3>
+        - 근무시간<br>
+        - 임금(시급/월급)<br>
+        - 휴게시간<br>
+        - 휴일·휴가<br>
+        - 직무 내용<br><br>
+
+        <h3>근로조건 확인 팁</h3>
+        - 구두계약은 절대 금지<br>
+        - 계약 변경 시 서면 필수<br>
+        - 계약서 사본 반드시 요구<br><br>
+
+        <h3>FAQ</h3>
+        <b>Q. 근로계약서 안 쓰면 불법인가요?</b><br>
+        A. 네, 사업주가 500만원 이하 벌금 대상입니다.<br><br>
+        `,
+        youtube: "https://www.youtube.com/embed/yUTNgeAm8wg"
+      },
+      harassment: {
+        title: "직장 내 괴롭힘 예방",
+        text: `
+        <hr><h3>괴롭힘 유형</h3>
+        - 폭언·모욕<br>
+        - 과도한 업무부여<br>
+        - 업무 배제<br>
+        - 사적 심부름 강요<br><br>
+
+        <h3>예방 및 대응</h3>
+        - 증거 확보(녹취·메모)<br>
+        - 사업장 내 신고 절차 이용<br>
+        - 노동청 신고 가능<br><br>
+
+        <h3>FAQ</h3>
+        <b>Q. 익명 신고도 가능한가요?</b><br>
+        A. 사업장마다 다르지만 대부분 가능합니다.<br><br>
+        `,
+        youtube: "https://www.youtube.com/embed/hgA5QsJYgqs"
+      },
+      wage: {
+        title: "임금 및 초과근로 기준",
+        text: `
+        <hr><h3>법정근로시간</h3>
+        - 주 40시간, 하루 8시간<br><br>
+
+        <h3>초과근로 수당</h3>
+        - 연장근로: 시급 × 1.5<br>
+        - 야간근로: 22시~06시 (시급 × 1.5)<br>
+        - 휴일근로: 시급 × 1.5 또는 2.0(8시간 초과)<br><br>
+
+        <h3>FAQ</h3>
+        <b>Q. 최저임금 이하로 주면 어떻게 하나요?</b><br>
+        A. 노동청에 신고 시 미지급 임금 전액 + 지연이자 지급.<br><br>
+        `,
+        youtube: "https://www.youtube.com/embed/YN7YU4zYBnM"
+      },
+      dismissal: {
+        title: "부당 해고 대응",
+        text: `
+        <hr><h3>부당 해고 기준</h3>
+        - 정당한 이유 없이 해고<br>
+        - 절차 미준수<br>
+        - 사전 통보 미실시(30일 전)<br><br>
+
+        <h3>대응 절차</h3>
+        - 지방노동위원회에 구제신청(3개월 이내)<br>
+        - 해고 사실 증거 확보<br><br>
+
+        <h3>FAQ</h3>
+        <b>Q. 문자로 해고 통보도 인정되나요?</b><br>
+        A. 정식 문서가 아니라면 절차 위반입니다.<br><br>
+        `,
+        youtube: "https://www.youtube.com/embed/dwdDc9NO-dY"
+      },
+      insurance_type: {
+        title: "건강보험 종류 선택",
+        text: `
+        <hr><h3>보험 유형</h3>
+        - 직장가입자<br>
+        - 지역가입자<br>
+        - 피부양자<br><br>
+
+        <h3>선택 기준</h3>
+        - 소득 여부<br>
+        - 가족 구성<br>
+        - 직장 유무<br><br>
+
+        `,
+        youtube: "https://www.youtube.com/embed/6verUXLnoKg"
+      },
+      insurance_payment: {
+        title: "보험료 납부 및 혜택",
+        text: `
+        <hr><h3>보험료 납부 방법</h3>
+        - 자동이체<br>
+        - ARS 납부<br>
+        - 인터넷 뱅킹<br>
+        - 은행창구<br><br>
+
+        <h3>주요 혜택</h3>
+        - 병원비 일부 지원<br>
+        - 건강검진 제공<br>
+        - 출산지원금 일부 지원<br><br>
+        `,
+        youtube: "https://www.youtube.com/embed/Ho3L3C2y_S8"
+      },
+      hospital_claim: {
+        title: "병원비 청구 절차",
+        text: `
+        <hr><h3>청구 방법</h3>
+        - 병원에서 보험공단으로 자동 청구(대부분)<br>
+        - 직접 청구 시: 진단서, 영수증 필요<br><br>
+
+        <h3>필요 서류</h3>
+        - 진료비 영수증<br>
+        - 진단서<br>
+        - 통장사본<br><br>
+
+        `,
+        youtube: "https://www.youtube.com/embed/2bY1_1weFgA"
+      },
+      medical_support: {
+        title: "의료비 지원 제도",
+        text: `
+        <hr><h3>지원 대상</h3>
+        - 기초생활수급자<br>
+        - 저소득층<br>
+        - 한부모 가정<br>
+        - 중증질환자<br><br>
+
+        <h3>대표 제도</h3>
+        - 재난적 의료비 지원<br>
+        - 산정특례 제도<br>
+        - 긴급의료비 지원<br><br>
+        `,
+        youtube: "https://www.youtube.com/embed/i3PCnk3s74Q"
+      }
+    }
   };
   
   const content = contents[page]?.[topic];
