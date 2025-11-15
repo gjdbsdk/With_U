@@ -179,6 +179,7 @@ document.addEventListener("DOMContentLoaded", function () {
         3) 정보 입력 및 서류 제출<br>
         4) 결과 통보<br><br>
         `,
+        //영상미기재
         youtube: "",
       },
       transport: {
@@ -235,333 +236,252 @@ document.addEventListener("DOMContentLoaded", function () {
     home_safety: {
       title: "가정 내 안전 체크리스트",
       text: `
-        <hr><h3>가정 내 주요 위험 요소</h3>
-        - 화재(전기·가스)<br>
-        - 미끄럼 사고<br>
-        - 낙상 위험(장난감, 계단)<br>
-        - 전자제품 과열<br><br>
+        <hr><h2>가정 내 주요 위험 요소</h2>
+        &#149 화재(전기·가스)<br>
+        &#149 미끄럼 사고<br>
+        &#149 낙상 위험(장난감, 계단)<br>
+        &#149 전자제품 과열<br><br>
 
         <h3>가스 안전</h3>
-        - 사용 후 밸브 잠그기<br>
-        - 냄새(가스 냄새)나면 즉시 창문 개방 후 119 신고<br>
-        - 환기구 막지 않기<br><br>
+        &#149 사용 후 밸브 잠그기<br>
+        &#149 환기구 막지 않기<br><br>
 
         <h3>전기 안전</h3>
-        - 멀티탭에 과도한 전력 사용 금지<br>  
-        - 젖은 손으로 플러그 만지지 않기<br>
-        - 파손된 전선은 즉시 교체<br><br>
+        &#149 멀티탭에 과도한 전력 사용 금지<br>  
+        &#149 젖은 손으로 플러그 만지지 않기<br>
+        &#149 파손된 전선은 즉시 교체<br><br>
 
         <h3>화재 대비 체크</h3>
-        - 소화기 비치하기(사용 기한 확인)<br>
-        - 화재 경보기 설치 및 월 1회 테스트<br>
-        - 콘센트 먼지 제거하기<br><br>
+        &#149 소화기 비치하기(사용 기한 확인)<br>
+\       &#149 콘센트 먼지 제거하기<br><br>
 
         <h3>어린이·노약자 안전</h3>
-        - 모서리 보호대 설치<br>
-        - 문 끼임 방지<br>
-        - 계단 미끄럼 방지<br><br>
+        &#149 모서리 보호대 설치<br>
+        &#149 문 끼임 방지<br>
+        &#149 계단 미끄럼 방지<br><br>
 
-        <h3>기타 안전</h3>
-        - 락스 청소 후 뜨거운 물 세척 금지
-
-        `,
-      youtube: "https://www.youtube.com/embed/1oPoX7mEpdg"
+        <h2>아래 영상을 통해 가정 내 안전사고를 예방하세요.</h2>`,
+        youtube: "https://www.youtube.com/embed/I8Tc-2bhNgk?si=LrqNmCDYkU-InZjG",
       },
       school_work_safety: {
         title: "학교 및 직장 안전수칙",
         text: `
         <hr><h3>기본 안전 수칙</h3>
         - 비상구 위치 확인<br>
-        - 소화기·AED 위치 확인<br>
+        - 소화기·자동심장충격기(AED) 위치 확인<br>
         - 안전모·보호장비 착용(해당 시)<br>
         - 엘리베이터 과적 금지<br><br>
 
         <h3>학교 안전</h3>
         - 실험실 안전수칙 준수<br>
-        - 체육 활동 시 보호장비 착용<br>
+        - 체육 활동 전, 스트레칭<br>
         - 화재·지진 대피 훈련 참여<br><br>
 
         <h3>직장 안전</h3>
         - 산업안전교육 정기 참여<br>
-        - 작업 중 장난 금지<br>
         - 컴퓨터 작업은 1시간마다 스트레칭<br><br>
-
-        <h3>FAQ</h3>
-        <b>Q. 산업안전교육은 의무인가?</b><br>
-        A. 근로자는 연 1회 이상 반드시 받아야 합니다.<br><br>
         `,
-        youtube: "https://www.youtube.com/embed/z0FZci0iTrc"
-      },
+        //영상미기재
+        youtube: "",
+        },
       emergency: {
-        title: "응급 상황 대처법 (CPR)",
+        title: "응급 상황 대처법 (심폐소생술)",
         text: `
-        <hr><h3>심정지 의심 상황</h3>
+        <hr><h2>심정지 의심 상황</h2>
         - 반응 없음<br>
         - 호흡 없음 또는 비정상적 호흡<br><br>
 
-        <h3>STEP 1. 반응 확인</h3>
-        - 어깨 두드리며 "괜찮으세요?" 확인<br><br>
+        <h2>STEP 1. 반응 확인</h2>
+        - 어깨 두드리며 의식 확인<br><br>
 
-        <h3>STEP 2. 119 신고</h3>
-        - 주변 사람에게 AED 가져오라고 요청<br><br>
+        <h2>STEP 2. 119 신고</h2>
+        - 주변 사람에게 자동심장충격기(AED) 가져오라고 요청<br><br>
 
-        <h3>STEP 3. 가슴압박</h3>
+        <h2>STEP 3. 가슴압박</h2>
         - 양손 깍지 끼고 가슴 중앙을 30회 강하게 압박<br>
-        - 분당 100~120회 속도 ("Stayin' Alive" 속도)<br><br>
+        - 분당 100~120회 속도 유지<br><br>
 
-        <h3> STEP 4. AED 사용</h3>
+        <h2> STEP 4. 자동심장충격기(AED) 사용</h2>
         - 전극패드 붙이고 음성 안내에 따라 진행<br><br>
 
-        <h3>FAQ</h3>
-        <b>Q. 잘못 눌러서 갈비뼈가 부러지면?</b><br>
-        A. 생명을 살리는 것이 우선이며, 법적 문제 없음(선한 사마리아인 법).<br><br>
-        `,
-        youtube: "https://www.youtube.com/embed/3ok_1zKPGwQ"
+        <h2>자주 묻는 질문</h2>
+        <b>Q. 잘못 눌러서 갈비뼈가 부러지면 법적으로 문제가 생기나요?</b><br>
+        A. 생명을 살리는 것이 우선이며, 법적으로 문제가 생기지 않습니다..<br><br>
+
+        <h2>아래 영상을 통해 심폐소생술(CPR) 방법과 자동심장충격기(AED) 사용 방법을 알아보세요.</h2>`,
+        youtube: "https://www.youtube.com/embed/q7J2T6MFA9g?si=V7bGODyc5SggYBmv",
       },
       disaster: {
         title: "화재 및 재난 대비",
         text: `
-        <hr><h3>화재 발생 시 행동 요령</h3>
+        <hr><h2>화재 발생 시 행동 요령</h2>
         - 불이 난 곳에서 즉시 벗어날 것<br>
         - 계단 이용 (엘리베이터 금지)<br>
         - 젖은 수건으로 코·입 가리기<br><br>
 
-        <h3>지진 발생 시</h3>
+        <h2>지진 발생 시</h2>
         - 탁자 아래로 들어가기<br>
         - 머리 보호하기<br>
         - 건물 밖 이동 시 떨어지는 물체 주의<br><br>
 
-        <h3>폭우·침수 시</h3>
+        <h2>폭우·침수 시</h2>
         - 지하·반지하 공간 즉시 대피<br>
         - 자동차 침수 시 창문 열고 탈출<br><br>
 
-        <h3>FAQ</h3>
-        <b>Q. 대피 시 가장 먼저 챙길 것은?</b><br>
-        A. 생명 → 휴대폰 → 최소한의 신분증 순입니다.<br><br>
-        `,
-        youtube: "https://www.youtube.com/embed/6QY8b0LCMpY"
+        <h2>아래 영상을 통해 재난 대피 요령을 자세히 알아보세요.</h2>`,
+        youtube: "https://www.youtube.com/embed/a1X7yR9p-m4?si=8UI_Zirb-pRHTjFQ",
       },
       password: {
         title: "안전한 비밀번호 설정",
         text: `
-        <hr><h3>강력한 비밀번호 조건</h3>
-        - 최소 10자리 이상<br>
-        - 대문자/소문자/숫자/특수문자 포함<br>
-        - 생일·전화번호 사용 금지<br><br>
+        <h2>비밀번호 관리 팁</h2>
+        &#149 비밀번호 재사용 금지<br>
+        &#149 3~6개월에 한 번 변경<br>
+        &#149 스마트폰 메모장에 비밀번호 작성 금지<br><br>
 
-        <h3>비밀번호 관리 팁</h3>
-        - 비밀번호 재사용 금지<br>
-        - 3~6개월에 한 번 변경<br>
-        - 비밀번호 관리 앱 사용 추천<br><br>
-
-        <h3>FAQ</h3>
-        <b>Q. 가장 안전한 비밀번호는?</b><br>
-        A. 문장형 비밀번호(예: IloveCoffee!2024).<br><br>
-        `,
-        youtube: "https://www.youtube.com/embed/GrK_5sww-EI"
+        <h2>아래 영상을 통해 안전한 비밀번호를 생성해보세요.</h2>`,
+        youtube: "https://www.youtube.com/embed/6Danns5I8MM?si=xtscg1T3Oq_nvXog",
       },
       phishing: {
         title: "피싱 사기 식별 및 대응",
         text: `
-        <hr><h3>피싱 사기 특징</h3>
-        - 링크 클릭 요구<br>
-        - 개인정보 입력 유도<br>
-        - 긴박한 상황 조성<br><br>
+        <hr><h2>피싱 사기 특징</h2>
+        &#149 링크 클릭 요구<br>
+        &#149 개인정보 입력 유도<br>
+        &#149 기프트카드 구매 유도<br>
+        &#149 긴박한 상황 조성<br><br>
 
-        <h3>예방 방법</h3>
-        - 출처 불명 링크 클릭 금지<br>
-        - 발신 번호 확인<br>
-        - 금융앱은 공식 스토어에서만 설치<br><br>
+        <h2>예방 방법</h2>
+        &#149 출처 불명 링크 클릭 금지<br>
+        &#149 발신 번호 확인<br>
+        &#149 금융앱은 공식 스토어에서만 설치<br><br>
 
-        <h3>피싱 피해 발생 시</h3>
-        - 즉시 은행 고객센터 연락<br>
-        - 계좌 지급정지 요청<br>
-        - 경찰청 사이버수사국 신고<br><br>
+        <h2>피싱 피해 발생 시</h2>
+        &#149 즉시 은행 고객센터 연락<br>
+        &#149 계좌 지급정지 요청<br>
+        &#149 경찰청 사이버수사국 신고<br><br>
 
-        <h3>FAQ</h3>
-        <b>Q. 보이는 번호가 은행 번호면 안전한가요?</b><br>
-        A. 번호조작 가능하므로 절대 믿으면 안 됩니다.<br><br>
-        `,
-        youtube: "https://www.youtube.com/embed/OtgN-cx2A2E"
+        <h2>아래 영상을 통해 피싱 사기 식별 방법을 자세히 알아보세요.</h2>`,
+        youtube: "https://www.youtube.com/embed/VVz1anudncE?si=0w1kGd38rIf4C6la",
       },
       leakage: {
         title: "개인정보 유출 시 대응",
         text: `
-        <hr><h3>즉시 해야 할 조치</h3>
-        - 비밀번호 변경<br>
-        - 2단계 인증 활성화<br>
-        - 금융사기 모니터링 등록<br><br>
+        <hr><h2>즉시 해야 할 조치</h2>
+        &#149 비밀번호 변경<br>
+        &#149 2단계 인증 활성화<br>
+        &#149 금융사기 모니터링 등록<br><br>
 
-        <h3>추가 피해 예방</h3>
-        - 의심되는 메시지 확인<br>
-        - 결제내역 주기적 체크<br>
-        - 신용정보 조회 서비스 이용<br><br>
+        <h2>추가 피해 예방</h2>
+        &#149 의심되는 메시지 확인<br>
+        &#149 결제내역 주기적 체크<br>
+        &#149 신용정보 조회 서비스 이용<br>
+        &#149 KISA 개인정보노출 알림 서비스 이용<br><br>
 
-        <h3>국가 지원 제도</h3>
-        - KISA 개인정보노출 알림 서비스<br><br>
-
-        <h3>FAQ</h3>
-        <b>Q. 주민번호가 유출되면 어떻게 하나요?</b><br>
-        A. 주민번호 변경 신청은 범죄 위험이 큰 경우에 한해 허용됩니다.<br><br>
-        `,
-        youtube: "https://www.youtube.com/embed/QxgRv4HIfAo"
+        <h2>아래 영상을 통해 개인정보 유출 시 대응 방법을 자세히 알아보세요.</h2>`,
+        youtube: "https://www.youtube.com/embed/Sy5FyTm1BVY?si=yES617tj-vD_8u7C",
       },
       public_info: {
         title: "공공장소에서 정보 보호",
         text: `
-        <hr><h3>보안 기본 수칙</h3>
-        - 공용 Wi-Fi 사용 시 로그인 금지<br>
-        - 화면 보호기 설정<br>
-        - 이어폰 없이 통화 시 개인정보 말하지 않기<br><br>
+        <hr><h2>보안 기본 수칙</h2>
+        &#149 공용 Wi-Fi 사용 시 로그인 금지<br>
+        &#149 화면 보호기 설정<br>
+        &#149 이어폰 없이 통화 시 개인정보 말하지 않기<br><br>
 
-        <h3>카페·도서관에서</h3>
-        - 자리 비울 때 노트북 잠금<br>
-        - 주변의 엿보기 주의<br><br>
+        <h2>카페·도서관에서</h2>
+        &#149 자리 비울 때 노트북 잠금<br>
+        &#149 주변의 엿보기 주의<br><br>
 
-        <h3>대중교통에서</h3>
-        - 주민번호·OTP 등 입력 금지<br><br>
-
+        <h2>대중교통에서</h2>
+        &#149 주민번호·OTP 등 입력 금지<br><br>
         `,
-        youtube: "https://www.youtube.com/embed/nKBX6gG2y5w"
+        //영상미기재
+        youtube: "",
       },
       contract: {
         title: "근로계약 이해하기",
         text: `
-        <hr><h3>근로계약서 필수 항목</h3>
-        - 근무시간<br>
-        - 임금(시급/월급)<br>
-        - 휴게시간<br>
-        - 휴일·휴가<br>
-        - 직무 내용<br><br>
+        <hr><h2>근로계약서 필수 항목</h2>
+        &#149 근무시간<br>
+        &#149 임금(시급/월급)<br>
+        &#149 휴게시간<br>
+        &#149 휴일·휴가<br>
+        &#149 직무 내용<br><br>
 
-        <h3>근로조건 확인 팁</h3>
-        - 구두계약은 절대 금지<br>
-        - 계약 변경 시 서면 필수<br>
-        - 계약서 사본 반드시 요구<br><br>
+        <h2>근로조건 확인 팁</h2>
+        &#149 구두계약은 절대 금지<br>
+        &#149 계약 변경 시 서면 필수<br>
+        &#149 계약서 사본 반드시 요구<br><br>
 
-        <h3>FAQ</h3>
-        <b>Q. 근로계약서 안 쓰면 불법인가요?</b><br>
-        A. 네, 사업주가 500만원 이하 벌금 대상입니다.<br><br>
-        `,
-        youtube: "https://www.youtube.com/embed/yUTNgeAm8wg"
+        <h2>아래 영상을 통해 근로계약서 작성 시 필수 확인사항을 알아보세요.</h2>`,
+        youtube: "https://www.youtube.com/embed/x4fk16B3nvg?si=2OV57Md1yArO5Mpr",
       },
       harassment: {
         title: "직장 내 괴롭힘 예방",
         text: `
-        <hr><h3>괴롭힘 유형</h3>
-        - 폭언·모욕<br>
-        - 과도한 업무부여<br>
-        - 업무 배제<br>
-        - 사적 심부름 강요<br><br>
+        <hr><h2>괴롭힘 유형</h2>
+        &#149 폭언·모욕<br>
+        &#149 과도한 업무부여<br>
+        &#149 업무 배제<br>
+        &#149 사적 심부름 강요<br><br>
 
-        <h3>예방 및 대응</h3>
-        - 증거 확보(녹취·메모)<br>
-        - 사업장 내 신고 절차 이용<br>
-        - 노동청 신고 가능<br><br>
+        <h2>예방 및 대응</h2>
+        &#149 증거 확보(녹취·메모)<br>
+        &#149 사업장 내 신고 절차 이용<br>
+        &#149 노동청 신고 가능<br><br>
 
-        <h3>FAQ</h3>
-        <b>Q. 익명 신고도 가능한가요?</b><br>
-        A. 사업장마다 다르지만 대부분 가능합니다.<br><br>
-        `,
-        youtube: "https://www.youtube.com/embed/hgA5QsJYgqs"
+        <h2>아래 영상을 통해 직장에서 괴롭힘을 당할 때 대처 방법을 알아보세요.</h2>`,
+        youtube: "https://www.youtube.com/embed/0xAH1onGyi8?si=kEwpe6DvTxFolUUx",
       },
       wage: {
         title: "임금 및 초과근로 기준",
         text: `
-        <hr><h3>법정근로시간</h3>
-        - 주 40시간, 하루 8시간<br><br>
+        <hr><h2>법정근로시간</h2>
+        &#149 주 40시간, 하루 8시간<br><br>
 
-        <h3>초과근로 수당</h3>
-        - 연장근로: 시급 × 1.5<br>
-        - 야간근로: 22시~06시 (시급 × 1.5)<br>
-        - 휴일근로: 시급 × 1.5 또는 2.0(8시간 초과)<br><br>
+        <h2>초과근로 수당</h2>
+        &#149 연장근로: 시급 × 1.5<br>
+        &#149 야간근로: 22시~06시 (시급 × 1.5)<br>
+        &#149 휴일근로: 시급 × 1.5 또는 2.0(8시간 초과)<br><br>
 
-        <h3>FAQ</h3>
-        <b>Q. 최저임금 이하로 주면 어떻게 하나요?</b><br>
-        A. 노동청에 신고 시 미지급 임금 전액 + 지연이자 지급.<br><br>
-        `,
-        youtube: "https://www.youtube.com/embed/YN7YU4zYBnM"
+        <h2>아래 영상을 통해 수당 계산 방법을 익혀보세요.</h2> `,
+        youtube: "https://www.youtube.com/embed/gnTzG8T1VrU?si=Rja0BP1mkY28-bwt",
       },
       dismissal: {
         title: "부당 해고 대응",
         text: `
-        <hr><h3>부당 해고 기준</h3>
-        - 정당한 이유 없이 해고<br>
-        - 절차 미준수<br>
-        - 사전 통보 미실시(30일 전)<br><br>
+        <hr><h2>부당 해고 기준</h2>
+        &#149 정당한 이유 없이 해고<br>
+        &#149 절차 미준수<br>
+        &#149 사전 통보 미실시(30일 전)<br><br>
 
-        <h3>대응 절차</h3>
-        - 지방노동위원회에 구제신청(3개월 이내)<br>
-        - 해고 사실 증거 확보<br><br>
+        <h2>대응 절차</h2>
+        &#149 지방노동위원회에 구제신청(3개월 이내)<br>
+        &#149 해고 사실 증거 확보<br><br>
 
-        <h3>FAQ</h3>
-        <b>Q. 문자로 해고 통보도 인정되나요?</b><br>
-        A. 정식 문서가 아니라면 절차 위반입니다.<br><br>
-        `,
-        youtube: "https://www.youtube.com/embed/dwdDc9NO-dY"
+        <h2>아래 영상을 통해 부당 해고 대응방법을 알아보세요.</h2>`,
+        youtube: "https://www.youtube.com/embed/Z0dPu--ebz8?si=kmZc0NtL2a4WCVch",
       },
       insurance_type: {
-        title: "건강보험 종류 선택",
-        text: `
-        <hr><h3>보험 유형</h3>
-        - 직장가입자<br>
-        - 지역가입자<br>
-        - 피부양자<br><br>
-
-        <h3>선택 기준</h3>
-        - 소득 여부<br>
-        - 가족 구성<br>
-        - 직장 유무<br><br>
-
-        `,
-        youtube: "https://www.youtube.com/embed/6verUXLnoKg"
+        title: "건강보험 종류 및 선택",
+        text: "<h2>아래 영상을 통해 건강보험 종류를 알아보고, 알맞는 보험을 선택하세요.</h2>",
+        youtube: "https://www.youtube.com/embed/Bb_bcarFGMs?si=E3yz5-I52tdT2d5a",
       },
       insurance_payment: {
-        title: "보험료 납부 및 혜택",
-        text: `
-        <hr><h3>보험료 납부 방법</h3>
-        - 자동이체<br>
-        - ARS 납부<br>
-        - 인터넷 뱅킹<br>
-        - 은행창구<br><br>
-
-        <h3>주요 혜택</h3>
-        - 병원비 일부 지원<br>
-        - 건강검진 제공<br>
-        - 출산지원금 일부 지원<br><br>
-        `,
-        youtube: "https://www.youtube.com/embed/Ho3L3C2y_S8"
+        title: "4대 보험료 납부 및 혜택",
+        text: "<hr><h2>아래 영상을 통해 4대 보험료 납부 방법을 알아보세요.</h2>",
+        youtube: "https://www.youtube.com/embed/i5RSX3W06a0?si=K0L7MkgR2pmoDdTb",
       },
       hospital_claim: {
-        title: "병원비 청구 절차",
-        text: `
-        <hr><h3>청구 방법</h3>
-        - 병원에서 보험공단으로 자동 청구(대부분)<br>
-        - 직접 청구 시: 진단서, 영수증 필요<br><br>
-
-        <h3>필요 서류</h3>
-        - 진료비 영수증<br>
-        - 진단서<br>
-        - 통장사본<br><br>
-
-        `,
-        youtube: "https://www.youtube.com/embed/2bY1_1weFgA"
+        title: "실비보험 청구 절차",
+        text: "<hr><h2>아래 영상을 통해 실비보험 청구 방법을 자세히 알아보세요.</h2>",
+        youtube: "https://www.youtube.com/embed/0j5aZviKhyE?si=FD1dYpCv9bxEyCRA",
       },
       medical_support: {
         title: "의료비 지원 제도",
-        text: `
-        <hr><h3>지원 대상</h3>
-        - 기초생활수급자<br>
-        - 저소득층<br>
-        - 한부모 가정<br>
-        - 중증질환자<br><br>
-
-        <h3>대표 제도</h3>
-        - 재난적 의료비 지원<br>
-        - 산정특례 제도<br>
-        - 긴급의료비 지원<br><br>
-        `,
-        youtube: "https://www.youtube.com/embed/i3PCnk3s74Q"
+        text: "<hr><h2>아래 영상을 통해 국가 치료비 지원제도를 알아보세요.</h2>",
+        youtube: "https://www.youtube.com/embed/DayBkL9RMH0?si=1haSQWYgy_f_AzyT",
       }
     }
   };
