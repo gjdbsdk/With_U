@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const text = document.getElementById("detail-text");
   const youtube = document.getElementById("youtube-frame");
 
+  const videoWrapper = youtube.parentElement;
+  
   // 아래에 작성하시면 됩니다.
   const contents = {
     emotional: {
@@ -491,9 +493,14 @@ document.addEventListener("DOMContentLoaded", function () {
   if (content) {
     title.textContent = content.title;
     text.innerHTML = content.text;
-    youtube.src = content.youtube;
+    if (content.youtube) {
+      youtube.src = content.youtube;
+    } else {
+      videoWrapper.style.display = "none";
+    }
   } else {
     title.textContent = "콘텐츠를 찾을 수 없습니다.";
     text.textContent = "URL이 잘못되었거나 콘텐츠가 준비 중입니다.";
+    videoWrapper.style.display = "none";
   }
 });
