@@ -2,8 +2,47 @@ from django.views.generic import TemplateView
 import datetime     # 'timesince' 필터 및 임시 데이터 생성을 위해 임포트
 from django.shortcuts import render, redirect
         # 함수 기반 뷰(FBV) 및 리다이렉트를 위해 임포트
-
+from django.http import Http404
 from django import forms
+
+
+# [MOCK DB] 임시 데이터 저장소
+# 리스트 페이지와 상세 페이지가 이 데이터를 공유합니다.
+def get_dummy_db():
+    # 날짜 계산용
+    now = datetime.datetime.now()
+    
+    return [
+        {
+            'id': 1,  # 고유 ID 부여
+            'author_initial': '김',
+            'title': '첫 번째 테스트 포스트입니다',
+            'author_name': '김테스트',
+            'created_at': now - datetime.timedelta(hours=2),
+            'content': '이것은 상세 페이지 내용입니다.\n\n줄바꿈이 잘 적용되는지 확인해보세요.\n상세 페이지 디자인이 아주 깔끔하게 나왔으면 좋겠네요.',
+            'snippet': '이것은 뷰에서 넘어온 가짜 데이터입니다. 루프가 잘 도는지 확인해보세요...',
+            'likes_count': 12,
+            'comments_count': 2, # 아래 더미 댓글 개수와 맞춤
+            'views': 150,
+            'is_liked': False, # 내가 좋아요 눌렀는지 여부
+        },
+        {
+            'id': 2,
+            'author_initial': '이',
+            'title': '두 번째 테스트: 월세 계약 시 주의사항',
+            'author_name': '이장고',
+            'created_at': now - datetime.timedelta(days=1),
+            'content': '월세 계약할 때 등기부등본 꼭 확인하세요.\n근저당이 너무 많이 잡혀있으면 위험합니다.\n\n1. 등기부등본 확인\n2. 집주인 신분증 확인\n3. 특약사항 꼼꼼히 넣기',
+            'snippet': '두 번째 가짜 데이터입니다. 둥근 모서리 카드 스타일이 잘 나오는지 확인합니다.',
+            'likes_count': 5,
+            'comments_count': 0,
+            'views': 42,
+            'is_liked': True, 
+        }
+    ]
+
+
+# Forms
 #TODO: 추후 Post 모델 만들고 ModelForm으로 교체하기
 class PostForm(forms.Form):
     title = forms.CharField(label='제목', max_length=200)
@@ -69,40 +108,67 @@ class CitizenView(TemplateView):
     template_name = "citizen.html"
 
 
+
 class CommunityView(TemplateView):
-    template_name = "community.html"
+    template_name = "community/community.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        #TODO : [DB 연동] Post 모델 완성 후, 아래 임시 데이터를 실제 DB 쿼리로 교체하기
-        #       현재는 Frontend UI확인을 위한 Mock 데이터입니다
-
-        dummy_posts = [
-            {
-                'author_initial': '김',
-                'detail_url': '#', # 실제로는 상세 페이지 URL
-                'title': '첫 번째 테스트 포스트입니다',
-                'author_name': '김테스트',
-                'created_at': datetime.datetime.now() - datetime.timedelta(hours=2), # 2시간 전
-                'snippet': '이것은 뷰에서 넘어온 가짜 데이터입니다. 루프가 잘 도는지 확인해보세요. 스타일이 잘 적용되었나요?',
-                'likes_count': 12,
-                'comments_count': 8,
-            },
-            {
-                'author_initial': '이',
-                'detail_url': '#',
-                'title': '두 번째 테스트: 월세 계약 시 주의사항',
-                'author_name': '이장고',
-                'created_at': datetime.datetime.now() - datetime.timedelta(days=1), # 1일 전
-                'snippet': '두 번째 가짜 데이터입니다. 둥근 모서리 카드 스타일이 잘 나오는지 확인합니다.',
-                'likes_count': 5,
-                'comments_count': 3,
-            }
-        ]
-
-        context['posts'] = dummy_posts
+        # 전역 함수에서 데이터 가져오기
+        posts = get_dummy_db()
+        
+        # 각 포스트에 상세 페이지 URL 연결 (하드코딩 방식)
+        # 나중에 urls.py 설정에 따라 '/community/1/' 등으로 자동 생성해야 함
+        for post in posts:
+            # {% url 'frontend:post_detail' post.id %} 와 같은 효과를 내기 위해 
+            # 템플릿에서 처리하도록 여기서는 id만 잘 넘겨주기
+            post['detail_url'] = f"/community/{post['id']}/" 
+            
+        context['posts'] = posts
         return context
+    
+
+# 상세 페이지 뷰
+def post_detail_view(request, post_id):
+    # 1. 전체 더미 데이터 가져오기
+    posts = get_dummy_db()
+    
+    # 2. 요청된 post_id와 일치하는 데이터 찾기
+    # (Python 리스트에서 검색)
+    target_post = None
+    for post in posts:
+        if post['id'] == post_id:
+            target_post = post
+            break
+    
+    # 3. 없으면 404 에러
+    if target_post is None:
+        raise Http404("게시글을 찾을 수 없습니다.")
+
+    # 4. 더미 댓글 데이터 생성 (상세 페이지용)
+    dummy_comments = [
+        {
+            'author_initial': '박',
+            'author_name': '박댓글',
+            'created_at': datetime.datetime.now(),
+            'content': '정말 유용한 정보네요! 감사합니다.'
+        },
+        {
+            'author_initial': 'Guest',
+            'author_name': '지나가던행인',
+            'created_at': datetime.datetime.now() - datetime.timedelta(minutes=30),
+            'content': '디자인이 깔끔해서 보기 좋아요.'
+        }
+    ]
+
+    context = {
+        'post': target_post,
+        'comments': dummy_comments if target_post['id'] == 1 else [], # 1번 글에만 댓글이 있다고 가정
+    }
+    
+    return render(request, 'community/post_detail.html', context)
+
     
 class EmotionalView(TemplateView):
     template_name = "emotional.html"

@@ -1,0 +1,252 @@
+/* 전체 컨테이너: 중앙 정렬 및 최대 너비 제한 */
+.detail-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* 상단 네비게이션 */
+.detail-nav {
+    margin-bottom: 20px;
+}
+
+.back-link {
+    text-decoration: none;
+    color: #6b7280;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.back-link:hover {
+    color: #111827;
+}
+
+/* 게시글 카드 스타일 */
+.post-card {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* 게시글 헤더 */
+.post-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 24px;
+    line-height: 1.3;
+}
+
+.post-meta-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.author-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.author-avatar {
+    width: 40px;
+    height: 40px;
+    background-color: #f3f4f6;
+    color: #4b5563;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.author-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.author-name {
+    font-weight: 600;
+    color: #374151;
+    font-size: 0.95rem;
+}
+
+.post-date {
+    font-size: 0.85rem;
+    color: #9ca3af;
+}
+
+/* 구분선 */
+.divider {
+    border: 0;
+    border-top: 1px solid #e5e7eb;
+    margin: 24px 0;
+}
+
+/* 게시글 본문 */
+.post-content {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #374151;
+    min-height: 150px; /* 내용이 짧아도 최소 높이 확보 */
+    margin-bottom: 32px;
+}
+
+/* 하단 좋아요 및 기타 */
+.post-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.like-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border: 1px solid #e5e7eb;
+    border-radius: 20px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 1rem;
+    color: #4b5563;
+}
+
+.like-btn:hover {
+    background-color: #f9fafb;
+    border-color: #d1d5db;
+}
+
+.like-btn i.fa-solid {
+    color: #ef4444; /* 빨간 하트 */
+}
+
+.view-count {
+    font-size: 0.9rem;
+    color: #9ca3af;
+}
+
+/* 댓글 섹션 */
+.comment-section {
+    margin-top: 40px;
+    max-width: 800px;
+}
+
+.comment-header {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #111827;
+}
+
+.comment-count {
+    color: #6b7280;
+    margin-left: 4px;
+    font-size: 1rem;
+}
+
+/* 댓글 작성 폼 */
+.comment-form-container {
+    background: #f9fafb;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+
+.comment-form textarea {
+    width: 100%;
+    height: 80px;
+    padding: 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    resize: none;
+    font-family: inherit;
+    margin-bottom: 10px;
+    outline: none;
+}
+
+.comment-form textarea:focus {
+    border-color: #3b82f6; /* 포커스 시 파란색 테두리 */
+}
+
+.submit-comment-btn {
+    background-color: #3b82f6; /* 첨부해주신 사진의 파란 버튼 색 */
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    float: right;
+}
+
+.submit-comment-btn:hover {
+    background-color: #2563eb;
+}
+
+/* 댓글 목록 아이템 */
+.comment-item {
+    display: flex;
+    gap: 16px;
+    padding: 20px 0;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.comment-item:last-child {
+    border-bottom: none;
+}
+
+.comment-avatar {
+    width: 36px;
+    height: 36px;
+    background-color: #e5e7eb;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    color: #4b5563;
+    flex-shrink: 0;
+}
+
+.comment-meta {
+    margin-bottom: 6px;
+}
+
+.comment-author {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-right: 8px;
+}
+
+.comment-date {
+    font-size: 0.8rem;
+    color: #9ca3af;
+}
+
+.comment-text {
+    font-size: 0.95rem;
+    color: #374151;
+    line-height: 1.5;
+}
+
+/* 모바일 반응형 */
+@media (max-width: 640px) {
+    .post-card {
+        padding: 24px;
+    }
+    
+    .post-title {
+        font-size: 1.4rem;
+    }
+}
