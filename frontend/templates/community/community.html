@@ -2,12 +2,16 @@
 {% load static %}
 
 {% block style %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="{% static 'css/community.css' %}">
 {% endblock style %}
 
 {% block script %} 
     <script src="{% static 'js/community.js' %}"></script>
-<!--사용할 js가 있다면 추가해서 쓰시면 됩니다-->
+    <!-- CSRF Token을 JS에서 쓰기 위해 숨겨진 요소로 저장 -->
+    <script>
+        const csrfToken = "{{ csrf_token }}";
+    </script>
 {% endblock script %}
 
 
@@ -54,13 +58,29 @@
                     </div>
                     <p class="topic-snippet">{{ post.snippet }}</p>
                     <div class="topic-meta">
-                    <span>
-                        <i class="fa-solid fa-thumbs-up"></i> {{ post.likes_count }}
-                    </span>
-                    <span>
-                        <i class="fa-solid fa-comment"></i> {{ post.comments_count }}
-                    </span>
-                </div>
+                        
+                        <!-- 좋아요 버튼 -->
+                        <!-- data-liked: 현재 내가 좋아요를 눌렀는지 여부를 문자열("true"/"false")로 저장 -->
+                        <button class="like-btn group flex items-center gap-1 cursor-pointer" 
+                                data-post-id="{{ post.id }}"
+                                data-liked="{% if post.is_liked %}true{% else %}false{% endif %}">
+                            
+                            <i id="like-icon-{{ post.id }}" 
+                               class="fa-heart text-lg transition-transform group-hover:scale-110 
+                               {% if post.is_liked %}fa-solid text-red-500{% else %}fa-regular text-gray-500{% endif %}">
+                            </i>
+                            
+                            <span id="like-count-{{ post.id }}" class="text-sm text-gray-600">
+                                {{ post.likes_count }}
+                            </span>
+                        </button>
+
+                        <!-- 댓글 버튼 (클릭 시 상세 페이지로 이동) -->
+                        <a href="{{ post.detail_url }}" class="comment-link flex items-center gap-1 hover:text-blue-500 ml-4">
+                            <i class="fa-regular fa-comment-dots text-lg"></i>
+                            <span class="text-sm text-gray-600">{{ post.comments_count }}</span>
+                        </a>
+                    </div>
                 </div>
             </article>
 
