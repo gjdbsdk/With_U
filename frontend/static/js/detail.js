@@ -7,30 +7,57 @@ document.addEventListener("DOMContentLoaded", function () {
   const text = document.getElementById("detail-text");
   const youtube = document.getElementById("youtube-frame");
 
+  const videoWrapper = youtube.parentElement;
+  
   // 아래에 작성하시면 됩니다.
   const contents = {
     emotional: {
       loss: {
         title: "상실감 회복하기",
-        text: "상실감은 누구에게나 예기치 않게 찾아오며, 삶의 균형을 무너뜨리는 깊은 정서적 충격을 남깁니다. 그러나 상실감의 회복은 단순히 슬픔을 잊는 과정이 아니라, 그 감정을 이해하고 받아들이며 스스로를 다시 세워가는 여정입니다. 이 영상에서는 상실의 순간부터 회복의 단계까지, 감정의 흐름을 인식하고 건강하게 극복하기 위한 다양한 방법을 소개합니다.<br><br>특히, 상실이 가져오는 공허함과 무력감을 완화하기 위한 실질적인 대처 전략을 다루며, 일상 속 작은 변화가 회복 과정에 어떤 긍정적인 영향을 미치는지 구체적으로 설명합니다. 또한 자기 돌봄의 중요성과 주변과의 관계 회복, 그리고 상실 속에서 새로운 의미를 찾아가는 과정에 대해 심층적으로 탐구합니다.<br><br>본 영상은 상실의 아픔 속에 있는 이들뿐 아니라, 이미 회복의 길을 걷고 있으나 방향성을 잃은 이들에게도 도움이 될 것입니다. 상실을 완전히 지워내려 하기보다, 그 경험을 삶의 일부로 받아들이며 성장의 계기로 전환하는 것이 진정한 회복의 시작임을 제시합니다.",
+        text: `상실감은 누구에게나 예기치 않게 찾아오며, 일상의 균형을 무너뜨리는 깊은 정서적 충격을 남깁니다. 그러나 상실에서 벗어나는 과정은 단순히 슬픔을 지우거나 잊어버리는 것이 아니라, 현재의 감정을 이해하고 받아들이며 자신을 다시 세워가는 여정에 가깝습니다.<br><br>
+          본 영상에서는 상실의 순간부터 회복으로 나아가기까지, 감정의 흐름을 파악하고 스스로의 속도에 맞게 치유를 시작하는 방법들을 다룹니다. 단순한 위로나 이론적 설명이 아니라,<br><br>
+          <ul>
+            <li>무력감과 공허함을 완화하는 데 도움이 되는 일상 루틴,</li>
+            <li>마음을 안정시키는 실질적인 자기 돌봄 방식,</li>
+            <li>‘감정 기록하기’처럼 누구나 바로 적용할 수 있는 구체적인 대처법,</li>
+            <li>주변 사람들과의 관계를 회복하며 정서적 지지를 얻는 방법 등을 실제 예시와 함께 소개합니다.</li>
+          </ul>
+          또한 상실이 남긴 감정을 억지로 밀어내기보다, 그것이 어떤 의미를 갖는지 이해하는 과정이 왜 중요한지 설명하며, 상실 경험을 삶의 일부로 받아들이는 것이 회복의 출발점이 될 수 있음을 제시합니다. 회복은 거대한 변화가 아니라, 하루에 한 번이라도 마음이 조금 가벼워지는 순간을 스스로 만들어가는 과정임을 강조합니다.<br><br>
+          이 영상은 상실의 아픔 속에 있는 분들은 물론, 이미 회복을 시작했지만 방향을 잃었다고 느끼는 분들에게도 도움이 될 것입니다. 상실을 무조건 지우려 하기보다, 그 경험을 새로운 의미와 삶의 균형을 찾아가는 계기로 전환할 수 있도록 현실적이고 따뜻한 안내를 제공합니다.`,
         youtube:
           "https://www.youtube.com/embed/nByss5eNj4k?si=aX-OtOVEnPjWFbiZ",
       },
       lonely: {
         title: "외로움 관리하기",
-        text: "외로움 관리는 현대 사회를 살아가는 개인의 정서적 안녕과 삶의 질을 유지하는 데 필수적인 요소입니다. 이는 단순히 혼자 있는 상태를 넘어, 타인과의 의미 있는 연결이 부족하다고 느끼는 주관적인 고립감을 다루는 과정을 포함합니다. 이 비디오에서는 외로움의 본질을 이해하고, 이를 건강하게 극복하기 위한 다양한 전략과 모범 사례를 자세히 설명합니다.<br><br>특히, 일시적인 외로움과 만성적인 고립감의 차이를 분석하고, 디지털 시대가 개인의 사회적 연결에 미치는 영향에 대해 심층적으로 다룹니다. 각자가 느끼는 외로움의 근본 원인을 파악하고 상황에 맞는 접근법을 선택하는 것의 중요성을 강조합니다.<br><br>또한, 자기 돌봄, 마음챙김 명상과 같은 내면적 치유 전략과 더불어, 의미 있는 사회적 관계 구축, 공동체 참여, 필요시 전문가의 도움을 구하는 것과 같은 실질적인 행동 지침을 제공합니다. 이를 통해 시청자가 겪을 수 있는 다양한 정서적 도전을 효과적으로 극복할 수 있도록 돕습니다.<br><br>본 비디오는 문득 고립감을 느끼는 현대인부터, 지속적인 외로움으로 어려움을 겪는 이들까지 모든 이들에게 유익한 통찰을 제공할 것입니다. 복잡한 감정의 파도를 건강하게 헤쳐나가고 더 충만한 삶을 가꾸기 위한 실용적인 지혜와 기법들을 익혀보세요.",
+        text: `외로움 관리는 현대 사회를 살아가는 개인의 정서적 안녕과 삶의 질을 지키는 데 중요한 요소입니다. 외로움은 단순히 혼자 있는 상태를 의미하는 것이 아니라, 타인과의 의미 있는 연결이 부족하다고 느끼는 깊은 내적 경험입니다. 이 영상에서는 외로움이 어떻게 생기고 어떤 방식으로 우리 삶에 영향을 미치는지 이해할 수 있도록 안내하며, 건강하게 극복하기 위한 실질적인 방법들을 소개합니다.<br><br>
+          특히 일시적으로 찾아오는 외로움과 오랜 시간 지속되는 만성적 고립감의 차이를 구체적으로 설명하고, 디지털 환경이 우리의 사회적 관계에 어떤 영향을 미치는지 심층적으로 다룹니다. 이를 통해 각자가 느끼는 외로움의 원인을 정확히 파악하고, 상황에 맞는 대처 전략을 선택하는 것의 중요성을 강조합니다.<br><br>
+          또한 자기 돌봄과 마음챙김 명상처럼 내면을 안정시키는 방법부터, 의미 있는 관계를 새롭게 구축하는 방법, 공동체 활동에 참여하는 전략, 필요할 경우 전문가의 도움을 받는 과정까지 실질적인 행동 지침을 제공합니다. 이러한 내용을 통해 시청자가 당면한 정서적 어려움을 조금 더 효과적으로 다룰 수 있도록 돕습니다.<br><br>
+          이 영상은 순간적인 고립감을 느끼는 분들부터, 지속적인 외로움으로 삶의 활력이 떨어진 분들까지 모두에게 유익한 통찰을 전할 것입니다. 복잡한 감정의 파도를 단단하고 건강하게 헤쳐 나가며, 더 충만한 삶을 만들어갈 수 있는 실용적인 지혜를 함께 배워보시기 바랍니다.`,
         youtube:
           "https://www.youtube.com/embed/i0-pjnjcxqU?si=2TDlrnKvehKpxAoj",
       },
       stress: {
         title: "스트레스 및 불안 완화",
-        text: "효과적인 스트레스 및 불안 관리는 급변하는 현대 사회에서 개인의 정신적 안녕과 삶의 질을 유지하는 데 필수적인 요소입니다. 이는 단순히 일시적인 감정을 억누르는 것을 넘어, 스트레스의 근본 원인을 파악하고 신체적, 심리적 반응을 조절하며 정서적 회복탄력성을 높이는 과정을 포함합니다. 이 비디오에서는 스트레스와 불안의 신호를 인지하고, 이에 건강하게 대처하는 각 단계별 주요 전략과 모범 사례를 자세히 설명합니다.<br><br>특히, 마음챙김(Mindfulness) 기반 스트레스 완화와 인지행동치료(CBT) 접근법의 장단점을 비교하고, 각 개인의 상황과 기질에 적합한 이완 방식을 선택하는 방법에 대해 심층적으로 다룹니다. 또한, 호흡 조절, 수면 위생 관리, 신체 활동과 같은 중요한 자기 관리 영역에 대한 실질적인 조언을 제공하여 시청자들이 직면할 수 있는 다양한 정서적 도전을 효과적으로 극복할 수 있도록 돕습니다.<br><br>본 비디오는 일상적인 스트레스 관리에 어려움을 겪는 초심자부터, 만성적인 불안을 다스리고자 하는 이들까지 모든 이들에게 유익한 정보를 제공할 것입니다. 복잡한 감정의 압박을 건강하게 관리하고 더 평온한 일상을 이끌기 위한 실용적인 도구와 기법들을 익혀보세요.",
+        text: `효과적인 스트레스와 불안 관리는 빠르게 변화하는 현대 사회에서 정신적 안녕과 삶의 균형을 지키는 데 매우 중요한 요소입니다. 스트레스 관리는 단순히 불편한 감정을 억누르는 것이 아니라, 스트레스가 어디에서 비롯되는지 이해하고 신체적·심리적 반응을 조절하며 회복 탄력성을 키워가는 과정까지 포함합니다. 이 영상에서는 스트레스와 불안의 신호를 인지하는 방법부터, 상황에 맞게 건강하게 대처할 수 있는 단계별 전략을 자세히 소개합니다.<br><br>
+          특히 마음챙김 기반 스트레스 완화법과 인지행동치료(CBT)의 특징을 비교하여, 각자의 성향과 현재 상황에 맞는 이완 방법을 선택할 수 있도록 돕습니다. 또한 호흡 조절, 수면 관리, 규칙적인 신체 활동 등 스트레스 완화에 직접적인 영향을 주는 자기관리 방법들을 구체적으로 제시하여, 시청자가 일상 속에서 바로 실천할 수 있도록 안내합니다.<br><br>
+          본 영상은 일상적인 스트레스 관리가 어려운 초심자부터, 만성적인 불안으로 힘들어하는 분들까지 모두에게 유익한 정보를 제공합니다. 복잡한 감정과 압박을 보다 건강하게 다스리고, 더 평온한 일상을 만들어가기 위한 실질적인 도구와 기법들을 함께 배워보시기 바랍니다.`,
         youtube:
           "https://www.youtube.com/embed/7XCx1XcVP5w?si=IXk2ksX9HJzKe6R9",
       },
       mental: {
         title: "정신 건강 이해하기",
-        text: "정신 건강은 신체 건강만큼이나 중요하지만, 종종 보이지 않는다는 이유로 간과되기 쉽습니다. 그러나 정신 건강을 돌보는 것은 단순히 부정적인 감정을 회피하는 과정이 아니라, 자신의 감정을 솔직하게 인식하고 수용하며 내면의 힘을 키워가는 여정입니다. 이 영상에서는 정신 건강의 중요성을 인식하는 순간부터 지속적인 관리까지, 감정의 변화를 이해하고 건강하게 다스리기 위한 다양한 방법을 소개합니다.<br><br>특히, 일상적인 스트레스와 불안이 정신 건강에 미치는 영향을 분석하고, 이를 완화하기 위한 실질적인 대처 전략을 다룹니다. 또한 자기 인식의 중요성과 건강한 대인 관계 형성, 그리고 정서적 회복탄력성을 높이는 습관들에 대해 심층적으로 탐구합니다.<br><br>본 영상은 자신의 마음 상태를 점검하고 싶은 초심자뿐 아니라, 이미 정서적 어려움을 겪고 있으나 대처에 막막함을 느끼는 이들에게도 도움이 될 것입니다. 정신 건강 문제를 외면하려 하기보다, 그 신호를 자신을 더 깊이 이해하는 기회로 삼고 적극적으로 관리하는 것이 진정한 내면의 평화를 향한 시작임을 제시합니다.",
+        text: `정신 건강은 신체 건강만큼이나 중요한 요소이지만, 눈에 보이지 않는다는 이유로 쉽게 뒤로 밀리곤 합니다. 그러나 정신 건강을 돌보는 과정은 부정적인 감정을 피하거나 숨기는 것이 아니라, 자신의 감정을 솔직하게 인식하고 받아들이며 내면의 힘을 키워가는 여정입니다. 이 영상에서는 정신 건강의 중요성을 깨닫는 순간부터 지속적인 관리에 이르기까지, 감정의 변화를 이해하고 스스로를 건강하게 돌보는 다양한 방법을 소개합니다.<br><br>
+          특히 일상 속 스트레스, 불안, 관계 갈등 등이 정신 건강에 어떤 영향을 미치는지 구체적으로 설명하고, 이러한 부담을 완화하기 위한 실질적 대처 전략을 다룹니다. <br><br>
+          예를 들어,
+          <ul>
+            <li>하루 5분의 감정 기록을 통해 자신이 무엇에 흔들리는지 파악하는 방법,</li>
+            <li>스트레스 상황에서 즉시 사용할 수 있는 간단한 호흡 조절법,</li>
+            <li>소진을 막기 위한 ‘디지털 휴식’ 실천법,</li>
+            <li>정서적 안정감을 높이는 일상 루틴 만들기 등</li>
+          </ul>
+          현실적인 방법들을 제시합니다.<br><br>
+          또한 자기 인식을 높이는 이유와 그 효과, 건강한 대인 관계를 형성하기 위한 소통 습관, 정서적 회복탄력성을 키우는 데 도움이 되는 작은 실천들에 대해서도 심층적으로 안내합니다. 예를 들어, 감정을 표현할 때 ‘나는 ~ 느낀다’라는 표현을 사용하는 방법이나, 지지 관계를 확장하는 데 도움이 되는 구체적 접근법도 함께 다룹니다.<br><br>
+          본 영상은 자신의 마음 상태를 점검하고 싶은 초심자부터, 이미 정서적 어려움을 겪고 있으나 어떻게 대처해야 할지 막막함을 느끼는 분들까지 모두에게 도움이 될 것입니다. 정신 건강의 신호를 외면하기보다, 그것을 자신을 이해하는 하나의 중요한 메시지로 받아들이고 적극적으로 관리하는 것이 내면의 평화를 향한 첫걸음임을 제시합니다.`,
         youtube:
           "https://www.youtube.com/embed/BZQ4t_kfPXI?si=8XGYi3T-NqGyYcmp",
       },
@@ -57,7 +84,8 @@ document.addEventListener("DOMContentLoaded", function () {
         A. 대부분의 ATM은 동전 입금을 지원하지 않습니다.<br><br>
 
         <h2>아래 영상을 통해 ATM 사용법을 익혀보세요.</h2>`,
-        youtube: "https://www.youtube.com/embed/WZIlPdBopns?si=qyF4BmXY6CDO2RjO",
+        youtube:
+          "https://www.youtube.com/embed/WZIlPdBopns?si=qyF4BmXY6CDO2RjO",
       },
       tax: {
         title: "세금 신고 및 관리",
@@ -91,7 +119,8 @@ document.addEventListener("DOMContentLoaded", function () {
         A. 5월에 종합소득세 추가 신고를 해야합니다.<br><br>
 
         <h2>아래 영상을 통해 종합소득세 신고 절차를 자세히 알아보세요.</h2>`,
-        youtube: "https://www.youtube.com/embed/kyanxVKYMXE?si=3H0LxBkK46Cb6-pF",
+        youtube:
+          "https://www.youtube.com/embed/kyanxVKYMXE?si=3H0LxBkK46Cb6-pF",
       },
       rent: {
         title: "월세 계약 이해하기",
@@ -131,8 +160,9 @@ document.addEventListener("DOMContentLoaded", function () {
         A. 건물마다 다르지만, 청소·엘리베이터·난방 등이 포함될 수 있습니다.<br><br>
 
         <h2>아래 영상을 통해 월세계약 주의사항을 자세히 알아보세요.</h2>
-        `, 
-        youtube: "https://www.youtube.com/embed/Y5rIvfBIeeY?si=cTMTfRSgqayUUjQi",
+        `,
+        youtube:
+          "https://www.youtube.com/embed/Y5rIvfBIeeY?si=cTMTfRSgqayUUjQi",
       },
       aid: {
         title: "공공 지원 신청",
@@ -206,7 +236,8 @@ document.addEventListener("DOMContentLoaded", function () {
         &#149 지하철 앱 사용 추천(경로 자동 계산)<br><br>
 
         <h2>아래 영상을 통해 지하철 앱 사용 방법을 익혀보세요.</h2>`,
-        youtube: "https://www.youtube.com/embed/GPQ5Z8ckomA?si=zm-fMNA1APRylu8y",
+        youtube:
+          "https://www.youtube.com/embed/GPQ5Z8ckomA?si=zm-fMNA1APRylu8y",
       },
       shopping: {
         title: "생활 필수품 현명하게 구매하기",
@@ -229,13 +260,14 @@ document.addEventListener("DOMContentLoaded", function () {
         &#149 제품 유통기한 체크 필수<br><br>
 
         <h2>아래 영상을 통해 현명한 소비 습관을 길들여보세요.</h2>`,
-        youtube: "https://www.youtube.com/embed/z_-J6YbgZkQ?si=zoFdPscx0IYca3Qh",
+        youtube:
+          "https://www.youtube.com/embed/z_-J6YbgZkQ?si=zoFdPscx0IYca3Qh",
       },
     },
-  health: {  
-    home_safety: {
-      title: "가정 내 안전 체크리스트",
-      text: `
+    health: {
+      home_safety: {
+        title: "가정 내 안전 체크리스트",
+        text: `
         <hr><h2>가정 내 주요 위험 요소</h2>
         &#149 화재(전기·가스)<br>
         &#149 미끄럼 사고<br>
@@ -261,7 +293,8 @@ document.addEventListener("DOMContentLoaded", function () {
         &#149 계단 미끄럼 방지<br><br>
 
         <h2>아래 영상을 통해 가정 내 안전사고를 예방하세요.</h2>`,
-        youtube: "https://www.youtube.com/embed/I8Tc-2bhNgk?si=LrqNmCDYkU-InZjG",
+        youtube:
+          "https://www.youtube.com/embed/I8Tc-2bhNgk?si=LrqNmCDYkU-InZjG",
       },
       school_work_safety: {
         title: "학교 및 직장 안전수칙",
@@ -283,7 +316,7 @@ document.addEventListener("DOMContentLoaded", function () {
         `,
         //영상미기재
         youtube: "",
-        },
+      },
       emergency: {
         title: "응급 상황 대처법 (심폐소생술)",
         text: `
@@ -309,7 +342,8 @@ document.addEventListener("DOMContentLoaded", function () {
         A. 생명을 살리는 것이 우선이며, 법적으로 문제가 생기지 않습니다..<br><br>
 
         <h2>아래 영상을 통해 심폐소생술(CPR) 방법과 자동심장충격기(AED) 사용 방법을 알아보세요.</h2>`,
-        youtube: "https://www.youtube.com/embed/q7J2T6MFA9g?si=V7bGODyc5SggYBmv",
+        youtube:
+          "https://www.youtube.com/embed/q7J2T6MFA9g?si=V7bGODyc5SggYBmv",
       },
       disaster: {
         title: "화재 및 재난 대비",
@@ -329,7 +363,8 @@ document.addEventListener("DOMContentLoaded", function () {
         - 자동차 침수 시 창문 열고 탈출<br><br>
 
         <h2>아래 영상을 통해 재난 대피 요령을 자세히 알아보세요.</h2>`,
-        youtube: "https://www.youtube.com/embed/a1X7yR9p-m4?si=8UI_Zirb-pRHTjFQ",
+        youtube:
+          "https://www.youtube.com/embed/a1X7yR9p-m4?si=8UI_Zirb-pRHTjFQ",
       },
       password: {
         title: "안전한 비밀번호 설정",
@@ -340,7 +375,8 @@ document.addEventListener("DOMContentLoaded", function () {
         &#149 스마트폰 메모장에 비밀번호 작성 금지<br><br>
 
         <h2>아래 영상을 통해 안전한 비밀번호를 생성해보세요.</h2>`,
-        youtube: "https://www.youtube.com/embed/6Danns5I8MM?si=xtscg1T3Oq_nvXog",
+        youtube:
+          "https://www.youtube.com/embed/6Danns5I8MM?si=xtscg1T3Oq_nvXog",
       },
       phishing: {
         title: "피싱 사기 식별 및 대응",
@@ -362,7 +398,8 @@ document.addEventListener("DOMContentLoaded", function () {
         &#149 경찰청 사이버수사국 신고<br><br>
 
         <h2>아래 영상을 통해 피싱 사기 식별 방법을 자세히 알아보세요.</h2>`,
-        youtube: "https://www.youtube.com/embed/VVz1anudncE?si=0w1kGd38rIf4C6la",
+        youtube:
+          "https://www.youtube.com/embed/VVz1anudncE?si=0w1kGd38rIf4C6la",
       },
       leakage: {
         title: "개인정보 유출 시 대응",
@@ -379,7 +416,8 @@ document.addEventListener("DOMContentLoaded", function () {
         &#149 KISA 개인정보노출 알림 서비스 이용<br><br>
 
         <h2>아래 영상을 통해 개인정보 유출 시 대응 방법을 자세히 알아보세요.</h2>`,
-        youtube: "https://www.youtube.com/embed/Sy5FyTm1BVY?si=yES617tj-vD_8u7C",
+        youtube:
+          "https://www.youtube.com/embed/Sy5FyTm1BVY?si=yES617tj-vD_8u7C",
       },
       public_info: {
         title: "공공장소에서 정보 보호",
@@ -415,7 +453,8 @@ document.addEventListener("DOMContentLoaded", function () {
         &#149 계약서 사본 반드시 요구<br><br>
 
         <h2>아래 영상을 통해 근로계약서 작성 시 필수 확인사항을 알아보세요.</h2>`,
-        youtube: "https://www.youtube.com/embed/x4fk16B3nvg?si=2OV57Md1yArO5Mpr",
+        youtube:
+          "https://www.youtube.com/embed/x4fk16B3nvg?si=2OV57Md1yArO5Mpr",
       },
       harassment: {
         title: "직장 내 괴롭힘 예방",
@@ -432,7 +471,8 @@ document.addEventListener("DOMContentLoaded", function () {
         &#149 노동청 신고 가능<br><br>
 
         <h2>아래 영상을 통해 직장에서 괴롭힘을 당할 때 대처 방법을 알아보세요.</h2>`,
-        youtube: "https://www.youtube.com/embed/0xAH1onGyi8?si=kEwpe6DvTxFolUUx",
+        youtube:
+          "https://www.youtube.com/embed/0xAH1onGyi8?si=kEwpe6DvTxFolUUx",
       },
       wage: {
         title: "임금 및 초과근로 기준",
@@ -446,7 +486,8 @@ document.addEventListener("DOMContentLoaded", function () {
         &#149 휴일근로: 시급 × 1.5 또는 2.0(8시간 초과)<br><br>
 
         <h2>아래 영상을 통해 수당 계산 방법을 익혀보세요.</h2> `,
-        youtube: "https://www.youtube.com/embed/gnTzG8T1VrU?si=Rja0BP1mkY28-bwt",
+        youtube:
+          "https://www.youtube.com/embed/gnTzG8T1VrU?si=Rja0BP1mkY28-bwt",
       },
       dismissal: {
         title: "부당 해고 대응",
@@ -461,29 +502,34 @@ document.addEventListener("DOMContentLoaded", function () {
         &#149 해고 사실 증거 확보<br><br>
 
         <h2>아래 영상을 통해 부당 해고 대응방법을 알아보세요.</h2>`,
-        youtube: "https://www.youtube.com/embed/Z0dPu--ebz8?si=kmZc0NtL2a4WCVch",
+        youtube:
+          "https://www.youtube.com/embed/Z0dPu--ebz8?si=kmZc0NtL2a4WCVch",
       },
       insurance_type: {
         title: "건강보험 종류 및 선택",
         text: "<h2>아래 영상을 통해 건강보험 종류를 알아보고, 알맞는 보험을 선택하세요.</h2>",
-        youtube: "https://www.youtube.com/embed/Bb_bcarFGMs?si=E3yz5-I52tdT2d5a",
+        youtube:
+          "https://www.youtube.com/embed/Bb_bcarFGMs?si=E3yz5-I52tdT2d5a",
       },
       insurance_payment: {
         title: "4대 보험료 납부 및 혜택",
         text: "<hr><h2>아래 영상을 통해 4대 보험료 납부 방법을 알아보세요.</h2>",
-        youtube: "https://www.youtube.com/embed/i5RSX3W06a0?si=K0L7MkgR2pmoDdTb",
+        youtube:
+          "https://www.youtube.com/embed/i5RSX3W06a0?si=K0L7MkgR2pmoDdTb",
       },
       hospital_claim: {
         title: "실비보험 청구 절차",
         text: "<hr><h2>아래 영상을 통해 실비보험 청구 방법을 자세히 알아보세요.</h2>",
-        youtube: "https://www.youtube.com/embed/0j5aZviKhyE?si=FD1dYpCv9bxEyCRA",
+        youtube:
+          "https://www.youtube.com/embed/0j5aZviKhyE?si=FD1dYpCv9bxEyCRA",
       },
       medical_support: {
         title: "의료비 지원 제도",
         text: "<hr><h2>아래 영상을 통해 국가 치료비 지원제도를 알아보세요.</h2>",
-        youtube: "https://www.youtube.com/embed/DayBkL9RMH0?si=1haSQWYgy_f_AzyT",
-      }
-    }
+        youtube:
+          "https://www.youtube.com/embed/DayBkL9RMH0?si=1haSQWYgy_f_AzyT",
+      },
+    },
   };
   
   const content = contents[page]?.[topic];
@@ -491,9 +537,14 @@ document.addEventListener("DOMContentLoaded", function () {
   if (content) {
     title.textContent = content.title;
     text.innerHTML = content.text;
-    youtube.src = content.youtube;
+    if (content.youtube) {
+      youtube.src = content.youtube;
+    } else {
+      videoWrapper.style.display = "none";
+    }
   } else {
     title.textContent = "콘텐츠를 찾을 수 없습니다.";
     text.textContent = "URL이 잘못되었거나 콘텐츠가 준비 중입니다.";
+    videoWrapper.style.display = "none";
   }
 });
