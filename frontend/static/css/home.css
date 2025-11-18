@@ -21,8 +21,14 @@ a {
   width: 80%;
 }
 
+
+.home_img{
+  min-width:150px;
+}
+
 .hero-text {
   max-width: 500px;
+  min-width: 200px;
 }
 
 .hero-text h1 {
