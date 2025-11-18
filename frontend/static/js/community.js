@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 async function handleLike(postId, btn) {
     // API 주소
-    const url = `/community/like/${postId}/`; 
+    const url = `/api/community/like/${postId}/`; 
 
     try {
         const response = await fetch(url, {

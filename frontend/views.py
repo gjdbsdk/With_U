@@ -1,49 +1,12 @@
 from django.views.generic import TemplateView
 import datetime     # 'timesince' 필터 및 임시 데이터 생성을 위해 임포트
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404 
         # 함수 기반 뷰(FBV) 및 리다이렉트를 위해 임포트
 from django.http import Http404
 from django import forms
+from api.models import Post, Comment
 
 
-# [MOCK DB] 임시 데이터 저장소
-# 리스트 페이지와 상세 페이지가 이 데이터를 공유합니다.
-def get_dummy_db():
-    # 날짜 계산용
-    now = datetime.datetime.now()
-    
-    return [
-        {
-            'id': 1,  # 고유 ID 부여
-            'author_initial': '김',
-            'title': '첫 번째 테스트 포스트입니다',
-            'author_name': '김테스트',
-            'created_at': now - datetime.timedelta(hours=2),
-            'content': '이것은 상세 페이지 내용입니다.\n\n줄바꿈이 잘 적용되는지 확인해보세요.\n상세 페이지 디자인이 아주 깔끔하게 나왔으면 좋겠네요.',
-            'snippet': '이것은 뷰에서 넘어온 가짜 데이터입니다. 루프가 잘 도는지 확인해보세요...',
-            'likes_count': 12,
-            'comments_count': 2, # 아래 더미 댓글 개수와 맞춤
-            'views': 150,
-            'is_liked': False, # 내가 좋아요 눌렀는지 여부
-        },
-        {
-            'id': 2,
-            'author_initial': '이',
-            'title': '두 번째 테스트: 월세 계약 시 주의사항',
-            'author_name': '이장고',
-            'created_at': now - datetime.timedelta(days=1),
-            'content': '월세 계약할 때 등기부등본 꼭 확인하세요.\n근저당이 너무 많이 잡혀있으면 위험합니다.\n\n1. 등기부등본 확인\n2. 집주인 신분증 확인\n3. 특약사항 꼼꼼히 넣기',
-            'snippet': '두 번째 가짜 데이터입니다. 둥근 모서리 카드 스타일이 잘 나오는지 확인합니다.',
-            'likes_count': 5,
-            'comments_count': 0,
-            'views': 42,
-            'is_liked': True, 
-        }
-    ]
-
-
-# Forms
-#TODO: 추후 Post 모델 만들고 ModelForm으로 교체하기
 class PostForm(forms.Form):
     title = forms.CharField(label='제목', max_length=200)
     content = forms.CharField(label='내용', widget=forms.Textarea(attrs={'rows': 15}))
@@ -107,68 +70,61 @@ class SocietyView(TemplateView):
 class CitizenView(TemplateView):
     template_name = "citizen.html"
 
-
-
+# 커뮤니티 리스트 페이지 (DB기반)
 class CommunityView(TemplateView):
     template_name = "community/community.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        # 전역 함수에서 데이터 가져오기
-        posts = get_dummy_db()
-        
-        # 각 포스트에 상세 페이지 URL 연결 (하드코딩 방식)
-        # 나중에 urls.py 설정에 따라 '/community/1/' 등으로 자동 생성해야 함
+        posts = Post.objects.all().order_by("-created_at")
+        user = self.request.user
+
+        # 게시글에 좋아요 눌렀는지 확인
         for post in posts:
-            # {% url 'frontend:post_detail' post.id %} 와 같은 효과를 내기 위해 
-            # 템플릿에서 처리하도록 여기서는 id만 잘 넘겨주기
-            post['detail_url'] = f"/community/{post['id']}/" 
-            
-        context['posts'] = posts
+            post.is_liked = (
+                user.is_authenticated
+                and post.likes.filter(id=user.id).exists()
+            )
+
+        context["posts"] = posts
         return context
     
-
-# 상세 페이지 뷰
+# 상세 페이지 (DB기반) + 댓글 작성
 def post_detail_view(request, post_id):
-    # 1. 전체 더미 데이터 가져오기
-    posts = get_dummy_db()
-    
-    # 2. 요청된 post_id와 일치하는 데이터 찾기
-    # (Python 리스트에서 검색)
-    target_post = None
-    for post in posts:
-        if post['id'] == post_id:
-            target_post = post
-            break
-    
-    # 3. 없으면 404 에러
-    if target_post is None:
+    # 게시글 조회
+    try:
+        post = Post.objects.get(id=post_id)
+    except Post.DoesNotExist:
         raise Http404("게시글을 찾을 수 없습니다.")
-
-    # 4. 더미 댓글 데이터 생성 (상세 페이지용)
-    dummy_comments = [
-        {
-            'author_initial': '박',
-            'author_name': '박댓글',
-            'created_at': datetime.datetime.now(),
-            'content': '정말 유용한 정보네요! 감사합니다.'
-        },
-        {
-            'author_initial': 'Guest',
-            'author_name': '지나가던행인',
-            'created_at': datetime.datetime.now() - datetime.timedelta(minutes=30),
-            'content': '디자인이 깔끔해서 보기 좋아요.'
-        }
-    ]
-
-    context = {
-        'post': target_post,
-        'comments': dummy_comments if target_post['id'] == 1 else [], # 1번 글에만 댓글이 있다고 가정
-    }
     
-    return render(request, 'community/post_detail.html', context)
+    # 댓글 조회
+    comments = Comment.objects.filter(post=post).order_by("-created_at")
 
+    # 좋아요 여부 체크
+    if request.user.is_authenticated:
+        post.is_liked = post.likes.filter(id=request.user.id).exists()
+    else:
+        post.is_liked = False
+
+    # 댓글 작성 처리
+    if request.method == "POST":
+        if not request.user.is_authenticated:
+            return redirect("/logindemo/")
+
+        content = request.POST.get("content", "").strip()
+        if content:
+            Comment.objects.create(
+                post=post,
+                author=request.user,
+                content=content
+            )
+            return redirect(f"/community/{post_id}/")
+        
+    return render(request, "community/post_detail.html", {
+        "post": post,
+        "comments": comments,
+    })
     
 class EmotionalView(TemplateView):
     template_name = "emotional.html"
@@ -194,22 +150,4 @@ class DetailView(TemplateView):
 class WritingView(TemplateView):
     template_name="writing.html"
 
-
-# 아래 작성해주신 건 연동 후에 사용할 수 있을 것 같아 일단 새로 위에 작성해서 구현했습니다
-def create_post(request):
-    if request.method == 'POST':
-        form = PostForm(request.POST)
-        if form.is_valid():
-            #TODO : [DB 연동] 유효한 폼 데이터를 실제 Post 모델에 저장하는 로직 필요
-
-            # 글 작성 후, 'community_list'라는 이름의 URL로 리다이렉트
-            # (urls.py에서 CommunityView의 name='community_list' 설정 필요)
-            return redirect('community_list') 
-    else:
-        form = PostForm()   # GET 요청 시 빈 폼 생성
     
-    context = {
-        'form': form,
-        'page_title': '새 토론 작성' # 글 작성 html에서 사용 - {{ page_title }}로 사용하기
-    }
-    return render(request, 'community/post_form.html', context)
