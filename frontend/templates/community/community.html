@@ -2,12 +2,16 @@
 {% load static %}
 
 {% block style %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="{% static 'css/community.css' %}">
 {% endblock style %}
 
 {% block script %} 
     <script src="{% static 'js/community.js' %}"></script>
-<!--사용할 js가 있다면 추가해서 쓰시면 됩니다-->
+    <!-- CSRF Token을 JS에서 쓰기 위해 숨겨진 요소로 저장 -->
+    <script>
+        const csrfToken = "{{ csrf_token }}";
+    </script>
 {% endblock script %}
 
 
@@ -54,13 +58,24 @@
                     </div>
                     <p class="topic-snippet">{{ post.snippet }}</p>
                     <div class="topic-meta">
-                    <span>
-                        <i class="fa-solid fa-thumbs-up"></i> {{ post.likes_count }}
-                    </span>
-                    <span>
-                        <i class="fa-solid fa-comment"></i> {{ post.comments_count }}
-                    </span>
-                </div>
+                        
+                        <!-- 좋아요 버튼 -->
+                        <div class="flex items-center gap-1 text-gray-600 cursor-default">
+                            <i class="fa-heart text-lg 
+                                {% if post.is_liked %}fa-solid text-red-500{% else %}fa-regular text-gray-500{% endif %}">
+                            </i>
+    
+                            <span class="text-sm text-gray-600">
+                                {{ post.likes_count }}
+                            </span>
+                        </div>
+
+                        <!-- 댓글 버튼 (클릭 시 상세 페이지로 이동) -->
+                        <a href="{{ post.detail_url }}" class="comment-link flex items-center gap-1 hover:text-blue-500 ml-4">
+                            <i class="fa-regular fa-comment-dots text-lg"></i>
+                            <span class="text-sm text-gray-600">{{ post.comments_count }}</span>
+                        </a>
+                    </div>
                 </div>
             </article>
 

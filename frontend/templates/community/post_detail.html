@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="{% static 'css/post_detail.css' %}">
+{% endblock style %}
+
+{% block script %}
+    <script>
+        const csrfToken = "{{ csrf_token }}";
+    </script>
+    <script src="{% static 'js/community.js' %}"></script>
+{% endblock script %}
+
+{% block body %}
+<div class="detail-container">
+    <div class="detail-nav">
+        <!-- href에 커뮤니티 목록 URL을 넣으세요 -->
+        <a href="{% url 'frontend:community' %}" class="back-link">
+            <i class="fa-solid fa-arrow-left"></i> 목록으로 돌아가기
+        </a>
+    </div>
+
+    <article class="post-card">
+        <!-- 게시글 헤더: 제목, 작성자, 날짜 -->
+        <header class="post-header">
+            <h1 class="post-title">{{ post.title }}</h1>
+            
+            <div class="post-meta-row">
+                <div class="author-info">
+                    <div class="author-avatar">{{ post.author_initial }}</div>
+                    <div class="author-text">
+                        <span class="author-name">{{ post.author_name }}</span>
+                        <span class="post-date">{{ post.created_at|date:"Y년 m월 d일 H:i" }}</span>
+                    </div>
+                </div>
+                
+                <!-- 수정/삭제 버튼 (작성자 본인에게만 보임) -->
+                {% if request.user == post.author %}
+                <div class="post-actions">
+                    <a href="#" class="action-btn edit-btn">수정</a>
+                    <a href="#" class="action-btn delete-btn">삭제</a>
+                </div>
+                {% endif %}
+            </div>
+        </header>
+
+        <hr class="divider">
+
+        <div class="post-content">
+            <!-- linebreaks 필터: 엔터를 <br>나 <p>로 바꿔줌 -->
+            {{ post.content|linebreaks }}
+        </div>
+
+        <div class="post-footer">
+            <div class="like-wrapper">
+                <button class="like-btn cursor-pointer" 
+                        data-post-id="{{ post.id }}"
+                        data-liked="{% if post.is_liked %}true{% else %}false{% endif %}"
+                        data-is-authenticated="{{ user.is_authenticated|yesno:'true,false' }}">
+                    
+                    <i class="fa-heart text-lg transition-transform hover:scale-110 
+                        {% if post.is_liked %}fa-solid text-red-500{% else %}fa-regular text-gray-500{% endif %}">
+                    </i>
+                    <span class="ml-1 text-gray-600">{{ post.likes_count }}</span>
+                </button>
+            </div>
+        </div>
+    </article>
+
+    <section class="comment-section">
+        <h3 class="comment-header">댓글 <span class="comment-count">{{ post.comments_count }}</span></h3>
+
+        <div class="comment-form-container">
+            {% if user.is_authenticated %}
+            <form method="POST" action="" class="comment-form"> 
+                {% csrf_token %}
+                <textarea name="content" placeholder="댓글을 남겨주세요." required></textarea>
+                <button type="submit" class="submit-comment-btn">등록</button>
+            </form>
+            {% else %}
+            <div class="login-plz">
+                <a href="/logindemo/">로그인</a> 후 댓글을 남길 수 있습니다.
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="comment-list">
+            {% for comment in comments %}
+            <div class="comment-item">
+                <div class="comment-avatar">{{ comment.author_initial }}</div>
+                <div class="comment-content-box">
+                    <div class="comment-meta">
+                        <span class="comment-author">{{ comment.author_name }}</span>
+                        <span class="comment-date">{{ comment.created_at|timesince }} 전</span>
+                    </div>
+                    <p class="comment-text">{{ comment.content|linebreaksbr }}</p>
+                </div>
+            </div>
+            {% empty %}
+            <p class="no-comments">첫 번째 댓글의 주인공이 되어보세요!</p>
+            {% endfor %}
+        </div>
+    </section>
+</div>
+{% endblock body %}

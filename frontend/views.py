@@ -1,10 +1,12 @@
 from django.views.generic import TemplateView
 import datetime     # 'timesince' 필터 및 임시 데이터 생성을 위해 임포트
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404 
         # 함수 기반 뷰(FBV) 및 리다이렉트를 위해 임포트
-
+from django.http import Http404
 from django import forms
-#TODO: 추후 Post 모델 만들고 ModelForm으로 교체하기
+from api.models import Post, Comment
+
+
 class PostForm(forms.Form):
     title = forms.CharField(label='제목', max_length=200)
     content = forms.CharField(label='내용', widget=forms.Textarea(attrs={'rows': 15}))
@@ -26,7 +28,17 @@ class SocietyView(TemplateView):
                 'description': '장례식에 참석하거나 조의를 표할 때 필요한 기본적인 예절과 절차를 안내합니다.',
                 'icon_path': 'img/funeral.png',  # static/img/funeral.png
                 'topics': [
-                    {'title': '조의금 봉투 작성법', 'content': '조의금 봉투 앞면에는 \'부의(賻儀)\', \'조의(弔儀)\' 등을 세로로 씁니다. 뒷면 좌측 하단에 이름을 씁니다.'},
+                    {
+                        'title': '조의금 봉투 작성법', 
+                        'content': '''조의금 봉투 앞면에는 고인을 애도하는 한자를 세로로 작성합니다. 아래 여섯 가지 한자를 많이 사용합니다.\n
+• 근조(謹弔) : 죽음에 대해 삼가 슬퍼하는 마음
+• 애도(哀悼) : 사람의 죽음에 대해 슬퍼함
+• 추모(追慕) : 죽은 사람을 그리며 생각함
+• 추도(追悼) : 죽은 사람에 대해 슬퍼함
+• 부의(賻儀) : 상가에 부조로 보내는 돈
+• 위령(慰靈) : 죽은 사람의 영혼을 위로함\n
+뒷면 좌측 하단에 본인의 이름과 소속을 표시합니다. 만약 단체나 소속에서 부의금을 보낸다면, 뒷면에 단체나 회사명만 적어도 무방합니다.'''
+                    },
                     {'title': '장례식장 방문 시 기본 예절', 'content': '외투는 문 밖에서 벗고, 영정 앞에서 분향 또는 헌화 후 두 번 절합니다.'},
                     {'title': '헌화 및 분향 순서', 'content': '헌화는 꽃송이가 영정을 향하게 두고, 분향은 향을 1~3개 집어 촛불에 불을 붙인 후 흔들어 끕니다.'},
                 ]
@@ -68,41 +80,61 @@ class SocietyView(TemplateView):
 class CitizenView(TemplateView):
     template_name = "citizen.html"
 
-
+# 커뮤니티 리스트 페이지 (DB기반)
 class CommunityView(TemplateView):
-    template_name = "community.html"
+    template_name = "community/community.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        #TODO : [DB 연동] Post 모델 완성 후, 아래 임시 데이터를 실제 DB 쿼리로 교체하기
-        #       현재는 Frontend UI확인을 위한 Mock 데이터입니다
+        posts = Post.objects.all().order_by("-created_at")
+        user = self.request.user
 
-        dummy_posts = [
-            {
-                'author_initial': '김',
-                'detail_url': '#', # 실제로는 상세 페이지 URL
-                'title': '첫 번째 테스트 포스트입니다',
-                'author_name': '김테스트',
-                'created_at': datetime.datetime.now() - datetime.timedelta(hours=2), # 2시간 전
-                'snippet': '이것은 뷰에서 넘어온 가짜 데이터입니다. 루프가 잘 도는지 확인해보세요. 스타일이 잘 적용되었나요?',
-                'likes_count': 12,
-                'comments_count': 8,
-            },
-            {
-                'author_initial': '이',
-                'detail_url': '#',
-                'title': '두 번째 테스트: 월세 계약 시 주의사항',
-                'author_name': '이장고',
-                'created_at': datetime.datetime.now() - datetime.timedelta(days=1), # 1일 전
-                'snippet': '두 번째 가짜 데이터입니다. 둥근 모서리 카드 스타일이 잘 나오는지 확인합니다.',
-                'likes_count': 5,
-                'comments_count': 3,
-            }
-        ]
+        # 게시글에 좋아요 눌렀는지 확인
+        for post in posts:
+            post.is_liked = (
+                user.is_authenticated
+                and post.likes.filter(id=user.id).exists()
+            )
 
-        context['posts'] = dummy_posts
+        context["posts"] = posts
         return context
+    
+# 상세 페이지 (DB기반) + 댓글 작성
+def post_detail_view(request, post_id):
+    # 게시글 조회
+    try:
+        post = Post.objects.get(id=post_id)
+    except Post.DoesNotExist:
+        raise Http404("게시글을 찾을 수 없습니다.")
+    
+    # 댓글 조회
+    comments = Comment.objects.filter(post=post).order_by("-created_at")
+
+    # 좋아요 여부 체크
+    if request.user.is_authenticated:
+        post.is_liked = post.likes.filter(id=request.user.id).exists()
+    else:
+        post.is_liked = False
+
+    # 댓글 작성 처리
+    if request.method == "POST":
+        if not request.user.is_authenticated:
+            return redirect("/logindemo/")
+
+        content = request.POST.get("content", "").strip()
+        if content:
+            Comment.objects.create(
+                post=post,
+                author=request.user,
+                content=content
+            )
+            return redirect(f"/community/{post_id}/")
+        
+    return render(request, "community/post_detail.html", {
+        "post": post,
+        "comments": comments,
+    })
     
 class EmotionalView(TemplateView):
     template_name = "emotional.html"
@@ -127,23 +159,3 @@ class DetailView(TemplateView):
 
 class WritingView(TemplateView):
     template_name="writing.html"
-
-
-# 아래 작성해주신 건 연동 후에 사용할 수 있을 것 같아 일단 새로 위에 작성해서 구현했습니다
-def create_post(request):
-    if request.method == 'POST':
-        form = PostForm(request.POST)
-        if form.is_valid():
-            #TODO : [DB 연동] 유효한 폼 데이터를 실제 Post 모델에 저장하는 로직 필요
-
-            # 글 작성 후, 'community_list'라는 이름의 URL로 리다이렉트
-            # (urls.py에서 CommunityView의 name='community_list' 설정 필요)
-            return redirect('community_list') 
-    else:
-        form = PostForm()   # GET 요청 시 빈 폼 생성
-    
-    context = {
-        'form': form,
-        'page_title': '새 토론 작성' # 글 작성 html에서 사용 - {{ page_title }}로 사용하기
-    }
-    return render(request, 'community/post_form.html', context)

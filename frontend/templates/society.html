@@ -32,7 +32,7 @@
                     {% for topic in group.topics %}
                     <details>
                         <summary>{{ topic.title }}</summary>
-                        <p>{{ topic.content }}</p>
+                        <p>{{ topic.content|linebreaksbr }}</p>
                     </details>
                     {% endfor %}
                 </div>
