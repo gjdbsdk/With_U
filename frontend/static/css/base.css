@@ -43,6 +43,19 @@ body {
     transition: color 0.2s ease-in-out;
     width: auto;
 }
+@media (max-width: 1100px) {
+    .nav-item span{
+        display:none;
+    }
+}
+@media (max-width: 600px) {
+    .nav-item{
+        margin: 0;
+    }
+    .nav-container {
+        padding: 12px 0;
+    }
+}
 
 .nav-item:hover span {
     color: #000;
