@@ -12,6 +12,11 @@ from rest_framework.parsers import MultiPartParser, FormParser
 
 from .serializers import RegisterSerializer, CitizenContentSerializer
 from .models import Post, CitizenContent, Comment
+from rest_framework import generics, status
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
+from .serializers import RegisterSerializer
 
 # 회원가입
 class RegisterView(generics.CreateAPIView):

@@ -1,59 +1,46 @@
-{% csrf_token %}
-<h2>로그인</h2>
+{% extends "base.html" %}
+{% load static %}
 
-<input type="text" id="username" placeholder="아이디"><br>
-<input type="password" id="password" placeholder="비밀번호"><br>
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock style %}
 
-<button id="login-btn">로그인</button>
-<button id="logout-btn">로그아웃</button>
+{% block script %}
+    <script defer src="{% static 'js/login.js' %}"></script>
+{% endblock script %}
 
-<script>
-    const csrftoken = document.querySelector("[name=csrfmiddlewaretoken]").value;
-    // 로그인
-    document.getElementById("login-btn").addEventListener("click", async () => {
-        const username = document.getElementById("username").value.trim();
-        const password = document.getElementById("password").value.trim();
+{% block body %}
+<section class="login-page">
+  <div class="login-card">
+    <div class="login-card__header">
+      <h1>With U 로그인</h1>
+      <p>안전한 시민 콘텐츠 플랫폼을 위해 로그인 후 이용해주세요.</p>
+    </div>
 
-        // 빈칸 체크
-        if (!username || !password) {
-            alert("아이디와 비밀번호를 입력하세요.");
-            return;
-        }
+    <div class="login-alert" id="login-alert"></div>
 
-        const response = await fetch("/api/login/", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "X-CSRFToken": csrftoken,
-            },
-            body: JSON.stringify({ username, password }),
-        });
+    <form id="login-form">
+      {% csrf_token %}  
+      <div class="login-form__group">
+        <label for="username">아이디</label>
+        <input type="text" id="username" placeholder="아이디를 입력하세요" required>
+      </div>
+      <div class="login-form__group">
+        <label for="password">비밀번호</label>
+        <input type="password" id="password" placeholder="비밀번호를 입력하세요" required>
+      </div>
+      <div class="login-actions">
+        <button type="button" class="login-btn" id="login-btn">로그인</button>
+        <button type="button" class="logout-btn" id="logout-btn">로그아웃</button>
+      </div>
+    </form>
 
-        const data = await response.json();
+    <p class="login-extra">
+      계정이 없다면?
+      <a href="/registerdemo/">회원가입하기</a>
+    </p>
+  </div>
+</section>
+{% endblock body %}
 
-        if (response.ok) {
-            alert("로그인 성공!");
-            window.location.href = "/";
-        } else {
-            alert(data.message);
-        }
-    });
-    // 로그아웃 버튼
-    document.getElementById("logout-btn").addEventListener("click", async () => {
-        const response = await fetch("/api/logout/", {
-            method: "POST",
-            headers: {
-                "X-CSRFToken": csrftoken,
-            }
-        });
 
-        const data = await response.json();
-
-        if (response.ok) {
-            alert("로그아웃 성공!");
-            window.location.href = "/logindemo/";
-        } else {
-            alert("로그아웃 실패!");
-        }
-    });
-</script>

@@ -1,0 +1,174 @@
+/* seohaein11/14: 회원가입 페이지 스타일 */
+.register-page {
+  min-height: calc(100vh - 160px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  background: radial-gradient(circle at top, rgba(248, 250, 255, 0.9), rgba(241, 245, 249, 0.7));
+}
+
+.register-card {
+  width: min(540px, 100%);
+  background: #fff;
+  border-radius: 28px;
+  padding: 48px;
+  box-shadow: 0 30px 80px rgba(15, 23, 42, 0.12);
+}
+
+.register-card__header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.register-card__header h1 {
+  font-size: 1.85rem;
+  color: #0f172a;
+  margin-bottom: 0.65rem;
+}
+
+.register-card__header p {
+  color: #64748b;
+  font-size: 0.98rem;
+}
+
+.register-form__group {
+  margin-bottom: 18px;
+}
+
+.register-form__group label {
+  display: block;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 8px;
+}
+
+.register-form__group input {
+  width: 100%;
+  border-radius: 14px;
+  border: 1.5px solid #e2e8f0;
+  padding: 12px 16px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.register-form__group input:focus {
+  border-color: #0ea5e9;
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.18);
+  outline: none;
+}
+
+.register-alert {
+  display: none;
+  border-radius: 14px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+
+.register-alert.is-visible {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.register-alert--error {
+  background: rgba(248, 113, 113, 0.12);
+  color: #b91c1c;
+  border: 1px solid rgba(248, 113, 113, 0.35);
+}
+
+.register-alert--success {
+  background: rgba(16, 185, 129, 0.12);
+  color: #047857;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+}
+
+.register-btn {
+  width: 100%;
+  border: none;
+  border-radius: 999px;
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #0ea5e9, #636AE8);
+  box-shadow: 0 16px 32px rgba(14, 165, 233, 0.35);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.register-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 36px rgba(14, 165, 233, 0.4);
+}
+
+.register-extra {
+  text-align: center;
+  margin-top: 16px;
+  color: #475467;
+}
+
+.register-extra a {
+  color: #636AE8;
+  font-weight: 600;
+}
+
+.social-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 32px 0 20px;
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+.social-divider::before,
+.social-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #e2e8f0;
+}
+
+.register-social-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.social-btn {
+  border-radius: 14px;
+  border: 1.5px solid #e2e8f0;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background: #fff;
+}
+
+.social-btn:hover {
+  border-color: #0ea5e9;
+  box-shadow: 0 10px 20px rgba(14, 165, 233, 0.18);
+}
+
+.social-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+@media (max-width: 640px) {
+  .register-card {
+    padding: 34px 24px;
+  }
+
+  .register-social-buttons {
+    grid-template-columns: 1fr;
+  }
+}
+
