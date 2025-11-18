@@ -1,13 +1,14 @@
 
 from django.contrib.auth import authenticate, login, logout
-from rest_framework.views import APIView
 from rest_framework import generics, status
 from rest_framework.response import Response
-from .serializers import RegisterSerializer
+from rest_framework.views import APIView
 
+from .serializers import RegisterSerializer
 
 class RegisterView(generics.CreateAPIView):
     serializer_class = RegisterSerializer
+
 
 class LoginView(APIView):
     def post(self, request):
@@ -22,7 +23,23 @@ class LoginView(APIView):
 
         return Response({"message": "아이디 또는 비밀번호가 올바르지 않습니다."}, status=status.HTTP_400_BAD_REQUEST)
 
+
 class LogoutView(APIView):
     def post(self, request):
         logout(request)  # 세션 삭제
         return Response({"message": "로그아웃 성공"}, status=status.HTTP_200_OK)
+
+
+class SessionStatusView(APIView):
+    """seohaein 11/14: 시민 콘텐츠 제출 전 세션 확인"""
+
+    def get(self, request):
+        if request.user.is_authenticated:
+            return Response(
+                {
+                    "authenticated": True,
+                    "username": request.user.username,
+                },
+                status=status.HTTP_200_OK,
+            )
+        return Response({"authenticated": False}, status=status.HTTP_200_OK)

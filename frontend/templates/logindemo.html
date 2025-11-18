@@ -1,59 +1,109 @@
-{% csrf_token %}
-<h2>로그인</h2>
+{% extends "base.html" %}
+{% load static %}
 
-<input type="text" id="username" placeholder="아이디"><br>
-<input type="password" id="password" placeholder="비밀번호"><br>
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock style %}
 
-<button id="login-btn">로그인</button>
-<button id="logout-btn">로그아웃</button>
+{% block body %}
+<section class="login-page">
+  <div class="login-card">
+    <div class="login-card__header">
+      <h1>With U 로그인</h1>
+      <p>안전한 시민 콘텐츠 플랫폼을 위해 로그인 후 이용해주세요.</p>
+    </div>
 
+    <div class="login-alert" id="login-alert"></div>
+
+    <form id="login-form">
+      {% csrf_token %}
+      <div class="login-form__group">
+        <label for="username">아이디</label>
+        <input type="text" id="username" placeholder="아이디를 입력하세요" required>
+      </div>
+      <div class="login-form__group">
+        <label for="password">비밀번호</label>
+        <input type="password" id="password" placeholder="비밀번호를 입력하세요" required>
+      </div>
+      <div class="login-actions">
+        <button type="button" class="login-btn" id="login-btn">로그인</button>
+        <button type="button" class="logout-btn" id="logout-btn">로그아웃</button>
+      </div>
+    </form>
+
+    <p class="login-extra">
+      계정이 없다면?
+      <a href="/registerdemo/">회원가입하기</a>
+    </p>
+  </div>
+</section>
+{% endblock body %}
+
+{% block script %}
 <script>
     const csrftoken = document.querySelector("[name=csrfmiddlewaretoken]").value;
-    // 로그인
-    document.getElementById("login-btn").addEventListener("click", async () => {
-        const username = document.getElementById("username").value.trim();
-        const password = document.getElementById("password").value.trim();
+    const urlParams = new URLSearchParams(window.location.search);
+    const nextUrl = urlParams.get("next") || "/";
+    const alertBox = document.getElementById("login-alert");
 
-        // 빈칸 체크
-        if (!username || !password) {
-            alert("아이디와 비밀번호를 입력하세요.");
-            return;
-        }
+    const loginBtn = document.getElementById("login-btn");
+    const logoutBtn = document.getElementById("logout-btn");
 
-        const response = await fetch("/api/login/", {
+    function showAlert(message, type = "error") {
+        if (!alertBox) return;
+        alertBox.textContent = message;
+        alertBox.className = "login-alert is-visible";
+        alertBox.classList.add(type === "success" ? "login-alert--success" : "login-alert--error");
+    }
+
+    async function requestJson(url, payload) {
+        const response = await fetch(url, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
                 "X-CSRFToken": csrftoken,
             },
-            body: JSON.stringify({ username, password }),
+            body: JSON.stringify(payload),
         });
-
         const data = await response.json();
+        if (!response.ok) {
+            throw new Error(data.message || "요청 처리 중 오류가 발생했습니다.");
+        }
+        return data;
+    }
 
-        if (response.ok) {
-            alert("로그인 성공!");
-            window.location.href = "/";
-        } else {
-            alert(data.message);
+    loginBtn.addEventListener("click", async () => {
+        const username = document.getElementById("username").value.trim();
+        const password = document.getElementById("password").value.trim();
+
+        if (!username || !password) {
+            showAlert("아이디와 비밀번호를 모두 입력해주세요.");
+            return;
+        }
+
+        try {
+            await requestJson("/api/login/", { username, password });
+            showAlert("로그인 성공! 잠시 후 이동합니다.", "success");
+            setTimeout(() => {
+                window.location.href = nextUrl;
+            }, 600);
+        } catch (error) {
+            showAlert(error.message);
         }
     });
-    // 로그아웃 버튼
-    document.getElementById("logout-btn").addEventListener("click", async () => {
-        const response = await fetch("/api/logout/", {
-            method: "POST",
-            headers: {
-                "X-CSRFToken": csrftoken,
-            }
-        });
 
-        const data = await response.json();
-
-        if (response.ok) {
-            alert("로그아웃 성공!");
-            window.location.href = "/logindemo/";
-        } else {
-            alert("로그아웃 실패!");
+    logoutBtn.addEventListener("click", async () => {
+        try {
+            await requestJson("/api/logout/", {});
+            showAlert("로그아웃했습니다.", "success");
+            const redirectUrl = nextUrl ? `/logindemo/?next=${encodeURIComponent(nextUrl)}` : "/logindemo/";
+            setTimeout(() => {
+                window.location.href = redirectUrl;
+            }, 500);
+        } catch (error) {
+            showAlert(error.message);
         }
     });
+
 </script>
+{% endblock script %}

@@ -4,6 +4,57 @@ document.addEventListener("DOMContentLoaded", function () {
   const form = document.querySelector(".content-share__form");
   const content = document.getElementById("content");
   const submitBtn = document.querySelector(".submit-btn");
+  const LOGIN_URL = "/logindemo/?next=/citizen/";
+  const SESSION_URL = "/api/session/";
+
+  const loginModal = document.getElementById("login-required-modal");
+  const loginConfirmBtn = document.getElementById("login-modal-confirm");
+  const modalDismissEls = document.querySelectorAll("[data-modal-dismiss]");
+
+  const normalize = (text) => (text || "").trim();
+
+  function openLoginModal() {
+    if (!loginModal) return;
+    loginModal.classList.add("is-visible");
+    loginModal.setAttribute("aria-hidden", "false");
+  }
+
+  function closeLoginModal() {
+    if (!loginModal) return;
+    loginModal.classList.remove("is-visible");
+    loginModal.setAttribute("aria-hidden", "true");
+  }
+
+  modalDismissEls.forEach((el) => {
+    el.addEventListener("click", closeLoginModal);
+  });
+
+  if (loginConfirmBtn) {
+    loginConfirmBtn.addEventListener("click", () => {
+      closeLoginModal();
+      window.location.href = LOGIN_URL;
+    });
+  }
+
+  async function checkSession() {
+    try {
+      const response = await fetch(SESSION_URL, {
+        method: "GET",
+        credentials: "same-origin",
+        headers: {
+          "X-Requested-With": "XMLHttpRequest",
+        },
+      });
+      if (!response.ok) {
+        throw new Error("세션 확인 실패");
+      }
+      const data = await response.json();
+      return data.authenticated === true;
+    } catch (error) {
+      console.error("세션 확인 오류", error);
+      return false;
+    }
+  }
 
   if (fileInput && fileName) {
     fileInput.addEventListener("change", function () {
@@ -26,8 +77,16 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   if (submitBtn && form && content) {
-    submitBtn.addEventListener("click", function () {
-      const textLength = content.value.trim().length;
+    submitBtn.addEventListener("click", async function () {
+      // seohaein 11/14: 시민 콘텐츠 제출 시 로그인 세션 확인
+      const isAuthenticated = await checkSession();
+      if (!isAuthenticated) {
+        // seohaein 11/14: 경고 모달로 전환
+        openLoginModal();
+        return;
+      }
+
+      const textLength = normalize(content.value).length;
 
       if (textLength < 100) {
         alert("내용은 최소 100자 이상 작성해야 합니다.");

@@ -89,4 +89,27 @@
 
   </section>
 </section>
+
+<!-- seohaein 11/14: 로그인 요구 모달 -->
+<div class="login-modal" id="login-required-modal" aria-hidden="true">
+  <div class="login-modal__overlay" data-modal-dismiss></div>
+  <div class="login-modal__dialog" role="dialog" aria-labelledby="login-modal-title" aria-describedby="login-modal-desc">
+    <div class="login-modal__icon">
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+        <circle cx="24" cy="24" r="20" stroke="#F97316" stroke-width="3"/>
+        <path d="M24 15v11" stroke="#F97316" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="24" cy="31.5" r="1.8" fill="#F97316"/>
+      </svg>
+    </div>
+    <h3 id="login-modal-title">로그인이 필요합니다</h3>
+    <p id="login-modal-desc">
+      해당 서비스는 로그인을 해주셔야합니다!<br>
+      로그인 후 다시 시도해주세요.
+    </p>
+    <div class="login-modal__actions">
+      <button type="button" class="login-modal__btn login-modal__btn--ghost" data-modal-dismiss>나중에 하기</button>
+      <button type="button" class="login-modal__btn login-modal__btn--primary" id="login-modal-confirm">로그인 이동</button>
+    </div>
+  </div>
+</div>
 {% endblock body %}
