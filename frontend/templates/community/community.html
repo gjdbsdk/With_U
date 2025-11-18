@@ -60,20 +60,15 @@
                     <div class="topic-meta">
                         
                         <!-- 좋아요 버튼 -->
-                        <!-- data-liked: 현재 내가 좋아요를 눌렀는지 여부를 문자열("true"/"false")로 저장 -->
-                        <button class="like-btn group flex items-center gap-1 cursor-pointer" 
-                                data-post-id="{{ post.id }}"
-                                data-liked="{% if post.is_liked %}true{% else %}false{% endif %}">
-                            
-                            <i id="like-icon-{{ post.id }}" 
-                               class="fa-heart text-lg transition-transform group-hover:scale-110 
-                               {% if post.is_liked %}fa-solid text-red-500{% else %}fa-regular text-gray-500{% endif %}">
+                        <div class="flex items-center gap-1 text-gray-600 cursor-default">
+                            <i class="fa-heart text-lg 
+                                {% if post.is_liked %}fa-solid text-red-500{% else %}fa-regular text-gray-500{% endif %}">
                             </i>
-                            
-                            <span id="like-count-{{ post.id }}" class="text-sm text-gray-600">
+    
+                            <span class="text-sm text-gray-600">
                                 {{ post.likes_count }}
                             </span>
-                        </button>
+                        </div>
 
                         <!-- 댓글 버튼 (클릭 시 상세 페이지로 이동) -->
                         <a href="{{ post.detail_url }}" class="comment-link flex items-center gap-1 hover:text-blue-500 ml-4">
