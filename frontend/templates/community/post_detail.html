@@ -7,10 +7,10 @@
 {% endblock style %}
 
 {% block script %}
-    <script src="{% static 'js/community.js' %}"></script>
     <script>
         const csrfToken = "{{ csrf_token }}";
     </script>
+    <script src="{% static 'js/community.js' %}"></script>
 {% endblock script %}
 
 {% block body %}
@@ -55,13 +55,15 @@
 
         <div class="post-footer">
             <div class="like-wrapper">
-                <!-- 리스트 페이지와 동일한 구조의 좋아요 버튼 -->
-                <button class="like-btn" 
+                <button class="like-btn cursor-pointer" 
                         data-post-id="{{ post.id }}"
-                        data-liked="{% if post.is_liked %}true{% else %}false{% endif %}">
+                        data-liked="{% if post.is_liked %}true{% else %}false{% endif %}"
+                        data-is-authenticated="{{ user.is_authenticated|yesno:'true,false' }}">
                     
-                    <i class="fa-heart {% if post.is_liked %}fa-solid text-red-500{% else %}fa-regular text-gray-500{% endif %}"></i>
-                    <span>{{ post.likes_count }}</span>
+                    <i class="fa-heart text-lg transition-transform hover:scale-110 
+                        {% if post.is_liked %}fa-solid text-red-500{% else %}fa-regular text-gray-500{% endif %}">
+                    </i>
+                    <span class="ml-1 text-gray-600">{{ post.likes_count }}</span>
                 </button>
             </div>
         </div>
