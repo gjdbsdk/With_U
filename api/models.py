@@ -1,3 +1,4 @@
+# api/models.py
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -14,40 +15,76 @@ class Project(models.Model):
     def __str__(self) -> str:
         return self.name
 
-#커뮤니티 게시글 모델
+
+# 커뮤니티 게시글 모델
+
 class Post(models.Model):
-    author = models.ForeignKey(User, on_delete=models.CASCADE)  # 글쓴이 (User 연결)
-    title = models.CharField(max_length=200)                    # 제목
-    content = models.TextField()                                # 본문
-    created_at = models.DateTimeField(auto_now_add=True)        # 작성 시간
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    title = models.CharField(max_length=200)
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    # 좋아요 기능 추가
+    likes = models.ManyToManyField(User, related_name="liked_posts", blank=True)
 
     def __str__(self):
         return self.title
 
-    # 템플릿 계산 필드
-
-    @property
+    @property # 작성자 이름 첫 글자
     def author_initial(self):
-        # 글쓴이 이름(아이디) 첫 글자
         return self.author.username[0]
 
     @property
     def author_name(self):
-        # 글쓴이 전체 이름 → 여기선 username 사용
         return self.author.username
 
+    # 목록 미리보기 100자
     @property
-    def snippet(self):
-        # 본문 미리보기 (100자)
+    def snippet(self): 
         text = self.content
         return text[:100] + "..." if len(text) > 100 else text
 
+    # 좋아요 개수
+    @property
+    def likes_count(self):
+        return self.likes.count()
+
+    @property
+    def comments_count(self):
+        return self.comments.count()
+    
+    # community.html에서 {{ post.detail_url }} 사용
     @property
     def detail_url(self):
-        # 글 상세 페이지 URL (나중에 진짜 detail 뷰 변경)
         return f"/community/{self.id}/"
 
-#시민참여 콘텐츠 - 파일 업로드 지원, 작성자 정보 저장
+
+# 댓글 모델 추가
+
+class Comment(models.Model):
+    post = models.ForeignKey(
+        Post,
+        on_delete=models.CASCADE,
+        related_name="comments",  # 위에서 comments_count에 쓰임
+    )
+    author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    @property
+    def author_initial(self):
+        username = self.author.username if self.author else ""
+        return username[0] if username else ""
+
+    @property
+    def author_name(self):
+        return self.author.username if self.author else ""
+
+    def __str__(self):
+        return f"{self.author.username} - {self.post.title}"
+
+# 시민참여 콘텐츠 모델
+
 class CitizenContent(models.Model):
     author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
     title = models.CharField(max_length=255)

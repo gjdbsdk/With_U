@@ -24,7 +24,19 @@ body {
 
 .content-share__header {
   text-align: center;
-  margin-bottom: 40px;
+  width: 100%;
+  margin: 40px auto;
+  padding: 60px 20px;
+  background: linear-gradient(to right, #e6e7ff 0%, #ffffff 100%);
+  border-radius: 14px;
+  box-shadow: 0 6px 16px rgba(99, 106, 232, 0.08);
+}
+
+.title {
+  color: #636AE8;
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 14px;
 }
 
 .content-share__header h1 {
@@ -118,20 +130,24 @@ textarea {
   color: #666;
 }
 .submit-btn {
-  width: 100%;
-  margin-top: 5px;
-  padding: 14px 0;
-  background-color: #5b4dfb;
-  color: white;
-  font-size: 16px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.2s;
+  display: inline-block;
+  width : 100%;
+  padding: 10px 16px;
+  border-radius: 5px;
+  border: 1.5px solid #636AE8;
+  color: #636AE8;
+  background-color: #fff;
+  font-size: 1.0rem;
+  font-weight: 500;
+  transition: all 0.25s ease;
+  margin-top: auto;
+  align-self: flex-start;
 }
 
 .submit-btn:hover {
-  background-color: #483ccf;
+  background-color: #636AE8;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(99, 106, 232, 0.25);
 }
 
 .support {
@@ -177,4 +193,115 @@ details summary {
 .submit-btn:disabled {
   background-color: #aaa;
   cursor: default;
+}
+
+/* seohaein 11/14: 로그인 필요 모달 */
+.login-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.login-modal.is-visible {
+  display: flex;
+}
+
+.login-modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(2px);
+}
+
+.login-modal__dialog {
+  position: relative;
+  width: min(420px, 88vw);
+  background: #fff;
+  border-radius: 20px;
+  padding: 36px 32px 32px;
+  box-shadow: 0 30px 80px rgba(15, 23, 42, 0.25);
+  text-align: center;
+  animation: modal-pop 0.35s ease forwards;
+}
+
+.login-modal__icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(251, 146, 60, 0.15), rgba(251, 113, 133, 0.15));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-modal__dialog h3 {
+  font-size: 1.3rem;
+  color: #0f172a;
+  margin-bottom: 0.75rem;
+}
+
+.login-modal__dialog p {
+  font-size: 0.95rem;
+  color: #475467;
+  line-height: 1.6;
+  margin-bottom: 1.75rem;
+}
+
+.login-modal__actions {
+  display: flex;
+  gap: 12px;
+}
+
+.login-modal__btn {
+  flex: 1;
+  border-radius: 999px;
+  border: 1.5px solid transparent;
+  padding: 12px 18px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.login-modal__btn--ghost {
+  border-color: #e2e8f0;
+  background: #fff;
+  color: #475467;
+}
+
+.login-modal__btn--ghost:hover {
+  border-color: #cbd5f5;
+  color: #111827;
+}
+
+.login-modal__btn--primary {
+  background: linear-gradient(135deg, #636AE8, #4338ca);
+  color: #fff;
+  box-shadow: 0 10px 20px rgba(99, 106, 232, 0.35);
+}
+
+.login-modal__btn--primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(99, 106, 232, 0.45);
+}
+
+@keyframes modal-pop {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 600px) {
+  .login-modal__dialog {
+    padding: 28px 24px;
+  }
 }

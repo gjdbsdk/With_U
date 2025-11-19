@@ -36,11 +36,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
     likeButtons.forEach(button => {
         button.addEventListener('click', function(event) {
-            // 버튼 안에 있는 아이콘이나 숫자를 눌러도 버튼 자체가 클릭된 것으로 처리
+            event.preventDefault();
+
             const btn = event.currentTarget;
-            const postId = btn.dataset.postId; // data-post-id 값
+
+            // 1. 로그인 여부 확인 (HTML에 있는 data 속성 활용)
+            const isAuthenticated = btn.dataset.isAuthenticated === 'true';
+
+            if (!isAuthenticated) {
+                // 로그인 X
+                if(confirm("로그인이 필요한 서비스입니다.\n로그인 페이지로 이동하시겠습니까?")) {
+                    window.location.href = "/logindemo/"; // 로그인 페이지 URL
+                }
+                return;
+            }
             
-            // handleLike 함수는 DOMContentLoaded 리스너 밖에 정의합니다.
+            // 로그인 O
+            const postId = btn.dataset.postId;
+            // handleLike 함수는 DOMContentLoaded 리스너 밖에 정의
             handleLike(postId, btn);
         });
     });
@@ -50,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 async function handleLike(postId, btn) {
     // API 주소
-    const url = `/community/like/${postId}/`; 
+    const url = `/api/community/like/${postId}/`; 
 
     try {
         const response = await fetch(url, {

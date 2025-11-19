@@ -8,6 +8,8 @@ from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+
+    # api 문서
     path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
     path(
         "api/docs/",
@@ -16,10 +18,9 @@ urlpatterns = [
     ),
     path("api/", include("api.urls")),
 
-    # registerdemo는 frontend보다 위에 있어야 가로채이지 않음
-    path("registerdemo/", TemplateView.as_view(template_name="registerdemo.html")),
+    # path("registerdemo/", TemplateView.as_view(template_name="registerdemo.html")),
 
-    # frontend는 항상 가장 아래
+    # frontend 템플릿
     path("", include("frontend.urls")),
 ]
 
@@ -27,12 +28,6 @@ if settings.DEBUG:
     import debug_toolbar
     urlpatterns.insert(0, path("__debug__/", include(debug_toolbar.urls)))
 
+# 미디어 파일 (파일 업로드용)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-
-if settings.DEBUG:
-    import debug_toolbar
-
-    urlpatterns.insert(0, path("__debug__/", include(debug_toolbar.urls)))
-
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
