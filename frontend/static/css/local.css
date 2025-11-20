@@ -179,12 +179,6 @@ a {
   box-shadow: 0 2px 6px rgba(0,0,0,0.03);
 }
 
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 24px rgba(99, 106, 232, 0.15);
-  border-color: #dfe2ff;
-}
-
 .card h3 {
   font-size: 1.05rem;
   font-weight: 600;
@@ -199,23 +193,6 @@ a {
   margin-bottom: 12px;
 }
 
-.btn {
-  display: inline-block;
-  padding: 8px 16px;
-  border-radius: 10px;
-  border: 1.5px solid #636AE8;
-  color: #636AE8;
-  background-color: #fff;
-  font-size: 0.9rem;
-  font-weight: 500;
-  transition: all 0.25s ease;
-}
-
-.btn:hover {
-  background-color: #636AE8;
-  color: #fff;
-  box-shadow: 0 4px 10px rgba(99, 106, 232, 0.25);
-}
 
 @media (max-width: 1024px) {
   .content-header, .card-grid {

@@ -24,7 +24,19 @@ body {
 
 .content-share__header {
   text-align: center;
-  margin-bottom: 40px;
+  width: 100%;
+  margin: 40px auto;
+  padding: 60px 20px;
+  background: linear-gradient(to right, #e6e7ff 0%, #ffffff 100%);
+  border-radius: 14px;
+  box-shadow: 0 6px 16px rgba(99, 106, 232, 0.08);
+}
+
+.title {
+  color: #636AE8;
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 14px;
 }
 
 .content-share__header h1 {
@@ -118,20 +130,24 @@ textarea {
   color: #666;
 }
 .submit-btn {
-  width: 100%;
-  margin-top: 5px;
-  padding: 14px 0;
-  background-color: #5b4dfb;
-  color: white;
-  font-size: 16px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.2s;
+  display: inline-block;
+  width : 100%;
+  padding: 10px 16px;
+  border-radius: 5px;
+  border: 1.5px solid #636AE8;
+  color: #636AE8;
+  background-color: #fff;
+  font-size: 1.0rem;
+  font-weight: 500;
+  transition: all 0.25s ease;
+  margin-top: auto;
+  align-self: flex-start;
 }
 
 .submit-btn:hover {
-  background-color: #483ccf;
+  background-color: #636AE8;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(99, 106, 232, 0.25);
 }
 
 .support {
