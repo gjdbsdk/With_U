@@ -18,8 +18,9 @@
     </td>
     <td align="center" max-width="200px">
       <a href="https://github.com/kang-ec">
-        <img alt="허윤아" width="150px"alt="image" src="https://github.com/user-attachments/assets/a464187d-7646-4cc7-9deb-f61df54a42d9" />
+        <img alt="허윤아" width="150px"alt="image" src="https://github.com/user-attachments/assets/682788d5-fc72-4650-8f68-f90eaefb682a" />
       </a>
+
     </td>
     <td align="center" max-width="200px">
       <a href="https://github.com/HaAaaAAakKKk">
