@@ -34,7 +34,6 @@
     <td align="center"width="200px">
       <a href="https://github.com/Jo-db">
         <img alt="조다빈" width="150px"alt="image" src="https://github.com/user-attachments/assets/baf8ac7e-6349-48a1-b4be-da4e35e58b46" />
-
       </a>
     </td>
   </tr>
