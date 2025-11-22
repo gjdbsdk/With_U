@@ -23,7 +23,7 @@
     </td>
     <td align="center" max-width="200px">
       <a href="https://github.com/HaAaaAAakKKk">
-        <img alt="허윤아" width="150px"alt="image" src="https://github.com/user-attachments/assets/a464187d-7646-4cc7-9deb-f61df54a42d9" />
+        <img alt="김명서" width="150px"alt="image" src="https://github.com/user-attachments/assets/a6c76fe2-2f94-4dda-8eee-060a54d5b7e6" />
       </a>
     </td>
     <td align="center" max-width="200px">
