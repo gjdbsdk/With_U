@@ -26,7 +26,7 @@ body {
     align-items: center;
 }
 
-.nav-left, .nav-right {
+.nav-left {
     display: flex;
     align-items: center;
     gap: 24px;
@@ -55,6 +55,12 @@ body {
     vertical-align: middle;
 }
 
+.nav-icon-member {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    vertical-align: middle;
+}
 @media (max-width: 1100px) {
     .nav-item span{
         display:none;
@@ -159,4 +165,89 @@ main {
 
 .nav-icon.active {
     filter: brightness(0) saturate(100%) invert(32%) sepia(94%) saturate(3361%) hue-rotate(208deg) brightness(96%) contrast(99%);
+}
+
+.user-dropdown-container {
+    position: relative; 
+    cursor: pointer;
+}
+
+.user-modal {
+    position: absolute; 
+    top: 100%;          
+    right: -10px;   
+    margin-top: 10px;
+    z-index: 1000;
+    display: block; 
+}
+
+.user-modal.hidden {
+    display: none;
+}
+
+.user-modal-content {
+    background: white;
+    border-radius: 12px;
+    width: 240px;   
+    padding: 20px;   
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    border: 1px solid #eee; 
+    text-align: left;  
+}
+
+.user-modal-content h2 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.user-modal-content p {
+    margin: 8px 0;
+    font-size: 15px;
+    color: #555;
+    word-break: break-all;
+}
+
+.close-modal {
+    float: right;
+    cursor: pointer;
+    font-size: 20px;
+    color: #999;
+    margin-top: -10px;
+    margin-right: -5px;
+}
+
+.logout-btn {
+    width: 100%;
+    margin-top: 15px;
+    background: #e05a5a;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.logout-btn:hover {
+    background: #c94545;
+}
+
+.login-btn {
+    width: 100%;
+    margin-top: 10px;
+    background: #0056ff; 
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.login-btn:hover {
+    background: #0041c2; 
 }

@@ -1,11 +1,8 @@
 /* seohaein 11/14: 로그인 페이지 스타일 */
 .login-page {
-  min-height: calc(100vh - 160px);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 60px 20px;
-  background: radial-gradient(circle at top, rgba(99, 106, 232, 0.08), transparent 55%);
 }
 
 .login-card {
@@ -13,7 +10,6 @@
   background: #fff;
   border-radius: 24px;
   padding: 48px;
-  box-shadow: 0 25px 70px rgba(15, 23, 42, 0.12);
 }
 
 .login-card__header {
@@ -99,15 +95,14 @@
   font-size: 1rem;
   font-weight: 600;
   color: #fff;
-  background: linear-gradient(135deg, #636AE8, #4338ca);
-  box-shadow: 0 12px 25px rgba(99, 106, 232, 0.35);
+  background-color: #636AE8;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease;
 }
 
 .login-btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 15px 28px rgba(99, 106, 232, 0.42);
+  transform: scale(1.05);
+  background-color: #636AE8;
 }
 
 .login-extra {
@@ -122,69 +117,6 @@
   font-weight: 600;
 }
 
-.social-divider {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin: 28px 0 20px;
-  color: #94a3b8;
-  font-size: 0.9rem;
-}
-
-.social-divider::before,
-.social-divider::after {
-  content: "";
-  flex: 1;
-  height: 1px;
-  background: #e2e8f0;
-}
-
-.social-email-input {
-  margin-bottom: 12px;
-}
-
-.social-buttons {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 12px;
-}
-
-.social-btn {
-  border-radius: 12px;
-  border: 1.5px solid #e2e8f0;
-  padding: 12px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  cursor: pointer;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-  background: #fff;
-}
-
-.social-btn:hover {
-  border-color: #636AE8;
-  box-shadow: 0 8px 18px rgba(99, 106, 232, 0.15);
-}
-
-.social-btn svg {
-  width: 20px;
-  height: 20px;
-}
-
-.logout-btn {
-  border: none;
-  background: transparent;
-  color: #94a3b8;
-  font-size: 0.9rem;
-  margin-top: 4px;
-  cursor: pointer;
-}
-
-.logout-btn:hover {
-  color: #475467;
-}
 
 @media (max-width: 600px) {
   .login-card {

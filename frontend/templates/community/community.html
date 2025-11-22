@@ -45,39 +45,41 @@
              8. post.comments_count: 댓글 수
         -->
             {% for post in posts %}
-            <article class="topic-item">
-                <div class="user-profile">
-                    <span>{{ post.author_initial }}</span>
-                </div>
-                <div class="topic-content">
-                    <div class="topic-header">
-                        <a href="{{ post.detail_url }}" class="topic-title-link">
-                            <h4 class="topic-title">{{ post.title }}</h4>
-                        </a>
-                        <span class="user-info">{{ post.author_name }} · {{ post.created_at|timesince }} 전</span>
+            <a href="{{ post.detail_url }}" class="topic-item-link">
+                <article class="topic-item">
+                    <div class="user-profile">
+                        <span>{{ post.author_initial }}</span>
                     </div>
-                    <p class="topic-snippet">{{ post.snippet }}</p>
-                    <div class="topic-meta">
-                        
-                        <!-- 좋아요 버튼 -->
-                        <div class="flex items-center gap-1 text-gray-600 cursor-default">
-                            <i class="fa-heart text-lg 
-                                {% if post.is_liked %}fa-solid text-red-500{% else %}fa-regular text-gray-500{% endif %}">
-                            </i>
-    
-                            <span class="text-sm text-gray-600">
-                                {{ post.likes_count }}
-                            </span>
+                    <div class="topic-content">
+                        <div class="topic-header">
+                            <div class="topic-title-link">
+                                <h4 class="topic-title">{{ post.title }}</h4>
+                            </div>
+                            <span class="user-info">{{ post.author_name }} · {{ post.created_at|timesince }} 전</span>
                         </div>
+                        <p class="topic-snippet">{{ post.snippet }}</p>
+                        <div class="topic-meta">
+                            
+                            <!-- 좋아요 버튼 -->
+                            <div class="like_comment_hugger">
+                                <i class="fa-heart text-lg 
+                                    {% if post.is_liked %}fa-solid text-red-500{% else %}fa-regular text-gray-500{% endif %}">
+                                </i>
+        
+                                <span class="text-sm text-gray-600">
+                                    {{ post.likes_count }}
+                                </span>
+                            </div>
 
-                        <!-- 댓글 버튼 (클릭 시 상세 페이지로 이동) -->
-                        <a href="{{ post.detail_url }}" class="comment-link flex items-center gap-1 hover:text-blue-500 ml-4">
-                            <i class="fa-regular fa-comment-dots text-lg"></i>
-                            <span class="text-sm text-gray-600">{{ post.comments_count }}</span>
-                        </a>
+                            <!-- 댓글 버튼 (클릭 시 상세 페이지로 이동) -->
+                            <div href="{{ post.detail_url }}"  class="like_comment_hugger">
+                                <i class="fa-regular fa-comment-dots text-lg"></i>
+                                <span class="text-sm text-gray-600">{{ post.comments_count }}</span>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </article>
+                </article>
+            </a>
 
             {% empty %}
             <div class="no-posts">

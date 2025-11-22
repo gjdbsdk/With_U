@@ -9,13 +9,31 @@
 <script>
 document.addEventListener("DOMContentLoaded", function () {
     const btn = document.querySelector(".submit-btn");
+    const titleInput = document.getElementById("title");
+    const titleCount = document.getElementById("title-count"); // 있으면 업데이트, 없어도 무시
+
+    // 실시간 글자수 표시만 (절삭하지 않음)
+    titleInput.addEventListener("input", () => {
+        if (titleCount) {
+            titleCount.textContent = `${titleInput.value.length}/45`;
+        }
+    });
 
     btn.addEventListener("click", async () => {
-        const title = document.getElementById("title").value.trim();
+        const title = titleInput.value.trim();
         const content = document.getElementById("content").value.trim();
 
+        // 빈 값 체크
         if (!title || !content) {
             alert("제목과 내용을 모두 입력해주세요.");
+            return;
+        }
+
+        // 길이 초과 체크 — 여기서 차단
+        if (title.length > 45) {
+            alert("제목은 45자 이내여야 합니다.");
+            // 포커스 돌려서 수정 유도
+            titleInput.focus();
             return;
         }
 
@@ -45,6 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 </script>
+
 {% endblock script %}
 
 {% block body %}
