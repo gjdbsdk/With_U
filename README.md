@@ -1,5 +1,6 @@
 # 🔍WithU
 
+![WithU](https://capsule-render.vercel.app/api?type=blur&color=auto&text=WithU&height=auto&fontSize=auto&fontAlign=50&fontColor=auto)
 
 ### “누구나 생활 정보와 경험을”
 "가정교육 잘 못 받은 거 아냐?"   "이것도 몰라?" <br>
