@@ -1,11 +1,8 @@
 /* seohaein11/14: 회원가입 페이지 스타일 */
 .register-page {
-  min-height: calc(100vh - 160px);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 60px 20px;
-  background: radial-gradient(circle at top, rgba(248, 250, 255, 0.9), rgba(241, 245, 249, 0.7));
 }
 
 .register-card {
@@ -13,7 +10,6 @@
   background: #fff;
   border-radius: 28px;
   padding: 48px;
-  box-shadow: 0 30px 80px rgba(15, 23, 42, 0.12);
 }
 
 .register-card__header {
@@ -53,8 +49,8 @@
 }
 
 .register-form__group input:focus {
-  border-color: #0ea5e9;
-  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.18);
+  border-color: #636AE8;
+  box-shadow: 0 0 0 3px rgba(99, 106, 232, 0.15);
   outline: none;
 }
 
@@ -92,15 +88,13 @@
   font-size: 1rem;
   font-weight: 600;
   color: #fff;
-  background: linear-gradient(135deg, #0ea5e9, #636AE8);
-  box-shadow: 0 16px 32px rgba(14, 165, 233, 0.35);
+  background-color: #636AE8;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease;
 }
 
 .register-btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 18px 36px rgba(14, 165, 233, 0.4);
+  transform: scale(1.05);
 }
 
 .register-extra {
