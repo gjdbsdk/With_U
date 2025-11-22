@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 /* seohaein 11/14: 로그인 페이지 스타일 */
 .login-page {
   display: flex;
@@ -29,6 +33,7 @@
 }
 
 .login-form__group {
+  width : 100%;
   margin-bottom: 18px;
 }
 

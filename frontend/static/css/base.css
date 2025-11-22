@@ -79,7 +79,7 @@ body {
     }
 }
 .nav-item.active span {
-    color: #0056ff;
+    color: #636AE8FF;
     font-weight: 600;
 }
 
@@ -159,7 +159,7 @@ main {
     font-size: 17px;
 }
 .nav-item.active span {
-    color: #0056ff;
+    color: #636AE8FF;
     font-weight: 600;
 }
 
@@ -237,7 +237,7 @@ main {
 .login-btn {
     width: 100%;
     margin-top: 10px;
-    background: #0056ff; 
+    background: #636AE8FF; 
     color: white;
     padding: 10px;
     border-radius: 8px;
@@ -249,5 +249,5 @@ main {
 }
 
 .login-btn:hover {
-    background: #0041c2; 
+    background: #5058cc; 
 }
