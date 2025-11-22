@@ -103,6 +103,17 @@ a{
 
 .topic-item:hover {
     background-color: #f9f9f9;
+    .topic-title-link .topic-title {
+        color: #636AE8;
+    }
+}
+.topic-item-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+.topic-item-link:hover .topic-item {
+    background-color: #f8f9fa; /* 선택사항 */
 }
 
 .user-profile {
@@ -142,11 +153,13 @@ a{
     color: #222;
     margin: 0;
     transition: color 0.2s;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
-.topic-title-link:hover .topic-title {
-    color: #636AE8;
-}
 
 .user-info {
     font-size: 0.9rem;
@@ -187,4 +200,11 @@ a{
 .no-posts p {
     font-size: 1.1rem;
     line-height: 1.7;
+}
+
+.like_comment_hugger{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
 }

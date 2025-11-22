@@ -9,7 +9,10 @@
     {% load static %}<link rel="icon" type="image/png" href="{% static 'img/logo.png' %}">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% block style %}{% endblock style %}
-    {% block script %}{% endblock script %}
+    <script src="{% static 'js/base.js' %}"></script>
+
+    {% block script %}
+    {% endblock script %}
 </head>
 <body>
     <!-- 헤더 -->
@@ -55,9 +58,48 @@
                   <img src="{% static 'img/marker.png' %}" alt="지역 정보" class="nav-icon {% if request.resolver_match.url_name == 'local' %}active{% endif %}">
                   <span>지역 정보</span>
               </a>
+              <div class="nav-item user-dropdown-container">
+                <div class="user-menu-btn" id="user-menu-btn">
+                    <img src="{% static 'img/member.png' %}" alt="회원 정보" class="nav-icon-member">
+                </div>
+
+                <div id="user-modal" class="user-modal hidden">
+                    <div class="user-modal-content">
+                        
+                        {% if user.is_authenticated %}
+                            <h2 style="margin-top:0; font-size: 18px;">회원 정보</h2>
+                            <p><strong>아이디:</strong> {{ request.user.username }}</p>
+                            <p><strong>이메일:</strong> {{ request.user.email }}</p>
+                            
+                            <button id="logout-btn" class="logout-btn">로그아웃</button>
+
+                        {% else %}
+                            <h2 style="margin-top:0; font-size: 18px; color: #555;">로그인 필요</h2>
+                            <p style="margin: 15px 0; color: #666;">서비스 이용을 위해<br>로그인이 필요합니다.</p>
+                            
+                            <button onclick="location.href='/logindemo/'" class="login-btn">로그인 하러가기</button>
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
           </div>
         </nav>
     </header>
+
+    <!-- 회원정보 모달창 -->
+    <div id="user-modal" class="user-modal hidden">
+        <div class="user-modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>회원 정보</h2>
+
+            <p><strong>아이디:</strong> {{ request.user.username }}</p>
+            <p><strong>이메일:</strong> {{ request.user.email }}</p>
+
+            <button id="logout-btn" class="logout-btn">로그아웃</button>
+        </div>
+    </div>
+
 
 
     <!-- 메인내용 -->
