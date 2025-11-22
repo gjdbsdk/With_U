@@ -152,7 +152,10 @@
 
 
 ## 🔍 시연영상
-<!-- 영상 녹화 후 반영 예정 -->
+
+
+https://github.com/user-attachments/assets/5994606b-eb15-462a-a0c3-687fd867d34c
+
 
 
 ## 🔍프로젝트 구조
