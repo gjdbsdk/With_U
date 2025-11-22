@@ -6,7 +6,7 @@
 세상에 당연한 상식은 존재하지 않습니다. 이제, WithU와 함께 차근차근 세상을 배울 수 있습니다.
 <br />
 
-## 🍀 Member
+## 🔍 Member
 
 <table>
   <tr>
@@ -206,7 +206,7 @@
 
 <br />
 
-## 🍀 Stack
+## 🔍 Stack
 
 <table>
   <tr>
@@ -240,7 +240,7 @@
 <br />
 
 
-## 프로젝트 구조
+## 🔍프로젝트 구조
 ```
 ├── api/                # REST API 앱 (예시 모델/시리얼라이저/테스트 포함)
 ├── frontend/           # Django 템플릿 기반 프론트엔드 앱
@@ -252,9 +252,4 @@
 ├── env.example
 └── README.md
 ```
-
-## 추가 Tip
-- 외부 프론트엔드(React/Vue 등)와 연동 시 `CORS_ALLOWED_ORIGINS` 값을 업데이트하세요.
-- PostgreSQL 사용 시 `.env`에 `DATABASE_URL` 값을 입력하면 자동으로 연결됩니다.
-- 배포 환경에서는 `DEBUG=False`, `ALLOWED_HOSTS`, `SECRET_KEY`를 반드시 재설정하세요.
 
