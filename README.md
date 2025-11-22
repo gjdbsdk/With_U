@@ -97,19 +97,19 @@
     </td>
     <td valign="top">
       <ul>
+        <li>발표</li>
+        <li>지역 정보 페이지 공공 API 연동</li>
+        <li>로그인 페이지 스타일</li>
+        <li>회원가입 페이지 스타일</li>
+      </ul>
+    </td>
+    <td valign="top">
+      <ul>
         <li>회원가입</li>
         <li>로그인</li>
         <li>커뮤니티 글 작성 및 조회</li>
         <li>시민 참여 콘텐츠 업로드 및 조회</li>
         <li>로그인 여부 검사</li>
-      </ul>
-    </td>
-    <td valign="top">
-      <ul>
-        <li>발표</li>
-        <li>지역 정보 페이지 공공 API 연동</li>
-        <li>로그인 페이지 스타일</li>
-        <li>회원가입 페이지 스타일</li>
       </ul>
     </td>
   </tr>
